@@ -1,0 +1,23 @@
+<div class="container">
+  <div>
+    <div class="card-group" >
+    <ul class="list-group-info">Historial de Operaciones
+
+        <li *ngFor="let operation of history">. {{ operation }}</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+<button type="button" (click)="clearHistory()" class="btn btn-danger">Limpiar</button>
+
+
+</div>
+
+

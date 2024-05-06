@@ -1,0 +1,1 @@
+Los siguientes archivos provienen de la base d e datos que utilizamos para nuestro CRUD de Heroes. Se pretende adaptarlos al crud de imagenes que estamos preparando

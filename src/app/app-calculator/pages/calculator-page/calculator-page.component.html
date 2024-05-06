@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="result"><span class="result-text">{{result}}</span>
+    <span class="value" *ngIf="value.active">={{value.value}}</span>
+    <div class="dialogo"></div>
+  </div>
+  <div class="buttons" *ngFor="let buttonRow of buttons">
+    <button (click)="click(button)" class="button" [ngClass]="buttonColor(button)" *ngFor="let button of buttonRow">{{button}}</button>
+  </div>
+    <!-- <input id="inputBox" type="text" name="output" placeholder="0" disabled="disabled" class="disabledInput" [value]= "inputVals" />
+    <br/>
+
+    <button *ngFor="let btn of buttonVals" (click)="getInput($event, btn)" type="button"
+    [className]="btn=='AC' ? 'danger-btn' : ''">
+      {{ btn }}
+    </button>-->
+
+<div class="dialog"></div>
+</div>
+
+
+
