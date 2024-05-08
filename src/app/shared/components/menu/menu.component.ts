@@ -20,22 +20,22 @@ export class MenuComponent {
           {
             label: 'Crud',
             icon: 'pi pi-fw pi-image',
-            routerLink: 'crud',
+            routerLink: 'images',
             items: [
               {
                 label: 'List',
                 icon: ' pi pi-fw pi-list',
-                routerLink: 'crud/list',
+                routerLink: 'images/list',
               },
               {
                 label: 'New Image',
                 icon: ' pi pi-fw pi-images',
-                routerLink: 'crud/new-page',
+                routerLink: 'images/new-page',
               },
               {
                 label: 'Search Images',
                 icon: ' pi pi-fw pi-search',
-                routerLink: 'crud/search',
+                routerLink: 'images/search',
               },
             ],
           },

@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, tap, of, map, catchError } from 'rxjs';
 
-import { environments } from '../../environments/environments';
+
 import { User } from '../interfaces/user.interface';
+import { environments } from '../../environments/environments';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -52,5 +53,3 @@ export class AuthService {
 
 
 }
-
-

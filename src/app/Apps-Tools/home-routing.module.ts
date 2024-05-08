@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CalculatorPageComponent } from './app-calculator/pages/calculator-page/calculator-page.component';
-import { CountryPageComponent } from './app-countries/pages/country-page/country-page.component';
-import { CrudPageComponent } from './app-crud/pages/crud-page/crud-page.component';
-import { GiftsPageComponent } from './app-gifts/pages/gifts-page/gifts-page.component';
+
 import { HomePageComponent } from './home/home-page.component';
-import { AppCountriesModule } from './app-countries/app-countries.module';
 
 
 
@@ -24,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./app-countries/app-countries.module').then( m => m.AppCountriesModule ),
   },
   {
-    path: 'crud',
+    path: 'images',
     loadChildren: () => import('./app-crud/app-crud.module').then( m => m.AppCrudModule ),
   },
   {

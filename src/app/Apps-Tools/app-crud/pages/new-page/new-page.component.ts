@@ -48,7 +48,8 @@ export class NewPageComponent implements OnInit {
   ) {}
 
   get currentImage(): Image {
-    return this.imageForm.value as Image;
+    const image = this.imageForm.value as Image;
+    return image;
   }
 
   ngOnInit(): void {
@@ -57,7 +58,7 @@ export class NewPageComponent implements OnInit {
 
     this.activatedRoute.params
     .pipe(
-      switchMap( ( {id}) => this.crudService.getImageById(id) ),
+      switchMap( ( { id }) => this.crudService.getImageById( id ) ),
     ).subscribe ( image => {
 
       if ( !image ) {
@@ -96,7 +97,7 @@ export class NewPageComponent implements OnInit {
   onDeleteImage() {
     if (!this.currentImage.id ) throw Error('Image id is required');
 
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    const dialogRef = this.dialog.open( ConfirmDialogComponent, {
       data: this.imageForm.value
     });
 
@@ -104,10 +105,10 @@ export class NewPageComponent implements OnInit {
     .pipe(
       filter(( result: boolean) => result),
       switchMap( () => this.crudService.deleteImageById(this.currentImage.id)),
-      tap( wasDeleted => console.log({ wasDeleted}) ),
+      filter( (wasDeleted: boolean) =>  wasDeleted ),
       )
     .subscribe(()  => {
-      this.router.navigate(['/images']);
+      this.router.navigate(['/crud']);
     });
 
   }

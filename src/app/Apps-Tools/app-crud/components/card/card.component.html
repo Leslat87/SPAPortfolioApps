@@ -4,13 +4,13 @@
     <mat-card-subtitle>{{ image.nickname }}</mat-card-subtitle>
   </mat-card-header>
 
-  <!-- TODO Imagen -->
-  <img mat-card-image [src]="image" [alt]="image.name">
+
+  <img mat-card-image [src]="image | imageImage" [alt]="image.name">
 
   <mat-card-content class="mt-2">
     <h4> {{ image.author }}</h4>
     <p>
-      <strong>Primera aparicion</strong> {{ image.location }}
+      <strong>Localización</strong> {{ image.location }}
       <br>
       <mat-chip-listbox>
         <mat-chip *ngFor="let name of image.tags.split(',') | slice:0:3" >
@@ -27,7 +27,7 @@
     <button mat-button
     mat-raised
     color="primary"
-    [routerLink]="['/image/edit', image.id ]">
+    [routerLink]="['/images/edit', image.id ]">
       <mat-icon>edit</mat-icon>
       Editar
     </button>

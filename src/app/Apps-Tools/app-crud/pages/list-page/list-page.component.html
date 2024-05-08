@@ -1,14 +1,14 @@
 <h1>Listado de Fotografías</h1>
+
 <mat-divider></mat-divider>
 
 <div class="grid bm-8 pt-2">
 
-  <div  *ngFor="let image of images"
-        class="col-12 sm:col-4 md:col-3 xl:col-2">
-        <images-crud-card [image]="image"></images-crud-card>
 
-  </div>
-
+  <div *ngFor="let image of images"
+  class="col-12 sm:col-4 md:col-3 xl:col-2">
+  <crud-image-card [image]="image"></crud-image-card>
+</div>
 
 </div>
 
