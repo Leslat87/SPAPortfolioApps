@@ -1,43 +1,48 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule} from '@angular/router';
-
 
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { Error404PageComponent } from './pages/error404-page/error404-page.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../material/material.module';
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+
 
 @NgModule({
   declarations: [
-    MenuComponent,
-    FooterComponent,
-    LoadingSpinnerComponent,
-    SearchBoxComponent,
-    SidebarComponent,
-    Error404PageComponent,
     AboutPageComponent,
     ContactPageComponent,
-    HomePageComponent
+    Error404PageComponent,
+    FooterComponent,
+    LoadingSpinnerComponent,
+    MenuComponent,
+    SearchBoxComponent,
+    SidebarComponent,
+
   ],
-  imports: [
+  imports:[
     CommonModule,
-    RouterModule,
+    MaterialModule,
+    PrimeNgModule,
+
+
   ],
   exports: [
     AboutPageComponent,
     ContactPageComponent,
     Error404PageComponent,
-    HomePageComponent,
-    MenuComponent,
     FooterComponent,
     LoadingSpinnerComponent,
+    MenuComponent,
     SearchBoxComponent,
+    SidebarComponent,
+
   ]
+
 })
 export class SharedModule { }

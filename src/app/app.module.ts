@@ -1,12 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './Apps-Tools/home.module';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -14,11 +22,23 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-
+    BrowserAnimationsModule,
+    AppRoutingModule,
     SharedModule,
+    HomeModule,
+
+
+
   ],
+  exports: [
+
+
+
+
+
+  ],
+
   providers: [
     provideAnimationsAsync()
   ],
