@@ -3,6 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { HomePageComponent } from './home/home-page.component';
+import { CalculatorPageComponent } from './pages/calculator-page/calculator-page.component';
+import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.component';
+import { ByCapitalPageComponent } from './pages/by-capital-page/by-capital-page.component';
+import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
+import { CountryPageComponent } from './pages/country-page/country-page.component';
+import { ListPageComponent } from './pages/list-page/list-page.component';
+import { NewPageComponent } from './pages/new-page/new-page.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { CrudPageComponent } from './pages/crud-page/images-page.component';
+import { GiftsPageComponent } from './pages/gifts-page/gifts-page.component';
+import { KanbanPageComponent } from './pages/kanban-page/kanban-page.component';
 
 
 
@@ -13,28 +25,55 @@ const routes: Routes = [
   },
   {
     path: 'calculator',
-    loadChildren: () => import('./app-calculator/app-calculator.module').then( m => m.AppCalculatorModule ),
+    component: CalculatorPageComponent
+  },
+  { path: 'history',
+    component: HistoryPageComponent
   },
   {
     path: 'country',
-    loadChildren: () => import('./app-countries/app-countries.module').then( m => m.AppCountriesModule ),
+    component: ByCountryPageComponent
   },
   {
-    path: 'images',
-    loadChildren: () => import('./app-crud/app-crud.module').then( m => m.AppCrudModule ),
+    path: 'capital',
+    component: ByCapitalPageComponent
+  },
+  {
+    path: 'region',
+    component: ByRegionPageComponent
+  },
+  {
+    path: 'by/:id',
+    component: CountryPageComponent
+  },
+  {
+    path: 'list',
+    component: ListPageComponent
+  },
+  {
+    path: 'new-page',
+    component: NewPageComponent
+  },
+  {
+    path: 'search',
+    component: SearchPageComponent
+  },
+  {
+    path: 'edit/:id',
+    component: NewPageComponent
+  },
+  {
+    path: ':id',
+    component: CrudPageComponent
   },
   {
     path: 'gifts',
-    loadChildren: () => import('./app-gifts/app-gifts.module').then( m => m.AppGiftsModule ),
+    component:  GiftsPageComponent
   },
-  // {
-  //   path: 'tasks',
-  //   component: TasksPageComponent
-  // },
-  // {
-  //   path: 'weather',
-  //   component: WeatherPageComponent
-  // },
+  {
+  path:'kanban',
+  component: KanbanPageComponent
+  },
   {
     path: '**',
     redirectTo: ''

@@ -20,22 +20,22 @@ export class MenuComponent {
           {
             label: 'Crud',
             icon: 'pi pi-fw pi-image',
-            routerLink: 'images',
+            routerLink: 'list',
             items: [
               {
                 label: 'List',
                 icon: ' pi pi-fw pi-list',
-                routerLink: 'images/list',
+                routerLink: 'list',
               },
               {
                 label: 'New Image',
                 icon: ' pi pi-fw pi-images',
-                routerLink: 'images/new-page',
+                routerLink: 'new-page',
               },
               {
                 label: 'Search Images',
                 icon: ' pi pi-fw pi-search',
-                routerLink: 'images/search',
+                routerLink: 'search',
               },
             ],
           },
@@ -71,17 +71,17 @@ export class MenuComponent {
               {
                 label: 'Search by Capital',
                 icon: ' pi pi-fw pi-building',
-                routerLink: 'country/capital',
+                routerLink: 'capital',
               },
               {
                 label: 'Search by Region',
                 icon: ' pi pi-fw pi-car',
-                routerLink: 'country/region',
+                routerLink: 'region',
               },
               {
                 label: 'Search by Country',
                 icon: ' pi pi-fw pi-building-columns',
-                routerLink: 'country/country',
+                routerLink: 'country',
               },
 
             ],
@@ -119,18 +119,18 @@ export class MenuComponent {
           {
             label: 'Tasks Manager',
             icon: ' pi pi-pencil',
-            routerLink: 'tasks Manager',
+            routerLink: 'tasks',
             items: [
 
               {
                 label: 'Tasks',
                 icon: ' pi pi-fw pi-list-check',
-                routerLink: 'images',
+                routerLink: 'tasks',
               },
               {
-                label: 'Agenda',
+                label: 'Kanban',
                 icon: ' pi pi-fw pi-calendar-times',
-                routerLink: 'numbers',
+                routerLink: 'kanban',
               },
 
 

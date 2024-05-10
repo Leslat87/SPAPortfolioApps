@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { GifsService } from '../../../Apps-Tools/app-gifts/services/gifs.service';
-
+import { GifsService } from '../../../Apps-Tools/services/gifs.service';
 
 @Component({
   selector: 'shared-sidebar',

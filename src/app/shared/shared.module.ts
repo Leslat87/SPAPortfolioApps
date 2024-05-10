@@ -7,10 +7,11 @@ import { FooterComponent } from './footer/footer.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
     MenuComponent,
     SearchBoxComponent,
     SidebarComponent,
+
 
   ],
   imports:[
@@ -40,7 +42,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
     LoadingSpinnerComponent,
     MenuComponent,
     SearchBoxComponent,
-    SidebarComponent,
+
 
   ]
 

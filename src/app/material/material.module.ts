@@ -16,6 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
+import {DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   exports: [
@@ -35,6 +36,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSidenavModule,
     MatSnackBarModule,
     MatToolbarModule,
+    DragDropModule,
 
   ]
 })

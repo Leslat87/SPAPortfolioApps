@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 
 import { Image } from '../interfaces/crud.interface';
-import { environments } from '../../../environments/environments';
+import { environments } from '../../environments/environments';
 
 
 
