@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GifsService } from '../../../Apps-Tools/app-gifts/services/gifs.service';
 
 
@@ -8,11 +8,15 @@ import { GifsService } from '../../../Apps-Tools/app-gifts/services/gifs.service
   styles: [
   ]
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
 
+  sections = ['Section 1', 'Section 2', 'Section 3', 'Section 4'];
 
   // private gifsService
   constructor( private gifsService: GifsService  ) {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   get tags(): string[] {
     return this.gifsService.tagsHistory;

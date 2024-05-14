@@ -1,30 +1,29 @@
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, CanMatchFn, Route, UrlSegment } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
-// import {
-//   ActivatedRouteSnapshot,
-//   CanActivateFn,
-//   CanMatchFn,
-//   Route,
-//   RouterStateSnapshot,
-//   UrlSegment,
-// } from '@angular/router';
+@Injectable({providedIn: 'root'})
 
+export class AuthGuard {
 
-// export const canActivateGuard: CanActivateFn = ( //Hay que tener en cuenta el tipado CanActiveFn
-//   route: ActivatedRouteSnapshot,
-//   state: RouterStateSnapshot
-// ) => {
-//   console.log('CanActivate');
-//   console.log({ route, state });
+    constructor(
+        private authService: AuthService
+    ) { }
 
-//   return false;
-// };
+    //funcion para tarer el estado de la autenticacion
+    private checkAuth(): boolean | Observable<boolean> {
+        return this.authService.checkAuthentication();
+    }
 
-// export const canMatchGuard: CanMatchFn = ( //Tipado CanMatchFN
-//   route: Route,
-//   segments: UrlSegment[]
-// ) => {
-//   console.log('CanMatch');
-//   console.log({ route, segments });
+    //FUNCION PARA PROTEGER LAS RUTAS
+    canMatch(route: Route, segments: UrlSegment[]): boolean | Observable<boolean> {
+        return this.checkAuth();
+    }
 
-//   return false;
-// };
+    //FUNCION PARA PROTEGER LAS RUTAS
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
+        return this.checkAuth();
+    }
+
+}

@@ -21,6 +21,7 @@ import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
   declarations: [
     CardListComponent,
     SearchBoxComponent,
+    GiftsPageComponent,
 
 
   ],
@@ -31,11 +32,13 @@ import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
     MaterialModule,
     PrimeNgModule,
 
+
   ],
   exports: [
     CardListComponent,
     SearchBoxComponent,
-   
+    GiftsPageComponent,
+
   ]
 })
 export class AppGiftsModule { }

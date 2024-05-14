@@ -10,15 +10,33 @@ import { ContactPageComponent } from './shared/pages/contact-page/contact-page.c
 
 // dominioweb.com /
 const routes: Routes = [
-  //  {
-  //    path: 'auth',
-  //     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule ),
-  //  },
   {
-      path: '',
-      loadChildren: () => import('./Apps-Tools/home.module').then( m => m.HomeModule ),
-      // canActivate: [canActivateGuard],
-      // canMatch: [canMatchGuard],
+    path: 'home',
+    loadChildren: () => import('../app/Apps-Tools/PrincipalPage/principalpage.module').then(m => m.PrincipalPageModule)
+  },
+  {
+    path: 'calculator',
+    loadChildren: () => import('../app/Apps-Tools/app-calculator/app-calculator.module').then( m => m.AppCalculatorModule ),
+  },
+  {
+    path: 'country',
+    loadChildren: () => import('../app/Apps-Tools/app-countries/app-countries.module').then( m => m.AppCountriesModule ),
+  },
+  {
+    path: 'crud',
+    loadChildren: () => import('../app/Apps-Tools/app-crud/app-crud.module').then( m => m.AppCrudModule ),
+  },
+  {
+    path: 'gifts',
+    loadChildren: () => import('../app/Apps-Tools/app-gifts/app-gifts.module').then( m => m.AppGiftsModule ),
+  },
+  {
+    path: 'tasks',
+    loadChildren: () => import('../app/Apps-Tools/app-tasks/app-taskslist.module').then( m => m.AppTasksListModule ),
+  },
+  {
+    path: 'weather',
+    loadChildren: () => import('../app/Apps-Tools/app-weather/app-weather.module').then( m => m.AppWeatherModule ),
   },
   {
       path: '404',
@@ -33,9 +51,10 @@ const routes: Routes = [
       component: ContactPageComponent,
   },
   {
-      path: '**',
-      redirectTo: '',
-  }
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 

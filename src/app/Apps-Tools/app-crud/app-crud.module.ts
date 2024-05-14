@@ -15,6 +15,7 @@ import { ListPageComponent } from './pages/list-page/list-page.component';
 import { NewPageComponent } from './pages/new-page/new-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
+import { CrudPageComponent } from './pages/crud-page/crud-page.component';
 
 
 
@@ -26,6 +27,8 @@ import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
     ListPageComponent,
     SearchPageComponent,
     NewPageComponent,
+    CrudImagePipe,
+    CrudPageComponent,
 
 
   ],
@@ -36,7 +39,8 @@ import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
     MaterialModule,
     PrimeNgModule,
 
-    
+
+
   ],
   exports: [
     CardComponent,
@@ -44,6 +48,9 @@ import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
     ListPageComponent,
     SearchPageComponent,
     NewPageComponent,
+    CrudImagePipe,
+    CrudPageComponent,
+
 
 
   ]

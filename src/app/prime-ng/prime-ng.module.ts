@@ -12,12 +12,14 @@ import { PanelModule } from 'primeng/panel';
 
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
+import { MenuModule } from 'primeng/menu';
 
 
 
 @NgModule({
   exports: [
     // MenuModule,
+
     AvatarGroupModule,
     AvatarModule,
     ButtonModule,
@@ -27,6 +29,8 @@ import { ToolbarModule } from 'primeng/toolbar';
     PanelModule,
     TableModule,
     ToolbarModule,
+    MenuModule,
+
 
   ]
 

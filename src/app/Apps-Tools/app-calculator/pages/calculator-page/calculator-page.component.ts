@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { ChildActivationEnd } from '@angular/router';
 
 @Component({
-  selector: 'shared-home-page',
+  selector: 'calculator-home-page',
   templateUrl: './calculator-page.component.html',
   styleUrl: './calculator-page.component.css',
 })

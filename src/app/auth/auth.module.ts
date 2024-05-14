@@ -13,6 +13,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 
 
+
 @NgModule({
   declarations: [
     LayoutPageComponent,
@@ -24,6 +25,12 @@ import { AuthRoutingModule } from './auth-routing.module';
     CommonModule,
     AuthRoutingModule,
     MaterialModule,
+
+  ],
+  exports:[
+    LayoutPageComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
   ]
 })
 export class AuthModule { }

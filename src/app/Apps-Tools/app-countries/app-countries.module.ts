@@ -23,7 +23,7 @@ import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
     ByCapitalPageComponent,
     ByCountryPageComponent,
     ByRegionPageComponent,
-    
+    CountryPageComponent,
     CountryTableComponent,
 
   ],
@@ -39,7 +39,7 @@ import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
     ByCapitalPageComponent,
     ByCountryPageComponent,
     ByRegionPageComponent,
-
+    CountryPageComponent,
     CountryTableComponent,
   ]
 })

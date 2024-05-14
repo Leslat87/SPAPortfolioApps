@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
+import { AuthService } from './auth/services/auth.service';
+
+interface MenuItem {
+  name: string;
+  route: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -9,11 +14,33 @@ import { PrimeNGConfig } from 'primeng/api';
 
 export class AppComponent {
 
-  constructor(private primengConfig: PrimeNGConfig) {}
+  title = 'Portafolio';
 
-  ngOnInit() {
-    this.primengConfig.ripple = true;
+  menuItems: MenuItem[] = [
+    {name: 'HOME', route: 'home'},
+    {name: 'PORTAFOLIO', route: 'portafolio'},
+    {name: 'WEATHERAPP', route: 'tiempo'},
+    {name: 'TAREASAPP', route: 'tareas/tareas'},
+    {name: 'GIFSSAPP', route: 'gifss'},
+    {name: 'BANDERAS', route: 'banderas'},
+    {name: 'MAPAS', route: 'selectoresmapa'},
+    {name: 'LOGIN', route: 'login'},
+  ];
 
+  constructor(
+    private authService: AuthService
+  ) {}
+
+  //PARA OBTENER EL USUARIO ACTUAL Y SACARLO POR PANTALLA
+  get currentuserValue() {
+    return this.authService.currentuserValue;
+  }
+
+  //PARA CERRAR SESION
+  onLogout() {
+    this.authService.logout();
+    window.location.reload();
   }
 
 }
+

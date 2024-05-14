@@ -1,0 +1,17 @@
+<div class="content">
+  <mat-grid-list cols="2" rowHeight="300px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let card of cards" colspan="1">
+      <p-card>
+        <ng-template pTemplate="header">
+          <div class="p-card-title">{{ card.title }}</div>
+        </ng-template>
+        <div class="p-card-content">
+          {{ card.content }}
+        </div>
+        <ng-template pTemplate="footer">
+          <button pButton type="button" label="Action" class="ui-button-success"></button>
+        </ng-template>
+      </p-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

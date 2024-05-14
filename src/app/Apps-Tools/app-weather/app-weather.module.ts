@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { WeatherPageComponent } from './components/weather-page.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    WeatherPageComponent,
+
+
+  ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    WeatherPageComponent,
   ]
+
 })
 export class AppWeatherModule { }

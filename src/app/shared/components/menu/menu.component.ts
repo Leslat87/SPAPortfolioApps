@@ -42,7 +42,7 @@ export class MenuComponent {
           {
             label: 'Weather',
             icon: ' pi pi-cloud',
-            routerLink: 'numbers',
+            routerLink: 'weather',
             items: [
 
               {
@@ -112,29 +112,21 @@ export class MenuComponent {
         icon: ' pi pi-wrench',
         items: [
           {
+            label: 'Tasks',
+            icon: ' pi pi-pencil',
+            routerLink: 'tasks',
+          },
+          {
             label: 'Calculator',
             icon: ' pi pi-calculator',
             routerLink: 'calculator',
-          },
-          {
-            label: 'Tasks Manager',
-            icon: ' pi pi-pencil',
-            routerLink: 'tasks Manager',
             items: [
-
               {
-                label: 'Tasks',
+                label: 'History',
                 icon: ' pi pi-fw pi-list-check',
-                routerLink: 'images',
+                routerLink: 'calculator/history',
               },
-              {
-                label: 'Agenda',
-                icon: ' pi pi-fw pi-calendar-times',
-                routerLink: 'numbers',
-              },
-
-
-            ],
+            ]
           },
         ],
       },

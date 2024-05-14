@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -10,9 +11,18 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './Apps-Tools/home.module';
 
+import { MaterialModule } from './material/material.module';
 
+import { AppCalculatorModule } from './Apps-Tools/app-calculator/app-calculator.module';
+import { AppCountriesModule } from './Apps-Tools/app-countries/app-countries.module';
+import { AppCrudModule } from './Apps-Tools/app-crud/app-crud.module';
+import { AppGiftsModule } from './Apps-Tools/app-gifts/app-gifts.module';
+import { AppTasksListModule } from './Apps-Tools/app-tasks/app-taskslist.module';
+import { AppWeatherModule } from './Apps-Tools/app-weather/app-weather.module';
+import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { PrincipalPageModule } from './Apps-Tools/PrincipalPage/principalpage.module';
+import { HomePageModule } from './Apps-Tools/home/home.module';
 
 
 
@@ -21,17 +31,31 @@ import { HomeModule } from './Apps-Tools/home.module';
     AppComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
+    MaterialModule,
+    PrimeNgModule,
     SharedModule,
-    HomeModule,
+
+    AppCalculatorModule,
+    AppCountriesModule,
+    AppCrudModule,
+    AppGiftsModule,
+    AppTasksListModule,
+    AppWeatherModule,
+    PrincipalPageModule,
+    HomePageModule,
+    SharedModule,
+
+
+
 
 
 
   ],
   exports: [
+
 
 
 
