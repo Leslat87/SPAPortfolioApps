@@ -1,15 +1,91 @@
 <div class="content">
   <mat-grid-list cols="2" rowHeight="300px" gutterSize="16px">
-    <mat-grid-tile *ngFor="let card of cards" colspan="1">
-      <p-card>
+    <!-- Tarjeta para la sección Calculator -->
+    <mat-grid-tile>
+      <p-card class="custom-card">
         <ng-template pTemplate="header">
-          <div class="p-card-title">{{ card.title }}</div>
+          <div class="p-card-title">Calculator</div>
         </ng-template>
         <div class="p-card-content">
-          {{ card.content }}
+          Description for Calculator
         </div>
         <ng-template pTemplate="footer">
-          <button pButton type="button" label="Action" class="ui-button-success"></button>
+          <button pButton type="button" [routerLink]="['/calculator']" label="Go to Calculator" class="ui-button-success"></button>
+        </ng-template>
+      </p-card>
+    </mat-grid-tile>
+
+    <!-- Tarjeta para la sección Countries -->
+    <mat-grid-tile>
+      <p-card class="custom-card">
+        <ng-template pTemplate="header">
+          <div class="p-card-title">Countries</div>
+        </ng-template>
+        <div class="p-card-content">
+          Description for Countries
+        </div>
+        <ng-template pTemplate="footer">
+          <button pButton type="button" [routerLink]="['/app-countries']" label="Go to Countries" class="ui-button-success"></button>
+        </ng-template>
+      </p-card>
+    </mat-grid-tile>
+
+    <!-- Tarjeta para la sección CRUD -->
+    <mat-grid-tile >
+      <p-card class="custom-card">
+        <ng-template pTemplate="header">
+          <div class="p-card-title">CRUD</div>
+        </ng-template>
+        <div class="p-card-content">
+          Description for CRUD
+        </div>
+        <ng-template pTemplate="footer">
+          <button pButton type="button" [routerLink]="['/app-crud']" label="Go to Crud" class="ui-button-success"></button>
+        </ng-template>
+      </p-card>
+    </mat-grid-tile>
+
+    <!-- Tarjeta para la sección Gifts -->
+    <mat-grid-tile >
+      <p-card class="custom-card">
+        <ng-template pTemplate="header">
+          <div class="p-card-title">Gifs</div>
+        </ng-template>
+        <div class="p-card-content">
+          Description for Gifts
+        </div>
+        <ng-template pTemplate="footer">
+          <button pButton type="button" [routerLink]="['/app-gifs']" label="Go to Gifs" class="ui-button-success"></button>
+        </ng-template>
+      </p-card>
+    </mat-grid-tile>
+
+    <!-- Tarjeta para la sección Tasks -->
+    <mat-grid-tile >
+      <p-card class="custom-card">
+        <ng-template pTemplate="header">
+          <div class="p-card-title">Tasks</div>
+        </ng-template>
+        <div class="p-card-content">
+          Description for Tasks
+        </div>
+        <ng-template pTemplate="footer">
+          <button pButton type="button" [routerLink]="['/app-tasks']" label="Go to Tasks" class="ui-button-success"></button>
+        </ng-template>
+      </p-card>
+    </mat-grid-tile>
+
+    <!-- Tarjeta para la sección Weather -->
+    <mat-grid-tile >
+      <p-card class="custom-card">
+        <ng-template pTemplate="header">
+          <div class="p-card-title">Weather</div>
+        </ng-template>
+        <div class="p-card-content">
+          Description for Weather
+        </div>
+        <ng-template pTemplate="footer">
+          <button pButton type="button" [routerLink]="['/app-weater']" label="Go to Weather" class="ui-button-success"></button>
         </ng-template>
       </p-card>
     </mat-grid-tile>

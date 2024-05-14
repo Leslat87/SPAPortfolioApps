@@ -3,16 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 
-import { WeatherPageComponent } from './components/weather-page.component';
+import { WeatherPageComponent } from './components/weather-page/weather-page.component';
 
 // localhost:4200/heroes/
 const routes: Routes = [
-  {
-    path: 'weater',
-    component: WeatherPageComponent,
-  },
-
-    ]
+  { path: '', component: WeatherPageComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

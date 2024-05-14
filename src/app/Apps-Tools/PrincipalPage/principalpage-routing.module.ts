@@ -4,16 +4,11 @@ import { PrincipalPageComponent } from './components/principalpage/principalpage
 
 
 const routes: Routes = [
-
-  {
-    path: '',
-    component: PrincipalPageComponent,
-  },
-
+  { path: '', component: PrincipalPageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PaginaPrincipalRoutingModule { }
+export class PrincipalPageRoutingModule { }

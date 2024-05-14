@@ -6,20 +6,9 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
 
 // localhost:4200/heroes/
 const routes: Routes = [
-  {
-    path: '',
-    component: CalculatorPageComponent,
-  },
-  { path: 'history',
-    component: HistoryPageComponent
-  },
-
-      //TODO: aqui esta la posibilidad de añadir mas funciones a la calculadora
-      // { path: 'edit/:id', component: NewPageComponent },
-      // { path: 'list', component: ListPageComponent },
-      // { path: ':id', component: CrudPageComponent },
-      // { path: '**', redirectTo: 'list' },
-    ]
+  { path: '', component: CalculatorPageComponent },
+  { path: 'history', component: HistoryPageComponent },
+];
 
 
 

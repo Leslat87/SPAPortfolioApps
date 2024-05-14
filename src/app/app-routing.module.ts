@@ -12,31 +12,31 @@ import { ContactPageComponent } from './shared/pages/contact-page/contact-page.c
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('../app/Apps-Tools/PrincipalPage/principalpage.module').then(m => m.PrincipalPageModule)
+    loadChildren: () => import('./Apps-Tools/PrincipalPage/principalpage.module').then(m => m.PrincipalPageModule)
   },
   {
     path: 'calculator',
-    loadChildren: () => import('../app/Apps-Tools/app-calculator/app-calculator.module').then( m => m.AppCalculatorModule ),
+    loadChildren: () => import('./Apps-Tools/app-calculator/app-calculator.module').then( m => m.AppCalculatorModule ),
   },
   {
     path: 'country',
-    loadChildren: () => import('../app/Apps-Tools/app-countries/app-countries.module').then( m => m.AppCountriesModule ),
+    loadChildren: () => import('./Apps-Tools/app-countries/app-countries.module').then( m => m.AppCountriesModule ),
   },
   {
     path: 'crud',
-    loadChildren: () => import('../app/Apps-Tools/app-crud/app-crud.module').then( m => m.AppCrudModule ),
+    loadChildren: () => import('./Apps-Tools/app-crud/app-crud.module').then( m => m.AppCrudModule ),
   },
   {
-    path: 'gifts',
-    loadChildren: () => import('../app/Apps-Tools/app-gifts/app-gifts.module').then( m => m.AppGiftsModule ),
+    path: 'gifs',
+    loadChildren: () => import('./Apps-Tools/app-gifts/app-gifs.module').then( m => m.AppGifsModule ),
   },
   {
     path: 'tasks',
-    loadChildren: () => import('../app/Apps-Tools/app-tasks/app-taskslist.module').then( m => m.AppTasksListModule ),
+    loadChildren: () => import('./Apps-Tools/app-tasks/app-taskslist.module').then( m => m.AppTasksListModule ),
   },
   {
     path: 'weather',
-    loadChildren: () => import('../app/Apps-Tools/app-weather/app-weather.module').then( m => m.AppWeatherModule ),
+    loadChildren: () => import('./Apps-Tools/app-weather/app-weather.module').then( m => m.AppWeatherModule ),
   },
   {
       path: '404',
@@ -51,10 +51,14 @@ const routes: Routes = [
       component: ContactPageComponent,
   },
   {
-    path: '**',
-    redirectTo: 'home',
+    path: '',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    redirectTo: '/home'
+  }
 ];
 
 

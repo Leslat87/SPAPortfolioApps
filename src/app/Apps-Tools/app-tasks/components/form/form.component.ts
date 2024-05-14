@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { TasksListService } from '../../sevice/tasks-list-service.service';
-import { Tasks } from '../../interface/tasks.interface';
+import { TasksListService } from '../../services/tasks-list.service';
+import { Tasks } from '../../interfaces/tasks.interface';
 import { v4 as uuid } from 'uuid';
 
 

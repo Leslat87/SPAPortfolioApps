@@ -4,9 +4,9 @@ import { Gif } from '../../interfaces/gifs.interfaces';
 
 @Component({
   selector: 'gifs-home-page',
-  templateUrl: './gifts-page.component.html'
+  templateUrl: './gifs-page.component.html'
 })
-export class GiftsPageComponent {
+export class GifsPageComponent {
 
   constructor( private gifsService: GifsService ) {}
 

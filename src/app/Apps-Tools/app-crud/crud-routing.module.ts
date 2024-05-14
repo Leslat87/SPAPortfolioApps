@@ -9,28 +9,11 @@ import { CrudPageComponent } from './pages/crud-page/crud-page.component';
 
 // localhost:4200/heroes/
 const routes: Routes = [
-  {
-    path: '',
-    component: ListPageComponent,
-  },
-  {
-    path: 'list',
-    component: ListPageComponent,
-  },
-  { path: 'new-page',
-   component: NewPageComponent
-  },
-  { path: 'search',
-  component: SearchPageComponent
-  },
-  { path: 'edit/:id',
-  component: NewPageComponent
-  },
-  { path: ':id',
-  component: CrudPageComponent
-  },
-  { path: '**', redirectTo: 'list' },
-    ]
+  { path: '', component: CrudPageComponent },
+  { path: 'list', component: ListPageComponent },
+  { path: 'new-page', component: NewPageComponent },
+  { path: 'search', component: SearchPageComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
