@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'shared-footer',
   templateUrl: './footer.component.html',
-  styles: ``
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // Coloca aquí el código que deseas ejecutar cuando el componente se inicialice
+    console.log('El componente FooterComponent se ha inicializado.');
   }
 
 }

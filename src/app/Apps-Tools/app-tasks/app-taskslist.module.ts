@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 import { MaterialModule } from '../../material/material.module';
@@ -9,10 +9,9 @@ import { MaterialModule } from '../../material/material.module';
 import { FinishedTasksListComponent } from './components/finishedtaskslist/finishedtaskslist.component';
 import { FormComponent } from './components/form/form.component';
 import { TasksListComponent } from './components/taskslist/taskslist.component';
-import { TasksListPageComponent } from './pages/tasks-page/taskslist-page.component';
+import { TasksListPageComponent } from './pages/tasks-page/tasks-list-page.component';
 import { TasksRoutingModule } from './taskslist-routing.module';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { AddTasksComponent } from './components/add-tasks/add-tasks.component';
 
 
 @NgModule({
@@ -21,12 +20,12 @@ import { CommonModule } from '@angular/common';
     FormComponent,
     FinishedTasksListComponent,
     TasksListComponent,
+    AddTasksComponent
 
 
   ],
   imports: [
     CommonModule,
-    BrowserModule,
     TasksRoutingModule,
     MaterialModule,
     PrimeNgModule,

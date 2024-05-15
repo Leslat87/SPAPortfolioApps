@@ -9,7 +9,7 @@ import { CardModule} from 'primeng/card';
 import { FieldsetModule } from 'primeng/fieldset';
 import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
-
+import { PanelMenuModule } from 'primeng/panelmenu';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { MenuModule } from 'primeng/menu';
@@ -30,6 +30,7 @@ import { MenuModule } from 'primeng/menu';
     TableModule,
     ToolbarModule,
     MenuModule,
+    PanelMenuModule,
 
 
   ]

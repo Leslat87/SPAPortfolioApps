@@ -40,7 +40,7 @@ export class FormComponent  {
 
   saveTasks(){
 
-    this.tasksListService.saveTasks(this.tasks);
+    this.tasksListService.addTask(this.tasks);
     // console.table(this.Tarea)
 
     this.tasks = {

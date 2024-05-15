@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { PrincipalPageComponent } from '../PrincipalPage/components/principalpage/principalpage.component';
-import { PrincipalPageRoutingModule } from '../home/home-routing.module';
+
 
 import { MaterialModule } from '../../material/material.module';
 import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 import { CommonModule } from '@angular/common';
+
+import { PrincipalPageRoutingModule } from './principalpage-routing.module'
+import { PrincipalPageComponent } from './components/principal-page/principal-page.component';
 
 
 
@@ -16,14 +18,13 @@ import { CommonModule } from '@angular/common';
       MaterialModule,
       PrimeNgModule,
 
-
     ],
     exports: [
        PrincipalPageComponent,
     ],
     declarations: [
-      PrincipalPageComponent,
+       PrincipalPageComponent,
     ],
     providers: [],
 })
-export class PrincipalPageModule { }
+export class AppPrincipalModule { }

@@ -1,17 +1,45 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .sidenav-container {
-  height: 100%;
+  display: flex;
+  flex: 1;
+  height: 1%;
+}
+
+mat-sidenav {
+  width: 170px;
+}
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}
+
+shared-header, shared-footer {
+  flex-shrink: 0;
+}
+
+router-outlet {
+  flex: 1;
+  overflow: auto;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Para que el contenido ocupe al menos el 100% del alto de la ventana */
 }
 
 .content {
-  padding: 16px;
-}
-
-mat-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-mat-grid-list {
-  margin: 16px 0;
+  flex-grow: 1; /* Para que el contenido ocupe el espacio restante */
 }

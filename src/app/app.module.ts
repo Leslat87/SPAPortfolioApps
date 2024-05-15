@@ -21,9 +21,9 @@ import { AppCrudModule } from './Apps-Tools/app-crud/app-crud.module';
 import { AppTasksListModule } from './Apps-Tools/app-tasks/app-taskslist.module';
 import { AppWeatherModule } from './Apps-Tools/app-weather/app-weather.module';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
-import { PrincipalPageModule } from './Apps-Tools/PrincipalPage/principalpage.module';
 import { HomePageModule } from './Apps-Tools/home/home.module';
 import { AppGifsModule } from './Apps-Tools/app-gifts/app-gifs.module';
+import { AppPrincipalModule } from './Apps-Tools/app-principal/app-principal.module';
 
 
 
@@ -45,7 +45,7 @@ import { AppGifsModule } from './Apps-Tools/app-gifts/app-gifs.module';
     AppGifsModule,
     AppTasksListModule,
     AppWeatherModule,
-    PrincipalPageModule,
+    AppPrincipalModule,
     HomePageModule,
     SharedModule,
 

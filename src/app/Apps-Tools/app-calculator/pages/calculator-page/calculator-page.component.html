@@ -1,15 +1,40 @@
-<div class="container">
-  <div class="result"><span class="result-text">{{result}}</span>
-    <span class="value" *ngIf="value.active">={{value.value}}</span>
-    <div class="dialogo"></div>
-  </div>
-  <div class="buttons" *ngFor="let buttonRow of buttons">
-    <button (click)="click(button)" class="button" [ngClass]="buttonColor(button)" *ngFor="let button of buttonRow">{{button}}</button>
-  </div>
-   
+<div class="calculator-container">
+  <div class="calculator card">
+    <div class="analog-screen">
+      <div class="digital-display">{{ display }}</div>
+    </div>
+    <div class="calculator-buttons">
+      <button (click)="onButtonClick('7')">7</button>
+      <button (click)="onButtonClick('8')">8</button>
+      <button (click)="onButtonClick('9')">9</button>
+      <button class="operation-button" (click)="onButtonClick('del')">Del</button>
 
-<div class="dialog"></div>
+      <button (click)="onButtonClick('4')">4</button>
+      <button (click)="onButtonClick('5')">5</button>
+      <button (click)="onButtonClick('6')">6</button>
+      <button class="operation-button" (click)="onButtonClick('+')">+</button>
+
+      <button (click)="onButtonClick('1')">1</button>
+      <button (click)="onButtonClick('2')">2</button>
+      <button (click)="onButtonClick('3')">3</button>
+      <button class="operation-button" (click)="onButtonClick('-')">-</button>
+
+      <button (click)="onButtonClick('0')">0</button>
+      <button (click)="onButtonClick('.')">.</button>
+      <button class="operation-button" (click)="onButtonClick('/')">/</button>
+      <button class="operation-button" (click)="onButtonClick('*')">X</button>
+
+      <button class="reset-button" (click)="onButtonClick('reset')">Reset</button>
+      <button class="equal-button" (click)="onButtonClick('=')">=</button>
+    </div>
+  </div>
+
+
+  <div class="card history-card">
+    <h3>History</h3>
+    <ul>
+      <li *ngFor="let entry of history">{{ entry }}</li>
+    </ul>
+    <button class="clear-history-button" (click)="clearHistory()">Clear History</button>
+  </div>
 </div>
-
-
-

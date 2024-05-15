@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Error404PageComponent } from './shared/pages/error404-page/error404-page.component';
 
+
+import { Error404PageComponent } from './shared/pages/error404-page/error404-page.component';
 // import { canActivateGuard, canMatchGuard } from './auth/guards/auth.guard';
 import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
 import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
@@ -12,7 +13,7 @@ import { ContactPageComponent } from './shared/pages/contact-page/contact-page.c
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./Apps-Tools/PrincipalPage/principalpage.module').then(m => m.PrincipalPageModule)
+    loadChildren: () => import('./Apps-Tools/app-principal/app-principal.module').then( m => m.AppPrincipalModule ),
   },
   {
     path: 'calculator',

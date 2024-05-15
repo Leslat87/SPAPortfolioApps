@@ -9,22 +9,21 @@ interface MenuItem {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
+  menuActive: boolean = false; // Definición de la propiedad isMenuOpen
 
-  title = 'Portafolio';
-
+  // Definición de los elementos del menú
   menuItems: MenuItem[] = [
-    {name: 'HOME', route: 'home'},
-    {name: 'PORTAFOLIO', route: 'portafolio'},
-    {name: 'WEATHERAPP', route: 'tiempo'},
-    {name: 'TAREASAPP', route: 'tareas/tareas'},
-    {name: 'GIFSSAPP', route: 'gifss'},
-    {name: 'BANDERAS', route: 'banderas'},
-    {name: 'MAPAS', route: 'selectoresmapa'},
-    {name: 'LOGIN', route: 'login'},
+    { name: 'HOME', route: 'home' },
+    { name: 'PORTAFOLIO', route: 'portafolio' },
+    { name: 'WEATHERAPP', route: 'tiempo' },
+    { name: 'TAREASAPP', route: 'tareas/tareas' },
+    { name: 'GIFSSAPP', route: 'gifss' },
+    { name: 'BANDERAS', route: 'banderas' },
+    { name: 'MAPAS', route: 'selectoresmapa' },
+    { name: 'LOGIN', route: 'login' },
   ];
 
   constructor(
@@ -42,5 +41,8 @@ export class AppComponent {
     window.location.reload();
   }
 
+  // Método para abrir/cerrar el menú
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
 }
-

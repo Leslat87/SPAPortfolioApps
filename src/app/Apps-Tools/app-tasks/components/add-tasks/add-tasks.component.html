@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h2>Add Task</h2>
+  <form>
+    <div class="mb-3">
+      <label for="taskName" class="form-label">Task Name</label>
+      <input type="text" class="form-control" id="taskName" [(ngModel)]="taskName" name="taskName">
+    </div>
+    <div class="mb-3">
+      <label for="taskDescription" class="form-label">Task Description</label>
+      <textarea class="form-control" id="taskDescription" [(ngModel)]="taskDescription" name="taskDescription"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </form>
+</div>

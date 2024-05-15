@@ -1,24 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'shared-menu',
   templateUrl: './menu.component.html',
-  styles: ``,
+  styleUrls: ['./menu.component.css'] // Puedes incluir estilos adicionales aquí si es necesario
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
+  @Input()
   public menuItems: MenuItem[] = [];
 
   ngOnInit() {
     this.menuItems = [
       {
-        label: 'Apis',
+        label: 'Home',
+        icon: 'pi pi-home',
+        routerLink: 'home'
+      },
+      {
+        label: 'Apps',
         icon: 'pi pi-desktop',
         items: [
           {
             label: 'Crud',
             icon: 'pi pi-fw pi-image',
-            routerLink: 'crud',
+            routerLink: 'crud/list',
             items: [
               {
                 label: 'List',
@@ -62,29 +68,29 @@ export class MenuComponent {
           {
             label: 'Countries',
             icon: 'pi pi-fw pi-globe',
-            routerLink: 'countries',
+            routerLink: 'country',
             items: [
               {
                 label: 'Search by Capital',
                 icon: 'pi pi-fw pi-building',
-                routerLink: 'countries/capital',
+                routerLink: 'country/capital',
               },
               {
                 label: 'Search by Region',
                 icon: 'pi pi-fw pi-car',
-                routerLink: 'countries/region',
+                routerLink: 'country/region',
               },
               {
                 label: 'Search by Country',
                 icon: 'pi pi-fw pi-building-columns',
-                routerLink: 'countries/country',
+                routerLink: 'country/country',
               },
             ],
           },
           {
-            label: 'Gifts',
+            label: 'Gifs',
             icon: 'pi pi-fw pi-palette',
-            routerLink: 'gifts',
+            routerLink: 'gifs',
           },
         ],
       },
@@ -101,16 +107,20 @@ export class MenuComponent {
             label: 'Calculator',
             icon: 'pi pi-calculator',
             routerLink: 'calculator',
-            items: [
-              {
-                label: 'History',
-                icon: 'pi pi-fw pi-list-check',
-                routerLink: 'calculator/history',
-              },
-            ]
-          },
-        ],
+          }
+        ]
+      },
+      {
+        label: 'About',
+        icon: 'pi pi-fw pi-info',
+        routerLink: 'about',
+      },
+      {
+        label: 'Contact',
+        icon: 'pi pi-fw pi-envelope',
+        routerLink: 'contact',
       },
     ];
   }
 }
+

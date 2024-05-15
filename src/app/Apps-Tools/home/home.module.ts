@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PrincipalPageRoutingModule } from './home-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 
 import { MaterialModule } from '../../material/material.module';
 import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
@@ -12,7 +12,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
     imports: [
-        PrincipalPageRoutingModule,
+        HomeRoutingModule,
         MaterialModule,
         PrimeNgModule,
         SharedModule,

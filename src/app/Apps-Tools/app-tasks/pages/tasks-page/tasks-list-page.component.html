@@ -1,16 +1,15 @@
-
 <div class="paginaprincipal">
   <!-- SELECTOR QUE HACE REFERENCIA AL CALENDARIO -->
   <ul class="nav nav-tabs ms-2 pt-3">
     <li class="nav-item m-2 menu">
-      <a routerLink="/tareas/tareas" class="nav-link active" aria-current="page"><strong>Home</strong></a>
+      <a routerLink="/tasks" class="nav-link active" aria-current="page"><strong>Home</strong></a>
     </li>
     <li class="nav-item m-2 menu" >
-      <a routerLink="añadirtarea" class="nav-link active" aria-current="page"><strong>Añadir tareas</strong></a>
+      <a routerLink="addtask" class="nav-link active" aria-current="page"><strong>Add task</strong></a>
     </li>
 
     <li class="nav-item m-2 menufavorito">
-      <a routerLink="favoritas" class="nav-link active" aria-current="page"><strong><span class="material-icons">
+      <a routerLink="/favorite" class="nav-link active" aria-current="page"><strong><span class="material-icons">
             star_rate
           </span></strong></a>
     </li>
@@ -26,10 +25,18 @@
     </li>
   </ul>
 
-  <!-- SELECTOR QUE HACE REFERENCIA A LOS DIFERENTES COMPONENETES QUE ESTAN EN LAS RUTAS -->
+  <!-- SELECTOR QUE HACE REFERENCIA A LOS DIFERENTES COMPONENTES QUE ESTÁN EN LAS RUTAS -->
   <router-outlet></router-outlet>
 
+  <!-- Mostrar lista de tareas -->
+  <div class="container mt-3">
+    <h2>Tasks</h2>
+    <ul>
+      <li *ngFor="let task of tasks">
+        {{ task.name }}
+        <!-- Mostrar otras propiedades de la tarea según sea necesario -->
+      </li>
+    </ul>
+  </div>
 </div>
-
-
 

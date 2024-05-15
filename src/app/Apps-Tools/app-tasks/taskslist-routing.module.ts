@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TasksListPageComponent } from './pages/tasks-page/taskslist-page.component';
 
+import { TasksListPageComponent } from './pages/tasks-page/tasks-list-page.component';
+import { AddTasksComponent } from './components/add-tasks/add-tasks.component';
 
-
-
-// localhost:4200/heroes/
 const routes: Routes = [
   { path: '', component: TasksListPageComponent },
+  { path: 'addtask', component: AddTasksComponent }
 ];
 
 @NgModule({

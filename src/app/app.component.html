@@ -1,13 +1,12 @@
-<shared-header></shared-header>
-<shared-menu></shared-menu>
+<div class="wrapper">
+  <!-- Header -->
+  <shared-header [menuItems]="menuItems"></shared-header>
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav mode="side" opened class="sidebar">
-    <shared-sidebar></shared-sidebar>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
+  <!-- Content -->
+  <div class="content">
+    <!-- Main Content -->
     <router-outlet></router-outlet>
-    <app-principalpage></app-principalpage>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+    
+  </div>
+</div>

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-principalpage',
-  templateUrl: './principalpage.component.html',
-  styleUrls: ['./principalpage.component.css']
+  templateUrl: './principal-page.component.html',
+  styleUrls: ['./principal-page.component.scss']
 })
 export class PrincipalPageComponent implements OnInit {
 
@@ -21,32 +21,31 @@ export class PrincipalPageComponent implements OnInit {
     buttonText: 'Go to Countries'
   };
 
-  // Definir los otros cuatro objetos para las tarjetas restantes
-  card3 = {
-    title: 'Title 3',
+  crudsection = {
+    title: 'CRUD',
     description: 'Description for Card 3',
-    link: '/route-to-card3',
+    link: '/app-crud',
     buttonText: 'Button Text for Card 3'
   };
 
   card4 = {
-    title: 'Title 4',
+    title: 'Gifs',
     description: 'Description for Card 4',
-    link: '/route-to-card4',
+    link: '/app-gifs',
     buttonText: 'Button Text for Card 4'
   };
 
   card5 = {
-    title: 'Title 5',
+    title: 'Tasks',
     description: 'Description for Card 5',
-    link: '/route-to-card5',
+    link: '/app-tasks',
     buttonText: 'Button Text for Card 5'
   };
 
   card6 = {
-    title: 'Title 6',
+    title: 'Weather',
     description: 'Description for Card 6',
-    link: '/route-to-card6',
+    link: '/app-weater',
     buttonText: 'Button Text for Card 6'
   };
 

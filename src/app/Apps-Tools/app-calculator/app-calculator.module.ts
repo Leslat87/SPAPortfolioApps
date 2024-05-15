@@ -6,7 +6,8 @@ import { CalculatorRoutingModule } from './calculator-routing.module';
 import { MaterialModule } from '../../material/material.module';
 import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 import { CalculatorPageComponent } from './pages/calculator-page/calculator-page.component';
-import { HistoryPageComponent } from './pages/history-page/history-page.component';
+
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,19 +15,20 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
 @NgModule({
   declarations: [
     CalculatorPageComponent,
-    HistoryPageComponent,
+
 
 
   ],
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     CalculatorRoutingModule,
     PrimeNgModule,
     ],
   exports: [
     CalculatorPageComponent,
-    HistoryPageComponent,
+ 
 
   ],
 })

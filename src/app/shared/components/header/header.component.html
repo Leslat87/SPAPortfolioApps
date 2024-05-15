@@ -1,9 +1,10 @@
-
-<mat-toolbar color="">
-  <div>LOGO</div>
-  <div fxLayout="row" fxLayoutGap="20px">
-      <a routerLink="/">Home</a>
-      <a routerLink="/posts">Posts</a>
-      <a routerLink="/login">Login</a>
+<div class="header">
+  <div class="menu-wrapper">
+    <!-- Componente de menú -->
+    <shared-menu [menuItems]="menuItems"></shared-menu>
   </div>
-</mat-toolbar>
+  <div class="logo-wrapper">
+    <img src="../../../../assets/logo.png" alt="Logo">
+
+  </div>
+</div>
