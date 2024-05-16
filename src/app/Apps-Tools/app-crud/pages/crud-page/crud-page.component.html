@@ -1,51 +1,36 @@
-
-<ng-template #divLoading>
-  <mat-grid-list cols="1">
-    <mat-grid-tile>
-      <mat-spinner></mat-spinner>
-    </mat-grid-tile>
-  </mat-grid-list>
-</ng-template>
-
-
-<div *ngIf="image; else divLoading" class="grid p-2">
-
+<div class="grid p-2">
   <mat-card class="col-12 sm:col-6">
-
     <mat-card-header>
       <mat-card-title>{{ image.nickname }}</mat-card-title>
       <mat-card-subtitle>{{ image.name }}</mat-card-subtitle>
     </mat-card-header>
-
-
-    <img [src]="image" [alt]="image.name" mat-card-image />
-
-  </mat-card>
+    <div class="container">
+      <div class="ficha">
+        <div class="formulario">
+      <div class="image-section">
+        <mat-card>
+    <img [src]="imageUrl" [alt]="image.name" mat-card-image />
+        </mat-card>
 
   <mat-card class="col-12 sm:col-6">
-
     <mat-card-header>
       <mat-card-title>Información</mat-card-title>
-      <mat-card-subtitle>{{ image.name  }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ image.name }}</mat-card-subtitle>
     </mat-card-header>
-
     <mat-card-content>
       <mat-list>
-        <mat-list-item>{{ image.location }}</mat-list-item>
-        <mat-list-item>{{ image.tags }}</mat-list-item>
-        <mat-list-item>{{ image.author }}</mat-list-item>
-        <mat-list-item>{{ image.nickname }}</mat-list-item>
+        <mat-list-item><strong>Localización:</strong> {{ image.location }}</mat-list-item>
+        <mat-list-item><strong>Etiquetas:</strong> {{ image.tags }}</mat-list-item>
+        <mat-list-item><strong>Autor:</strong> {{ image.author }}</mat-list-item>
+        <mat-list-item><strong>Nick:</strong> {{ image.nickname }}</mat-list-item>
+        <mat-list-item><strong>Descripción:</strong> {{ image.descripcion }}</mat-list-item>
       </mat-list>
-
-      <button
-        mat-button
-        color="warn"
-        (click)="goBack()"
-      >
+      <button mat-button color="primary" [routerLink]="['/crud/edit', image.id]">
+        Editar
+      </button>
+      <button mat-button color="warn" (click)="goBack()">
         Regresar
       </button>
     </mat-card-content>
-
   </mat-card>
-
 </div>

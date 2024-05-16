@@ -1,5 +1,5 @@
-//TODO: Cambiar los campos de nuestro CRUD
 
+// src/app/Apps-Tools/app-crud/interfaces/crud.interface.ts
 export interface Image {
   id: string;
   name: string;
@@ -8,6 +8,7 @@ export interface Image {
   location: string;
   tags: string;
   alt_img?: string;
+  descripcion: string; // Agregar el campo descripcion
 }
 
 export enum Author {

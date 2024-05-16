@@ -7,8 +7,12 @@ import { FooterComponent } from './footer/footer.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+<<<<<<< Updated upstream
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
+=======
+
+>>>>>>> Stashed changes
 import { MaterialModule } from '../material/material.module';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
@@ -22,7 +26,11 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
     LoadingSpinnerComponent,
     MenuComponent,
     SearchBoxComponent,
+<<<<<<< Updated upstream
     SidebarComponent,
+=======
+    HeaderComponent,
+>>>>>>> Stashed changes
 
   ],
   imports:[
@@ -40,7 +48,13 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
     LoadingSpinnerComponent,
     MenuComponent,
     SearchBoxComponent,
+<<<<<<< Updated upstream
     SidebarComponent,
+=======
+    HeaderComponent,
+    MaterialModule,
+    PrimeNgModule,
+>>>>>>> Stashed changes
 
   ]
 

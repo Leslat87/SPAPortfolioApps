@@ -1,11 +1,22 @@
+<<<<<<< Updated upstream
 import { Component } from '@angular/core';
+=======
+// src/app/shared/components/menu/menu.component.ts
+import { Component, OnInit, Input } from '@angular/core';
+>>>>>>> Stashed changes
 import { MenuItem } from 'primeng/api';
 
 
 @Component({
+<<<<<<< Updated upstream
     selector: 'shared-menu',
     templateUrl: './menu.component.html',
     styles: ``,
+=======
+  selector: 'shared-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
+>>>>>>> Stashed changes
 })
 
 export class MenuComponent {
@@ -65,6 +76,7 @@ export class MenuComponent {
           },
           {
             label: 'Countries',
+<<<<<<< Updated upstream
             icon: ' pi pi-fw pi-globe',
             routerLink: 'country',
             items: [
@@ -82,6 +94,25 @@ export class MenuComponent {
                 label: 'Search by Country',
                 icon: ' pi pi-fw pi-building-columns',
                 routerLink: 'country/country',
+=======
+            icon: 'pi pi-fw pi-globe',
+            routerLink: 'countries',
+            items: [
+              {
+                label: 'Search by Capital',
+                icon: 'pi pi-fw pi-building',
+                routerLink: 'countries/capital',
+              },
+              {
+                label: 'Search by Region',
+                icon: 'pi pi-fw pi-car',
+                routerLink: 'countries/region',
+              },
+              {
+                label: 'Search by Country',
+                icon: 'pi pi-fw pi-building-columns',
+                routerLink: 'countries',
+>>>>>>> Stashed changes
               },
 
             ],

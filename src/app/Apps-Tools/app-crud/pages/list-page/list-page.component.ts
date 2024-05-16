@@ -5,8 +5,7 @@ import { CrudService } from '../../services/crud.service';
 @Component({
   selector: 'crud-list-page',
   templateUrl: './list-page.component.html',
-  styles: [
-  ]
+  styleUrl: './list-page.component.scss',
 })
 export class ListPageComponent implements OnInit {
 

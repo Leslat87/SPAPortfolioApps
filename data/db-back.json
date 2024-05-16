@@ -8,6 +8,7 @@
   ],
   "heroes": [
     {
+<<<<<<< Updated upstream
       "id": "dc-batman",
       "superhero": "Batman",
       "publisher": "DC Comics",
@@ -22,6 +23,22 @@
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
       "characters": "Kal-El"
+=======
+      "id": "arcoestrella",
+      "name": "Arco de la Estrella",
+      "author": "Faren",
+      "nickname": "Terraza",
+      "location": "Arco de la Estrella: Caceres - Extremadura",
+      "tags": "Cáceres, Arco Estrella, Casco Antiguo"
+    },
+    {
+      "id": "atardecer",
+      "name": "El Sol se pierde",
+      "author": "Anonymous",
+      "nickname": "Pacífico",
+      "location": "Parque del Pacífico: Cáceres - Extremadura",
+      "tags": "Cáceres, Parque del Pacífico, Eroski"
+>>>>>>> Stashed changes
     },
     {
       "id": "dc-flash",
@@ -40,6 +57,7 @@
       "characters": "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz"
     },
     {
+<<<<<<< Updated upstream
       "id": "dc-arrow",
       "superhero": "Green Arrow",
       "publisher": "DC Comics",
@@ -166,6 +184,134 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+=======
+      "id": "casapajaro",
+      "name": "El canto de la mañana",
+      "author": "Anonymous",
+      "nickname": "Caseta",
+      "location": "Cabañas de los arboles: Villasbuenas de Gata - Extremadura",
+      "tags": "Cáceres, Villasbuenas de Gata, Extremadura"
+    },
+    {
+      "id": "casarural",
+      "name": "Casa Rural",
+      "author": "Anonymous",
+      "nickname": "Refugio",
+      "location": "Casa Rural: Plasencia - Extremadura",
+      "tags": "Cáceres, Casa Rural, Plasencia"
+    },
+    {
+      "id": "castillominas",
+      "name": "Castillo de las Minas",
+      "author": "Faren",
+      "nickname": "Fortaleza",
+      "location": "Castillo de las Minas: Alentejo - Portugal",
+      "tags": "Portugal, Castillo, Minas"
+    },
+    {
+      "id": "chicagorra",
+      "name": "Chica con Gorra",
+      "author": "Anonymous",
+      "nickname": "Estilo",
+      "location": "Parque Central: Madrid - Spain",
+      "tags": "Madrid, Parque Central, Estilo"
+    },
+    {
+      "id": "foreigner",
+      "name": "Foreigner",
+      "author": "Faren",
+      "nickname": "Turista",
+      "location": "Centro Histórico: Lisboa - Portugal",
+      "tags": "Lisboa, Centro Histórico, Turista"
+    },
+    {
+      "id": "metalheads",
+      "name": "Metalheads",
+      "author": "Faren",
+      "nickname": "Festival",
+      "location": "Rock Festival: Barcelona - Spain",
+      "tags": "Barcelona, Rock Festival, Metal"
+    },
+    {
+      "id": "opera",
+      "name": "Noche de Ópera",
+      "author": "Anonymous",
+      "nickname": "Cultura",
+      "location": "Ópera House: Madrid - Spain",
+      "tags": "Madrid, Ópera House, Cultura"
+    },
+    {
+      "id": "oporto",
+      "name": "Oporto",
+      "author": "Faren",
+      "nickname": "Viaje",
+      "location": "Ribeira: Oporto - Portugal",
+      "tags": "Oporto, Ribeira, Viaje"
+    },
+    {
+      "id": "oveja",
+      "name": "Oveja Solitaria",
+      "author": "Anonymous",
+      "nickname": "Campo",
+      "location": "Campo Abierto: Extremadura - Spain",
+      "tags": "Extremadura, Campo Abierto, Oveja"
+    },
+    {
+      "id": "pacifico",
+      "name": "Pacífico",
+      "author": "Anonymous",
+      "nickname": "Serenidad",
+      "location": "Playa del Pacífico: Cáceres - Extremadura",
+      "tags": "Cáceres, Playa del Pacífico, Serenidad"
+    },
+    {
+      "id": "pintalabios",
+      "name": "Pintalabios",
+      "author": "Anonymous",
+      "nickname": "Moda",
+      "location": "Estudio de Moda: Madrid - Spain",
+      "tags": "Madrid, Estudio de Moda, Pintalabios"
+    },
+    {
+      "id": "quijote",
+      "name": "Don Quijote",
+      "author": "Faren",
+      "nickname": "Historia",
+      "location": "Molinos de Viento: La Mancha - Spain",
+      "tags": "La Mancha, Molinos de Viento, Historia"
+    },
+    {
+      "id": "robzombie",
+      "name": "Rob Zombie",
+      "author": "Faren",
+      "nickname": "Concierto",
+      "location": "Sala de Conciertos: Sevilla - Spain",
+      "tags": "Sevilla, Sala de Conciertos, Rob Zombie"
+    },
+    {
+      "id": "shaun",
+      "name": "Shaun la oveja",
+      "author": "Anonymous",
+      "nickname": "Animación",
+      "location": "Estudio de Animación: London - UK",
+      "tags": "London, Estudio de Animación, Shaun"
+    },
+    {
+      "id": "tortuga",
+      "name": "Tortuga",
+      "author": "Faren",
+      "nickname": "Reptil",
+      "location": "Parque Natural: Amazonas - Brazil",
+      "tags": "Amazonas, Parque Natural, Tortuga"
+    },
+    {
+      "id": "uncle",
+      "name": "Uncle",
+      "author": "Anonymous",
+      "nickname": "Retrato",
+      "location": "Casa de Familia: Cáceres - Extremadura",
+      "tags": "Cáceres, Casa de Familia, Retrato"
+>>>>>>> Stashed changes
     }
   ]
 }
