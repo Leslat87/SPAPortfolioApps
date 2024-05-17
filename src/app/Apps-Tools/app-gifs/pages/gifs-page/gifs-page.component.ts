@@ -8,11 +8,13 @@ import { Gif } from '../../interfaces/gifs.interfaces';
   styleUrls: ['./gifs-page.component.scss']
 })
 export class GifsPageComponent {
-
-  constructor( private gifsService: GifsService ) {}
+  constructor(public gifsService: GifsService) {}
 
   get gifs(): Gif[] {
     return this.gifsService.gifList;
   }
 
+  searchGifs(term: string) {
+    this.gifsService.searchTag(term);
+  }
 }

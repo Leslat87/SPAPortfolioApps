@@ -7,7 +7,7 @@ import { KanbanBoardComponent } from './components/kanban-board/kanban-board.com
 
 const routes: Routes = [
   { path: '', component: KanbanBoardComponent },
-  { path: 'addtask', component: AddTaskComponent },
+  { path: 'addtasks', component: AddTaskComponent },
 
 ];
 

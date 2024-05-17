@@ -9,8 +9,8 @@ import { WeatherResponse, ForecastResponse } from '../interfaces/weather.interfa
   providedIn: 'root'
 })
 export class WeatherService {
-  private apiKey: string = 'YOUR_API_KEY'; // Reemplaza con tu API key
-  private apiUrl: string = 'https://api.openweathermap.org/data/2.5';
+  private apiKey: string = '80ee1ba1b07e63db5b0a03452c1ad306';
+  private apiUrl: string = 'https://api.openweathermap.org/data/2.5/weather';
 
   constructor(private http: HttpClient) {}
 

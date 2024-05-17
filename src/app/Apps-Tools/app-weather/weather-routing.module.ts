@@ -5,7 +5,7 @@ import { WeatherSearchComponent } from './components/weather-search/weather-sear
 import { WeatherForecastComponent } from './components/weather-forecast/weather-forecast.component';
 
 const routes: Routes = [
-  { path: 'search', component: WeatherSearchComponent },
+  { path: '', component: WeatherSearchComponent },
   { path: 'forecast/:city', component: WeatherForecastComponent }
 ];
 

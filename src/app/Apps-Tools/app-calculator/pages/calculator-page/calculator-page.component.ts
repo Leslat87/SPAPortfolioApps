@@ -10,7 +10,9 @@ export class CalculatorPageComponent {
   currentInput: string = '';
   currentResult: string = '0';
 
-  constructor(private calculatorService: CalculatorService) {}
+  constructor(private calculatorService: CalculatorService) {
+    
+  }
 
   appendCharacter(char: string) {
     this.currentInput += char;
@@ -30,6 +32,11 @@ export class CalculatorPageComponent {
       this.currentResult = 'Error';
     }
   }
+  clearHistory() {
+    this.calculatorService.clearHistory();
+  }
+
+
 
   safeEval(expression: string): string {
     // Solo permite caracteres válidos en la expresión matemática

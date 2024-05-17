@@ -1,22 +1,28 @@
-// src/app/Apps-Tools/app-weather/components/weather-search/weather-search.component.ts
 import { Component } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { WeatherResponse } from '../../interfaces/weather.interface';
 
 @Component({
-  selector: 'weather-search',
+  selector: 'app-weather-search',
   templateUrl: './weather-search.component.html',
   styleUrls: ['./weather-search.component.scss']
 })
 export class WeatherSearchComponent {
-  city: string = '';
-  weather?: WeatherResponse;
+  weatherData: WeatherResponse | null = null;
+  error: string | null = null;
 
   constructor(private weatherService: WeatherService) {}
 
-  searchWeather() {
-    this.weatherService.getWeather(this.city).subscribe(response => {
-      this.weather = response;
-    });
+  search(city: string): void {
+    this.weatherService.getWeather(city).subscribe(
+      data => {
+        this.weatherData = data;
+        this.error = null;
+      },
+      err => {
+        this.error = err.message;
+        this.weatherData = null;
+      }
+    );
   }
 }

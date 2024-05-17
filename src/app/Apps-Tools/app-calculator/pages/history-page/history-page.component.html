@@ -1,7 +1,7 @@
 <div class="history">
-  <h3>Historial de Operaciones</h3>
+  <h2>Historial</h2>
   <ul>
     <li *ngFor="let operation of history">{{ operation }}</li>
   </ul>
-  <button mat-raised-button color="warn" (click)="clearHistory()">Borrar Historial</button>
+  <button pButton type="button" label="Clear History" class="button-clear" (click)="clearHistory()"></button>
 </div>

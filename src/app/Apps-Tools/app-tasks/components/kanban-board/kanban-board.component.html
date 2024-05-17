@@ -1,3 +1,9 @@
+<div class="tasks-page">
+  <h1>Gestión de Tareas</h1>
+  <button mat-button color="primary" routerLink="/tasks/addtasks">Agregar Tarea</button>
+  <add-task></add-task>
+</div>
+
 <div class="kanban-board">
   <div class="column" (drop)="onDrop($event, 'to do')" (dragover)="$event.preventDefault()">
     <h3>To Do</h3>

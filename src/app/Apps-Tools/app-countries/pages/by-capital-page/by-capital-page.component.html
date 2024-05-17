@@ -1,26 +1,14 @@
-<h2>Por Capital</h2>
-<hr>
+<div class="country-list">
+  <h1>Buscar por Capital</h1>
+  <input type="text" [(ngModel)]="term" placeholder="Buscar capital..." (input)="search(term)" />
 
-<!--
-  <input [value]="initialValue" [type]="
--->
-
-<div class="row">
-  <div class="col">
-      <!-- SearchBox -->
-      <!-- (onValue)="searchByCapital($event)" -->
-      <shared-search-box
-      (onDebounce)="searchByCapital($event)"
-      [initialValue]="initialValue"
-        placeholder="Buscar por capital"></shared-search-box>
+  <div *ngIf="error">
+    <p>No se encontraron resultados</p>
   </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <hr>
-    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
-
-    <countries-table [countries]="countries"></countries-table>
+  <div *ngIf="!error">
+    <div class="country-cards">
+      <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>
+    </div>
   </div>
 </div>

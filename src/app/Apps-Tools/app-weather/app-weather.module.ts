@@ -23,6 +23,7 @@ import { WeatherService } from './services/weather.service';
     MaterialModule,
     WeatherRoutingModule,
     FormsModule,
+    
   ],
   exports: [
     WeatherSearchComponent,

@@ -1,36 +1,15 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { GifsService } from '../../services/gifs.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'gifs-search-box',
-  template: `
-    <h5>Buscar:</h5>
-    <input type="text"
-      class="form-control"
-      placeholder="Buscar gifs..."
-      (keyup.enter)="searchTag()"
-      #txtTagInput
-    >
-  `
+  templateUrl: './search-box.component.html',
+  styleUrl: './search-box.component.scss'
 })
+export class SearchBoxComponent {
+  @Output() search = new EventEmitter<string>();
+  searchTerm: string = '';
 
-export class SearchBoxComponent  {
-
-  @ViewChild('txtTagInput')
-  public tagInput!: ElementRef<HTMLInputElement>;
-
-
-  constructor( private gifsService: GifsService ) { }
-
-
-  // searchTag( newTag: string ) {
-  searchTag() {
-    const newTag = this.tagInput.nativeElement.value;
-
-    this.gifsService.searchTag(newTag);
-
-    this.tagInput.nativeElement.value = '';
-
+  onSearch() {
+    this.search.emit(this.searchTerm);
   }
-
 }

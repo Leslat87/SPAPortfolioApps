@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'gifs', loadChildren: () => import('./Apps-Tools/app-gifs/app-gifs.module').then(m => m.AppGifsModule) },
   { path: 'tasks', loadChildren: () => import('./Apps-Tools/app-tasks/app-tasks.module').then(m => m.AppTasksModule) },
   { path: 'weather', loadChildren: () => import('./Apps-Tools/app-weather/app-weather.module').then(m => m.AppWeatherModule) },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: Error404PageComponent },
 
 ];

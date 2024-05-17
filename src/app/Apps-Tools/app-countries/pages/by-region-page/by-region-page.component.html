@@ -1,25 +1,16 @@
-<h2>Por Región</h2>
-<hr>
+<div class="country-list">
+  <h1>Buscar por Región</h1>
+  <select (change)="search($event)">
+    <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+  </select>
 
-<div class="row">
-  <div class="col text-center">
-      <!-- SearchBox -->
-    <button *ngFor="let region of regions"
-    class="btn mx-2"
-    [ngClass]="{'btn-outline-primary': selectedRegion === region } "
-    (click)="searchByRegion(region)">
-      {{ region }}
-    </button>
+  <div *ngIf="error">
+    <p>No se encontraron resultados</p>
+  </div>
+
+  <div *ngIf="!error">
+    <div class="country-cards">
+      <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>
+    </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col">
-
-    <hr>
-
-
-    <countries-table [countries]="countries"></countries-table>
-  </div>
-</div>
-

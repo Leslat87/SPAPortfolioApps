@@ -1,39 +1,75 @@
-/* src/app/Apps-Tools/app-calculator/components/calculator/calculator.component.css */
-.calculator {
-  width: 300px;
-  margin: 0 auto;
-  background: #2c3e50;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.calculator-screen {
-  background: #ecf0f1;
-  padding: 16px;
-  border-radius: 4px;
-  text-align: right;
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-
-.calculator-buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-
-.calculator-buttons button {
-  padding: 16px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 4px;
-  background: #34495e;
+.calculator-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #1e1e1e;
   color: white;
-  cursor: pointer;
-  transition: background 0.3s;
 }
 
-.calculator-buttons button:hover {
-  background: #3b5998;
+.calculator {
+  width: 4%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+
+  .display {
+    background-color: #000;
+    color: white;
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: right;
+    margin-bottom: 20px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    button {
+      padding: 20px;
+      font-size: 1.5em;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+
+      &.button-ac {
+        background-color: #d32f2f;
+        color: white;
+        grid-column: span 3;
+      }
+
+      &.button-operator {
+        background-color: #ffa726;
+        color: white;
+      }
+
+      &.button-number {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      &.zero-button {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator-container {
+    flex-direction: column;
+    align-items: center;
+
+    .calculator {
+      width: 90%;
+    }
+  }
 }

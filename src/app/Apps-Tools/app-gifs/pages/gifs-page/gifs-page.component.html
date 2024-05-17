@@ -1,10 +1,17 @@
-<!-- src/app/Apps-Tools/app-gifs/pages/gifs-page/gifs-page.component.html -->
-<div>
-  <h1>GIFs Page</h1>
-  <div *ngIf="gifs.length === 0">Loading...</div>
-  <div *ngIf="gifs.length > 0">
-    <div *ngFor="let gif of gifs">
-      <img [src]="gif.url" [alt]="gif.title">
+<div class="gifs-page">
+  <h1>Buscador de GIFs</h1>
+  <gifs-search-box (search)="searchGifs($event)"></gifs-search-box>
+  <div class="gifs-content">
+    <div class="search-history">
+      <h2>Historial de Búsquedas</h2>
+      <ul>
+        <li *ngFor="let term of gifsService.tagsHistory" (click)="searchGifs(term)">
+          {{ term }}
+        </li>
+      </ul>
+    </div>
+    <div class="gifs-results">
+      <gifs-card-list [gifs]="gifs"></gifs-card-list>
     </div>
   </div>
 </div>

@@ -1,8 +1,23 @@
-/* src/app/country/components/country-card/country-card.component.css */
 .country-card {
   cursor: pointer;
   margin: 10px;
   transition: transform 0.2s ease-in-out;
+  width: 200px; // Establecer un ancho fijo
+  height: 300px; // Establecer una altura fija
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    flex: 1;
+  }
+
+  .mat-card-header,
+  .mat-card-content {
+    flex: none;
+  }
 }
 
 .country-card:hover {

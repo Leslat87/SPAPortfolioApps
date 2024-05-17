@@ -52,7 +52,7 @@ export class MenuComponent implements OnInit {
               {
                 label: 'Search by City',
                 icon: 'pi pi-fw pi-home',
-                routerLink: 'weather/search-city',
+                routerLink: 'weather/search',
               },
               {
                 label: 'List recent',
