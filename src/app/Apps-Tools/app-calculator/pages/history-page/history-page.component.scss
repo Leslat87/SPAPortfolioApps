@@ -1,0 +1,26 @@
+/* src/app/Apps-Tools/app-calculator/components/history/history.component.css */
+.history {
+  margin-top: 20px;
+}
+
+.history h3 {
+  text-align: center;
+  color: #34495e;
+}
+
+.history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history li {
+  background: #ecf0f1;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.history button {
+  display: block;
+  margin: 20px auto;
+}

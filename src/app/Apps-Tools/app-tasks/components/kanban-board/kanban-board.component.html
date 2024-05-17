@@ -1,0 +1,20 @@
+<div class="kanban-board">
+  <div class="column" (drop)="onDrop($event, 'to do')" (dragover)="$event.preventDefault()">
+    <h3>To Do</h3>
+    <div class="task" *ngFor="let task of getTasksByStatus('to do')" draggable="true" (dragstart)="onDragStart($event, task.id)">
+      {{ task.description }}
+    </div>
+  </div>
+  <div class="column" (drop)="onDrop($event, 'in progress')" (dragover)="$event.preventDefault()">
+    <h3>In Progress</h3>
+    <div class="task" *ngFor="let task of getTasksByStatus('in progress')" draggable="true" (dragstart)="onDragStart($event, task.id)">
+      {{ task.description }}
+    </div>
+  </div>
+  <div class="column" (drop)="onDrop($event, 'done')" (dragover)="$event.preventDefault()">
+    <h3>Done</h3>
+    <div class="task" *ngFor="let task of getTasksByStatus('done')" draggable="true" (dragstart)="onDragStart($event, task.id)">
+      {{ task.description }}
+    </div>
+  </div>
+</div>

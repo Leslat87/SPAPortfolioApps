@@ -7,30 +7,6 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 const routes: Routes = [
-<<<<<<< Updated upstream
-  {
-    path: '',
-    component: ListPageComponent,
-  },
-  {
-    path: 'list',
-    component: ListPageComponent,
-  },
-  { path: 'new-page',
-   component: NewPageComponent
-  },
-  { path: 'search',
-  component: SearchPageComponent
-  },
-  { path: 'edit/:id',
-  component: NewPageComponent
-  },
-  { path: ':id',
-  component: CrudPageComponent
-  },
-  { path: '**', redirectTo: 'list' },
-    ]
-=======
   { path: 'list', component: ListPageComponent },
   { path: 'new', component: NewPageComponent },
   { path: 'edit/:id', component: NewPageComponent },
@@ -38,7 +14,6 @@ const routes: Routes = [
   { path: ':id', component: CrudPageComponent }, // Ruta para la página de detalles
   { path: '', redirectTo: 'list', pathMatch: 'full' }, // Redirigir a 'list' como página de inicio
 ];
->>>>>>> Stashed changes
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -8,7 +8,7 @@ import { Image } from '../../interfaces/crud.interface';
 @Component({
   selector: 'crud-page',
   templateUrl: './crud-page.component.html',
-  styles: []
+  styleUrls: ['./crud-page.component.scss']
 })
 export class CrudPageComponent implements OnInit {
   public image!: Image;
@@ -36,9 +36,4 @@ export class CrudPageComponent implements OnInit {
   get imageUrl(): string {
     return this.image.alt_img || `assets/images/${this.image.id}.jpg`;
   }
-
-goBack(): void {
-  this.router.navigate(['/crud/list']);
-}
-
 }

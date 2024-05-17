@@ -6,7 +6,7 @@ import { Image } from '../../interfaces/crud.interface';
 @Component({
   selector: 'images-crud-card',
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
   @Input() image!: Image;
@@ -21,7 +21,7 @@ export class CardComponent {
     return text.length > limit ? text.substring(0, limit) + '...' : text;
   }
 
-  navigateToDetails(): void {
+  navigateToDetails() {
     this.router.navigate(['/crud', this.image.id]);
   }
 }

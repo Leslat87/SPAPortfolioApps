@@ -1,17 +1,16 @@
+// src/app/Apps-Tools/app-countries/pages/country-page/country-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CountriesService } from '../../services/countries.service';
-import { switchMap } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-country-page',
   templateUrl: './country-page.component.html',
-  styles: [
-  ]
+  styleUrls: ['./country-page.component.scss']
 })
 export class CountryPageComponent implements OnInit {
-
   public country?: Country;
 
   constructor(
@@ -21,18 +20,22 @@ export class CountryPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.activatedRoute.params
       .pipe(
-        switchMap( ({ id }) => this.countriesService.searchCountryByAlphaCode( id )),
+        switchMap(({ id }) => this.countriesService.searchCountryByAlpha(id)),
       )
-      .subscribe( country => {
-        if ( !country ) return this.router.navigateByUrl('');
-        return this.country = country;
-      });
+      .subscribe(
+        country => {
+          if (!country) {
+            this.router.navigateByUrl('');
+            return;
+          }
+          this.country = country;
+        },
+        error => {
+          console.error('Error fetching country details:', error);
+          this.router.navigateByUrl('');
+        }
+      );
   }
-
-
-
-
 }

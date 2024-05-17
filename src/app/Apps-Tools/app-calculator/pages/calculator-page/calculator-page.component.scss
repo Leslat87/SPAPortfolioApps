@@ -1,0 +1,39 @@
+/* src/app/Apps-Tools/app-calculator/components/calculator/calculator.component.css */
+.calculator {
+  width: 300px;
+  margin: 0 auto;
+  background: #2c3e50;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-screen {
+  background: #ecf0f1;
+  padding: 16px;
+  border-radius: 4px;
+  text-align: right;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.calculator-buttons button {
+  padding: 16px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: #34495e;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.calculator-buttons button:hover {
+  background: #3b5998;
+}

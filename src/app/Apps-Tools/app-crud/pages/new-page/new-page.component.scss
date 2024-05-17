@@ -1,0 +1,38 @@
+/* src/app/Apps-Tools/app-crud/pages/new-page/new-page.component.css */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form-section,
+.image-section {
+  flex: 1 1 50%;
+}
+
+.image-section mat-card {
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .form-section,
+  .image-section {
+    flex: 1 1 100%;
+  }
+}

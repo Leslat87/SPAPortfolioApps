@@ -35,10 +35,6 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSidenavModule,
     MatSnackBarModule,
     MatToolbarModule,
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
   ]
 })

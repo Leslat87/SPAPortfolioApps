@@ -17,19 +17,12 @@
     "@angular/compiler": "^17.3.0",
     "@angular/core": "^17.3.0",
     "@angular/forms": "^17.3.0",
-<<<<<<< Updated upstream
-    "@angular/material": "^17.3.7",
-=======
     "@angular/material": "^17.3.9",
->>>>>>> Stashed changes
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
     "bootstrap": "^5.3.3",
-<<<<<<< Updated upstream
-=======
     "bulma": "^1.0.0",
->>>>>>> Stashed changes
     "ngx-bootstrap": "^12.0.0",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
@@ -38,6 +31,7 @@
     "sass": "^1.77.1",
     "scss": "^0.2.4",
     "tslib": "^2.3.0",
+    "uuidv4": "^6.2.13",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {

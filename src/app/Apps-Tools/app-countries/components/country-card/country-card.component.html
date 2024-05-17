@@ -1,0 +1,11 @@
+<mat-card class="country-card" (click)="navigateToCountryDetail()">
+  <mat-card-header>
+    <mat-card-title>{{ country.name.common }}</mat-card-title>
+    <mat-card-subtitle>{{ country.capital[0] }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="country.flags.png" alt="{{ country.name.common }} flag">
+  <mat-card-content>
+    <p>Región: {{ country.region }}</p>
+    <p>Población: {{ country.population | number }}</p>
+  </mat-card-content>
+</mat-card>

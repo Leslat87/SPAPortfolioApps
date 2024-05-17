@@ -1,0 +1,12 @@
+<div class="weather-search">
+  <h2>Buscar Clima</h2>
+  <mat-form-field appearance="fill" class="full-width">
+    <input matInput [(ngModel)]="city" placeholder="Ingresa una ciudad">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="searchWeather()">Buscar</button>
+
+  <div *ngIf="weather">
+    <weather-today [weather]="weather"></weather-today>
+    <weather-forecast [city]="city"></weather-forecast>
+  </div>
+</div>

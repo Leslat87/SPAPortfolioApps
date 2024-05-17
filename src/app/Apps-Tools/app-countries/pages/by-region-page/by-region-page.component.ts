@@ -10,8 +10,7 @@ import { Region } from '../../interfaces/region.types';
 @Component({
   selector: 'app-by-region-page',
   templateUrl: './by-region-page.component.html',
-  styles: [
-  ]
+  styleUrls: ['./by-region-page.component.scss']
 })
 export class ByRegionPageComponent implements OnInit {
 

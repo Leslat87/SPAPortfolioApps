@@ -1,0 +1,10 @@
+/* src/app/country/components/country-card/country-card.component.css */
+.country-card {
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.country-card:hover {
+  transform: scale(1.05);
+}

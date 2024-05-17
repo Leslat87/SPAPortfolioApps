@@ -1,0 +1,11 @@
+<div class="weather-forecast">
+  <h3>Pronóstico para los próximos 7 días</h3>
+  <div *ngIf="forecast">
+    <div *ngFor="let day of forecast.list">
+      <p>{{ day.dt | date }}</p>
+      <img [src]="getIconUrl(day.weather[0].icon)" alt="{{ day.weather[0].description }}">
+      <p>Min: {{ day.temp.min }}°C, Max: {{ day.temp.max }}°C</p>
+      <p>{{ day.weather[0].description }}</p>
+    </div>
+  </div>
+</div>

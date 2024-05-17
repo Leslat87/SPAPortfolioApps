@@ -1,0 +1,10 @@
+/* src/app/country/pages/by-country-page/by-country-page.component.css */
+.country-list {
+  padding: 20px;
+}
+
+.country-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

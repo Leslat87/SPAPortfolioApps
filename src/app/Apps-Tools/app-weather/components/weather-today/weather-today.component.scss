@@ -1,0 +1,19 @@
+/* src/app/Apps-Tools/app-weather/components/weather-today/weather-today.component.css */
+.weather-today {
+  text-align: center;
+}
+
+.weather-today img {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.weather-today p {
+  margin: 8px 0;
+}
+
+@media (max-width: 600px) {
+  .weather-today {
+    font-size: 14px;
+  }
+}

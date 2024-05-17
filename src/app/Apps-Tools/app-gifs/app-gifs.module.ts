@@ -2,22 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-<<<<<<<< Updated upstream:src/app/Apps-Tools/app-gifs/app-gifts.module.ts
-import { CrudRoutingModule } from './gifts-routing.module';
 
 
-========
->>>>>>>> Stashed changes:src/app/Apps-Tools/app-gifs/app-gifs.module.ts
-import { CardListComponent } from './components/card-list/card-list.component';
-import { GiftsPageComponent } from './pages/gifts-page/gifts-page.component';
-import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { MaterialModule } from '../../material/material.module';
 import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
-<<<<<<<< Updated upstream:src/app/Apps-Tools/app-gifs/app-gifts.module.ts
-========
-import { GifsPageComponent } from './pages/gifs-page/gifs-page.component';
+
+
 import { GifsRoutingModule } from './gifs-routing.module';
->>>>>>>> Stashed changes:src/app/Apps-Tools/app-gifs/app-gifs.module.ts
+import { GifsPageComponent } from './pages/gifs-page/gifs-page.component';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { GifsService } from './services/gifs.service';
+
+
 
 
 
@@ -27,9 +24,9 @@ import { GifsRoutingModule } from './gifs-routing.module';
 
 @NgModule({
   declarations: [
+    GifsPageComponent,
     CardListComponent,
     SearchBoxComponent,
-
 
   ],
   imports: [
@@ -41,9 +38,12 @@ import { GifsRoutingModule } from './gifs-routing.module';
 
   ],
   exports: [
+    GifsPageComponent,
     CardListComponent,
     SearchBoxComponent,
-   
+  ],
+  providers: [
+    GifsService,
   ]
 })
-export class AppGiftsModule { }
+export class AppGifsModule { }

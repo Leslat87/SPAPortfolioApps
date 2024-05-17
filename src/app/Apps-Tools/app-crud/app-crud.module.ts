@@ -12,11 +12,11 @@ import { ListPageComponent } from './pages/list-page/list-page.component';
 import { NewPageComponent } from './pages/new-page/new-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
-<<<<<<< Updated upstream
-=======
+
 import { CrudPageComponent } from './pages/crud-page/crud-page.component';
 import { CardComponent } from './components/card/card.component';
->>>>>>> Stashed changes
+import { CrudService } from './services/crud.service';
+
 
 
 
@@ -28,7 +28,8 @@ import { CardComponent } from './components/card/card.component';
     ListPageComponent,
     SearchPageComponent,
     NewPageComponent,
-
+    CrudPageComponent,
+    CrudImagePipe,
 
   ],
   imports: [
@@ -38,7 +39,8 @@ import { CardComponent } from './components/card/card.component';
     MaterialModule,
     PrimeNgModule,
 
-    
+
+
   ],
   exports: [
     CardComponent,
@@ -46,8 +48,12 @@ import { CardComponent } from './components/card/card.component';
     ListPageComponent,
     SearchPageComponent,
     NewPageComponent,
+    CrudPageComponent,
+    CrudImagePipe,
 
-
+  ],
+  providers: [
+    CrudService
   ]
 })
 export class AppCrudModule { }

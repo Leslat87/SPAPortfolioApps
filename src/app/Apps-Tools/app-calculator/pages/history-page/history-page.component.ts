@@ -1,29 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+// src/app/Apps-Tools/app-calculator/components/history/history.component.ts
+import { Component } from '@angular/core';
+import { CalculatorService } from '../../services/calculator.service';
 
 @Component({
-  selector: 'shared-history',
+  selector: 'app-history',
   templateUrl: './history-page.component.html',
-  styleUrl: './history-page.component.css',
+  styleUrls: ['./history-page.component.scss']
 })
-export class HistoryPageComponent implements OnInit {
+export class HistoryPageComponent {
+  history: string[] = [];
 
-
-
-  history: string[] = []
-
-  constructor() {}
-  ngOnInit(): void {
-    // Obtener el historial de operaciones del localStorage al inicializar el componente
-    const storedHistory = localStorage.getItem('operationHistory');
-    if (storedHistory) {
-        this.history = JSON.parse(storedHistory);
+  constructor(private calculatorService: CalculatorService) {
+    this.history = this.calculatorService.getHistory();
   }
-}
 
-  clearHistory(): void {
-    localStorage.removeItem('operationHistory');
+  clearHistory() {
+    this.calculatorService.clearHistory();
     this.history = [];
   }
-
-
 }

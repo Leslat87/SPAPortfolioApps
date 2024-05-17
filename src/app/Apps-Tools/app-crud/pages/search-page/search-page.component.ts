@@ -8,8 +8,7 @@ import { CrudService } from '../../services/crud.service';
 @Component({
   selector: 'crud-search-page',
   templateUrl: './search-page.component.html',
-  styles: [
-  ]
+  styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent {
 

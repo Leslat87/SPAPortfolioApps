@@ -1,36 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { Country } from '../../interfaces/country';
+import { Component } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
+import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-by-country-page',
   templateUrl: './by-country-page.component.html',
-  styles: [
-  ]
+  styleUrls: ['./by-country-page.component.scss']
 })
-export class ByCountryPageComponent implements OnInit {
+export class ByCountryPageComponent {
+  term: string = '';
+  countries: Country[] = [];
+  error: boolean = false;
 
-  public countries: Country[] = [];
-  public isLoading: boolean = false;
-  public initialValue: string = '';
+  constructor(private countriesService: CountriesService) {}
 
-  constructor( private countriesService: CountriesService ) {}
+  search(term: string) {
+    this.error = false;
+    this.term = term;
 
-  ngOnInit() {
-    this.countries = this.countriesService.cacheStore.byCountries.countries;
-    this.initialValue = this.countriesService.cacheStore.byCountries.term;
-  }
-
-  searchByCountry( term: string ):void  {
-
-    this.isLoading = true;
-
-    this.countriesService.searchCountry( term )
-      .subscribe( countries => {
-        this.countries = countries;
-        this.isLoading = false;
+    this.countriesService.searchCountry(this.term)
+      .subscribe({
+        next: (countries) => {
+          this.countries = countries;
+        },
+        error: () => {
+          this.error = true;
+          this.countries = [];
+        }
       });
-
   }
-
 }
+

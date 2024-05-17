@@ -1,15 +1,26 @@
-<div class="container">
-  <div class="result"><span class="result-text">{{result}}</span>
-    <span class="value" *ngIf="value.active">={{value.value}}</span>
-    <div class="dialogo"></div>
+<div class="calculator">
+  <div class="calculator-screen">
+    <div class="calculator-operation">{{ currentInput }}</div>
+    <div class="calculator-result">{{ currentResult }}</div>
   </div>
-  <div class="buttons" *ngFor="let buttonRow of buttons">
-    <button (click)="click(button)" class="button" [ngClass]="buttonColor(button)" *ngFor="let button of buttonRow">{{button}}</button>
+  <div class="calculator-buttons">
+    <button (click)="appendCharacter('1')">1</button>
+    <button (click)="appendCharacter('2')">2</button>
+    <button (click)="appendCharacter('3')">3</button>
+    <button (click)="appendCharacter('+')">+</button>
+    <button (click)="appendCharacter('4')">4</button>
+    <button (click)="appendCharacter('5')">5</button>
+    <button (click)="appendCharacter('6')">6</button>
+    <button (click)="appendCharacter('-')">-</button>
+    <button (click)="appendCharacter('7')">7</button>
+    <button (click)="appendCharacter('8')">8</button>
+    <button (click)="appendCharacter('9')">9</button>
+    <button (click)="appendCharacter('*')">*</button>
+    <button (click)="appendCharacter('0')">0</button>
+    <button (click)="appendCharacter('.')">.</button>
+    <button (click)="calculateResult()">=</button>
+    <button (click)="appendCharacter('/')">/</button>
+    <button (click)="clearInput()">C</button>
   </div>
-   
-
-<div class="dialog"></div>
 </div>
-
-
-
+<app-history></app-history>
