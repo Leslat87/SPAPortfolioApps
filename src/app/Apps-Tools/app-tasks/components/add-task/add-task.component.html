@@ -1,0 +1,9 @@
+<div class="add-task">
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción de la Tarea</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Agregar Tarea</button>
+  </form>
+</div>

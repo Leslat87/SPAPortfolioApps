@@ -1,0 +1,8 @@
+<div class="weather-today">
+  <h3>{{ weather.name }}</h3>
+  <img [src]="getIconUrl(weather.weather[0].icon)" alt="{{ weather.weather[0].description }}">
+  <p>Temperatura: {{ weather.main.temp }}°C</p>
+  <p>Min: {{ weather.main.temp_min }}°C, Max: {{ weather.main.temp_max }}°C</p>
+  <p>{{ weather.weather[0].description }}</p>
+  <p>Recomendación: {{ getActivityRecommendation(weather.weather[0].description) }}</p>
+</div>

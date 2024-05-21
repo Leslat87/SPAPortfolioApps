@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PrincipalPageComponent } from './app-principal/components/principal-page/principal-page.component';
+import { AboutPageComponent } from '../shared/pages/about-page/about-page.component';
+import { ContactPageComponent } from '../shared/pages/contact-page/contact-page.component';
+import { Error404PageComponent } from '../shared/pages/error404-page/error404-page.component';
 
-import { CalculatorPageComponent } from './app-calculator/pages/calculator-page/calculator-page.component';
-import { CountryPageComponent } from './app-countries/pages/country-page/country-page.component';
-import { CrudPageComponent } from './app-crud/pages/crud-page/crud-page.component';
-import { GiftsPageComponent } from './app-gifts/pages/gifts-page/gifts-page.component';
-import { HomePageComponent } from './home/home-page.component';
-import { AppCountriesModule } from './app-countries/app-countries.module';
+
+
+
 
 
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomePageComponent
+    path: 'home',
+    component: PrincipalPageComponent
   },
   {
     path: 'calculator',
@@ -28,21 +29,20 @@ const routes: Routes = [
     loadChildren: () => import('./app-crud/app-crud.module').then( m => m.AppCrudModule ),
   },
   {
-    path: 'gifts',
-    loadChildren: () => import('./app-gifts/app-gifts.module').then( m => m.AppGiftsModule ),
+    path: 'gifs',
+    loadChildren: () => import('./app-gifs/app-gifs.module').then( m => m.AppGifsModule ),
   },
-  // {
-  //   path: 'tasks',
-  //   component: TasksPageComponent
-  // },
-  // {
-  //   path: 'weather',
-  //   component: WeatherPageComponent
-  // },
   {
-    path: '**',
-    redirectTo: ''
+    path: 'tasks',
+    loadChildren: () => import('./app-tasks/app-tasks.module').then( m => m.AppTasksModule ),
   },
+  {
+    path: 'weather',
+    loadChildren: () => import('./app-weather/app-weather.module').then( m => m.AppWeatherModule ),
+  },
+  { path: 'about', component: AboutPageComponent },
+  { path: 'contact', component: ContactPageComponent },
+  { path: '**', component: Error404PageComponent },
 ];
 
 @NgModule({

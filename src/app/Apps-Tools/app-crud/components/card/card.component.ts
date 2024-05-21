@@ -1,19 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+// src/app/Apps-Tools/app-crud/components/card/card.component.ts
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Image } from '../../interfaces/crud.interface';
 
 @Component({
   selector: 'images-crud-card',
-  templateUrl: 'card.component.html',
-  styles: ``
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit{
+export class CardComponent {
+  @Input() image!: Image;
 
-  @Input()
+  constructor(private router: Router) {}
 
-   public image!: Image;
-
-   ngOnInit(): void {
-    if (!this.image) throw Error('Image property is required')
+  get imageUrl(): string {
+    return this.image.alt_img || `assets/images/${this.image.id}.jpg`;
   }
 
+  truncateText(text: string, limit: number): string {
+    return text.length > limit ? text.substring(0, limit) + '...' : text;
+  }
+
+  navigateToDetails() {
+    this.router.navigate(['/crud', this.image.id]);
+  }
 }

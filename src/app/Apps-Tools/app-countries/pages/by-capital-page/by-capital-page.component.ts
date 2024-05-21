@@ -5,22 +5,17 @@ import { Country } from '../../interfaces/country';
 @Component({
   selector: 'app-by-capital-page',
   templateUrl: './by-capital-page.component.html',
-  styles: [
-  ]
+  styleUrls: ['./by-capital-page.component.scss']
 })
 export class ByCapitalPageComponent implements OnInit {
+  term: string = '';
+  countries: Country[] = [];
+  error: boolean = false;
 
-  public countries: Country[] = [];
-  public isLoading: boolean = false;
-  public initialValue: string = '';
+  constructor(private countriesService: CountriesService) {}
 
-  constructor( private countriesService: CountriesService ) {}
+  ngOnInit(): void {}
 
-<<<<<<< Updated upstream
-  ngOnInit() {
-    this.countries = this.countriesService.cacheStore.byCapital.countries;
-    this.initialValue = this.countriesService.cacheStore.byCapital.term;
-=======
   search(term: string): void {
     this.error = false;
     this.countriesService.getCountryByCapital(term).subscribe(
@@ -32,19 +27,5 @@ export class ByCapitalPageComponent implements OnInit {
         this.countries = [];
       }
     );
->>>>>>> Stashed changes
   }
-
-  searchByCapital( term: string ):void  {
-
-    this.isLoading = true;
-
-    this.countriesService.searchCapital( term )
-      .subscribe( countries => {
-        this.countries = countries;
-        this.isLoading = false;
-      });
-
-  }
-
 }

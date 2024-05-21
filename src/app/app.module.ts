@@ -10,13 +10,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-<<<<<<< Updated upstream
-import { HomeModule } from './Apps-Tools/home.module';
-=======
 import { HomeComponent } from './Apps-Tools/home.component';
 import { MenuService } from './shared/components/menu/services/menu.service';
 
->>>>>>> Stashed changes
 
 
 
@@ -29,11 +25,12 @@ import { MenuService } from './shared/components/menu/services/menu.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    HomeModule,
+
 
 
 

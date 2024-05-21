@@ -1,3 +1,4 @@
+// src/app/Apps-Tools/app-crud/pages/list-page/list-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Image } from '../../interfaces/crud.interface';
 import { CrudService } from '../../services/crud.service';
@@ -5,18 +6,16 @@ import { CrudService } from '../../services/crud.service';
 @Component({
   selector: 'crud-list-page',
   templateUrl: './list-page.component.html',
-  styles: [
-  ]
+  styleUrls: ['./list-page.component.scss']
 })
 export class ListPageComponent implements OnInit {
 
   public images: Image[] = [];
 
-  constructor( private crudService: CrudService ) {}
+  constructor(private crudService: CrudService) {}
 
   ngOnInit(): void {
     this.crudService.getImages()
-      .subscribe( images => this.images = images );
+      .subscribe(images => this.images = images);
   }
-
 }

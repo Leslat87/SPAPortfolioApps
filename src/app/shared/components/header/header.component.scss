@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #333; /* Color del menú */
+  height: 60px; /* Altura de la barra de encabezado */
+}
+
+.menu-wrapper {
+  flex: 1; /* Para que el menú ocupe todo el espacio disponible */
+}
+
+.logo-wrapper {
+  background-color: #555; /* Color del logo */
+  height: 100%; /* Ocupará toda la altura de la barra de encabezado */
+  width: 145px; /* Ancho del logo */
+}
