@@ -1,26 +1,58 @@
+<<<<<<< Updated upstream
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+=======
+import { Component, OnInit, Input } from '@angular/core';
+
+interface MenuItem {
+  label: string;
+  icon?: string;
+  routerLink?: string;
+  items?: MenuItem[];
+}
+>>>>>>> Stashed changes
 
 
 @Component({
+<<<<<<< Updated upstream
     selector: 'shared-menu',
     templateUrl: './menu.component.html',
     styles: ``,
+=======
+  selector: 'shared-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
+>>>>>>> Stashed changes
 })
 
 export class MenuComponent {
   public menuItems: MenuItem[] = [];
 
+  constructor() {}
+
   ngOnInit() {
     this.menuItems = [
       {
+<<<<<<< Updated upstream
         label: 'Apis',
         icon: ' pi pi-desktop',
+=======
+        label: 'Home',
+        icon: 'pi pi-home',
+        routerLink: '/home'
+      },
+      {
+        label: 'Apps',
+        icon: 'pi pi-desktop',
+>>>>>>> Stashed changes
         items: [
           {
             label: 'Crud',
             icon: 'pi pi-fw pi-image',
+<<<<<<< Updated upstream
             routerLink: 'crud',
+=======
+>>>>>>> Stashed changes
             items: [
               {
                 label: 'List',
@@ -41,8 +73,12 @@ export class MenuComponent {
           },
           {
             label: 'Weather',
+<<<<<<< Updated upstream
             icon: ' pi pi-cloud',
             routerLink: 'numbers',
+=======
+            icon: 'pi pi-cloud',
+>>>>>>> Stashed changes
             items: [
 
               {
@@ -65,8 +101,12 @@ export class MenuComponent {
           },
           {
             label: 'Countries',
+<<<<<<< Updated upstream
             icon: ' pi pi-fw pi-globe',
             routerLink: 'country',
+=======
+            icon: 'pi pi-fw pi-globe',
+>>>>>>> Stashed changes
             items: [
               {
                 label: 'Search by Capital',
@@ -117,6 +157,7 @@ export class MenuComponent {
             routerLink: 'calculator',
           },
           {
+<<<<<<< Updated upstream
             label: 'Tasks Manager',
             icon: ' pi pi-pencil',
             routerLink: 'tasks Manager',
@@ -137,7 +178,31 @@ export class MenuComponent {
             ],
           },
         ],
+=======
+            label: 'Calculator',
+            icon: 'pi pi-calculator',
+            routerLink: 'calculator',
+          }
+        ]
+      },
+      {
+        label: 'About',
+        icon: 'pi pi-fw pi-info',
+        routerLink: '/about',
+      },
+      {
+        label: 'Contact',
+        icon: 'pi pi-fw pi-envelope',
+        routerLink: '/contact',
+>>>>>>> Stashed changes
       },
     ];
+  }
+
+  toggleMobileMenu(): void {
+    const menu = document.querySelector('.mobile-menu');
+    if (menu) {
+      menu.classList.toggle('hidden');
+    }
   }
 }

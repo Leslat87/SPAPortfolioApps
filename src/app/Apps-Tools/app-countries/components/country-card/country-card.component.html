@@ -1,0 +1,15 @@
+<div class="country-card">
+  <div class="country-card-header">
+    <h2 class="country-card-title">{{ country.name.common }}</h2>
+  </div>
+  <img class="country-card-image" [src]="country.flags.svg" [alt]="country.name.common + ' flag'">
+  <div class="country-card-content">
+    <p><strong>Capital:</strong> {{ country.capital[0] }}</p>
+    <p><strong>Región:</strong> {{ country.region }}</p>
+    <p><strong>Subregión:</strong> {{ country.subregion }}</p>
+    <p><strong>Población:</strong> {{ country.population | number }}</p>
+    <p><strong>Lenguajes:</strong> {{ getLanguages(country.languages) }}</p>
+    <p><strong>Monedas:</strong> {{ getCurrencies(country.currencies) }}</p>
+    <p><strong>Fronteras:</strong> {{ getBorders(country.borders) }}</p>
+  </div>
+</div>

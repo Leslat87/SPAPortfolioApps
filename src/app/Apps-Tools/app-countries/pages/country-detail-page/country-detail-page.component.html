@@ -1,0 +1,9 @@
+<ng-template #loading>
+  <div class="alert alert-info text-center">
+    Espere por favor...
+  </div>
+</ng-template>
+
+<div *ngIf="(country$ | async) as country; else loading">
+  <app-country-card [country]="country"></app-country-card>
+</div>

@@ -1,9 +1,15 @@
+<<<<<<< Updated upstream
 import { Component, OnInit} from '@angular/core';
 import { ChildActivationEnd } from '@angular/router';
+=======
+import { Component, OnInit } from '@angular/core';
+import { Calculation, CalculatorService } from '../../services/calculator.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'shared-home-page',
   templateUrl: './calculator-page.component.html',
+<<<<<<< Updated upstream
   styleUrl: './calculator-page.component.css',
 })
 
@@ -221,4 +227,44 @@ export class CalculatorPageComponent implements OnInit {
       }
     }
 
+=======
+  styleUrls: ['./calculator-page.component.css']
+})
+export class CalculatorPageComponent implements OnInit {
+  display: string = '';
+  history: Calculation[] = [];
+
+  constructor(private calculatorService: CalculatorService) {}
+
+  ngOnInit(): void {
+    this.history = this.calculatorService.getHistory();
+  }
+
+  append(value: string) {
+    this.display += value;
+  }
+
+  clear() {
+    this.display = '';
+  }
+
+  delete() {
+    this.display = this.display.slice(0, -1);
+  }
+
+  calculate() {
+    const result = this.calculatorService.evaluateExpression(this.display);
+    const calculation: Calculation = {
+      expression: this.display,
+      result: result
+    };
+    this.calculatorService.addCalculation(calculation);
+    this.history = this.calculatorService.getHistory();
+    this.display = result;
+  }
+
+  clearHistory() {
+    this.calculatorService.clearHistory();
+    this.history = [];
+>>>>>>> Stashed changes
   }

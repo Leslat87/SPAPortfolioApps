@@ -11,6 +11,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+<<<<<<< Updated upstream
+=======
+import { HeaderComponent } from './components/header/header.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -27,6 +33,10 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
   ],
   imports:[
     CommonModule,
+<<<<<<< Updated upstream
+=======
+    RouterModule,
+>>>>>>> Stashed changes
     MaterialModule,
     PrimeNgModule,
 

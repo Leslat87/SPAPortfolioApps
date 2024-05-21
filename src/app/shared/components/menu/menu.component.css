@@ -1,4 +1,25 @@
+<<<<<<< Updated upstream
 .p-menubar {
   height: 100px;
   flex: 1 1 auto;
+=======
+@import 'tailwindcss/tailwind.css';
+
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: block;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+>>>>>>> Stashed changes
 }

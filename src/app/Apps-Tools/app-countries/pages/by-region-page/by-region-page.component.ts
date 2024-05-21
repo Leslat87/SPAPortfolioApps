@@ -21,9 +21,23 @@ export class ByRegionPageComponent implements OnInit {
 
   constructor( private countriesService: CountriesService ) {}
 
+<<<<<<< Updated upstream
   ngOnInit() {
     this.countries = this.countriesService.cacheStore.byRegion.countries;
     this.selectedRegion = this.countriesService.cacheStore.byRegion.region;
+=======
+  search(region: Region): void {
+    this.error = false;
+    this.countriesService.getCountryByRegion(region).subscribe(
+      countries => {
+        this.countries = countries;
+      },
+      () => {
+        this.error = true;
+        this.countries = [];
+      }
+    );
+>>>>>>> Stashed changes
   }
 
   searchByRegion( region: Region ):void  {

@@ -1,3 +1,61 @@
+<<<<<<< Updated upstream
 <p-menubar [model]="menuItems">Portfolio
   <img src="./favicon.ico" alt="icono">
   </p-menubar>
+=======
+<nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="text-white font-bold">
+      <img src="assets/logo.png" alt="Logo" class="h-8 inline-block mr-2"> Protfolio App
+    </div>
+    <ul class="hidden md:flex space-x-4">
+      <li *ngFor="let item of menuItems" class="relative group">
+        <ng-container *ngIf="!item.items">
+          <a [routerLink]="item.routerLink" class="text-white hover:text-gray-400 flex items-center">
+            <i [class]="item.icon" class="mr-1"></i> {{ item.label }}
+          </a>
+        </ng-container>
+        <ng-container *ngIf="item.items">
+          <div class="text-white hover:text-gray-400 flex items-center cursor-pointer">
+            <i [class]="item.icon" class="mr-1"></i> {{ item.label }}
+          </div>
+          <ul class="absolute left-0 hidden mt-2 bg-white text-black rounded shadow-lg group-hover:block">
+            <li *ngFor="let subItem of item.items" class="p-2 hover:bg-gray-200">
+              <a [routerLink]="subItem.routerLink" class="block">{{ subItem.label }}</a>
+            </li>
+          </ul>
+        </ng-container>
+      </li>
+    </ul>
+    <div class="md:hidden flex items-center">
+      <button (click)="toggleMobileMenu()" class="text-white mobile-menu-button">
+        <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="md:hidden mobile-menu hidden">
+  <ul>
+    <li *ngFor="let item of menuItems">
+      <ng-container *ngIf="!item.items">
+        <a [routerLink]="item.routerLink" class="block text-sm px-2 py-4 text-white bg-gray-800 hover:bg-gray-700 transition duration-300">
+          <i [class]="item.icon" class="mr-1"></i> {{ item.label }}
+        </a>
+      </ng-container>
+      <ng-container *ngIf="item.items">
+        <div class="block text-sm px-2 py-4 text-white bg-gray-800 hover:bg-gray-700 transition duration-300 cursor-pointer">
+          <i [class]="item.icon" class="mr-1"></i> {{ item.label }}
+        </div>
+        <ul class="bg-gray-700">
+          <li *ngFor="let subItem of item.items" class="p-2 hover:bg-gray-600">
+            <a [routerLink]="subItem.routerLink" class="block text-white">{{ subItem.label }}</a>
+          </li>
+        </ul>
+      </ng-container>
+    </li>
+  </ul>
+</div>
+>>>>>>> Stashed changes

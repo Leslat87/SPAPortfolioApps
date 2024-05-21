@@ -1,4 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Añadir el fondo general */
+body {
+  @apply bg-gray-900 text-white;
+
+  background-size: cover;
+  background-position: center;
+}
+
+
+main {
+  @apply bg-gray-800;
+}
+
+/* Fondo de la página cuando no hay resultados de búsqueda */
+.bg-image {
+  background-image: url('/assets/images/worldmap_countries_blue.jpg'); /* Reemplaza con la ruta de tu imagen de fondo */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Asegurarse de que el contenido no cubra el menú en dispositivos móviles */
+@media (max-width: 768px) {
+  main {
+    padding-top: 56px; /* Ajusta la altura del menú si es diferente */
+  }
+}
