@@ -1,43 +1,40 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-
-import { Image } from '../../interfaces/crud.interface';
+import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../services/crud.service';
+import { Image } from '../../interfaces/crud.interface';
 
 @Component({
-  selector: 'crud-search-page',
+  selector: 'app-search-page',
   templateUrl: './search-page.component.html',
-  styleUrls: ['./search-page.component.scss']
+  styleUrls: ['./search-page.component.css']
 })
-export class SearchPageComponent {
-
-  public searchInput = new FormControl('');
+export class SearchPageComponent implements OnInit {
   public images: Image[] = [];
-  public selectedImages?: Image;
+  public filteredImages: Image[] = [];
+  public uniqueTags: string[] = [];
+  public searchTerm: string = '';
 
-  constructor( private crudService: CrudService ){}
+  constructor(private crudService: CrudService) {}
 
-  searchImage() {
-    const value: string = this.searchInput.value || '';
-
-    this.crudService.getSuggestions( value )
-      .subscribe( images => this.images = images );
+  ngOnInit(): void {
+    this.crudService.getImages().subscribe(images => {
+      this.images = images;
+      this.uniqueTags = this.getUniqueTags(images);
+    });
   }
 
-
-  onSelectedOption( event: MatAutocompleteSelectedEvent ): void {
-    if ( !event.option.value ) {
-      this.selectedImages = undefined;
-      return;
-    }
-
-    const image: Image = event.option.value;
-    this.searchInput.setValue( image.name );
-
-    this.selectedImages = image;
-
+  getUniqueTags(images: Image[]): string[] {
+    const tags = images.flatMap(image => image.tags.split(','));
+    return Array.from(new Set(tags.map(tag => tag.trim())));
   }
 
+  onSearch(): void {
+    this.filteredImages = this.images.filter(image =>
+      image.tags.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 
+  onTagClick(tag: string): void {
+    this.searchTerm = tag;
+    this.onSearch();
+  }
 }

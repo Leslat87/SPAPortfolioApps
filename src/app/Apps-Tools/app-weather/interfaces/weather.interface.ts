@@ -1,15 +1,18 @@
-// src/app/Apps-Tools/app-weather/interfaces/weather.interface.ts
-export interface WeatherResponse {
-  weather: { description: string, icon: string }[];
-  main: { temp: number, temp_min: number, temp_max: number };
+export interface Weather {
   name: string;
-  dt: number;
-}
-
-export interface ForecastResponse {
-  list: {
-    dt: number;
-    temp: { min: number, max: number };
-    weather: { description: string, icon: string }[];
+  main: {
+    temp: number;
+    temp_min: number;
+    temp_max: number;
+    humidity: number;
+    pressure: number;
+  };
+  weather: {
+    description: string;
+    icon: string;
   }[];
+  wind: {
+    speed: number;
+  };
+  visibility: number;
 }

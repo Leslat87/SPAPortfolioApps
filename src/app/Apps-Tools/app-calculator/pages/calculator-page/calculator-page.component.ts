@@ -1,56 +1,40 @@
-import { Component } from '@angular/core';
-import { CalculatorService } from '../../services/calculator.service';
+import { Component, OnInit } from '@angular/core';
+import { Calculation, CalculatorService } from '../../services/calculator.service';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator-page.component.html',
-  styleUrls: ['./calculator-page.component.scss']
+  styleUrls: ['./calculator-page.component.css']
 })
-export class CalculatorPageComponent {
-  currentInput: string = '';
-  currentResult: string = '0';
+export class CalculatorPageComponent implements OnInit {
+  display: string = '';
+  history: Calculation[] = [];
 
-  constructor(private calculatorService: CalculatorService) {
-    
+  constructor(private calculatorService: CalculatorService) {}
+
+  ngOnInit(): void {
+    this.history = this.calculatorService.getHistory();
   }
 
-  appendCharacter(char: string) {
-    this.currentInput += char;
+  append(value: string) {
+    this.display += value;
   }
 
-  clearInput() {
-    this.currentInput = '';
-    this.currentResult = '0';
+  clear() {
+    this.display = '';
   }
 
-  calculateResult() {
-    try {
-      this.currentResult = this.safeEval(this.currentInput);
-      this.calculatorService.addOperation(`${this.currentInput} = ${this.currentResult}`);
-      this.currentInput = '';
-    } catch (e) {
-      this.currentResult = 'Error';
-    }
+  delete() {
+    this.display = this.display.slice(0, -1);
   }
+
+  calculate() {
+    const result = this.calculatorService.calculate(this.display);
+    this.history = this.calculatorService.getHistory();
+    this.display = result;
+  }
+
   clearHistory() {
-    this.calculatorService.clearHistory();
-  }
-
-
-
-  safeEval(expression: string): string {
-    // Solo permite caracteres válidos en la expresión matemática
-    const allowedCharacters = /^[0-9+\-*/().\s]+$/;
-    if (!allowedCharacters.test(expression)) {
-      throw new Error('Invalid expression');
-    }
-
-    // Evalúa la expresión matemáticamente de manera segura
-    try {
-      // Usar `Function` en lugar de `eval` para evaluar la expresión
-      return Function(`'use strict'; return (${expression})`)().toString();
-    } catch {
-      throw new Error('Invalid expression');
-    }
+    this.history = [];
   }
 }

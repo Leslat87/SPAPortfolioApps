@@ -1,28 +1,37 @@
-// src/app/Apps-Tools/app-countries/pages/country-detail-page/country-detail-page.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CountriesService } from '../../services/countries.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap, } from 'rxjs/operators';
 import { Country } from '../../interfaces/country';
+import { CountriesService } from '../../services/countries.service';
 
 @Component({
   selector: 'app-country-detail-page',
   templateUrl: './country-detail-page.component.html',
-  styleUrls: ['./country-detail-page.component.scss']
+  styleUrls: ['./country-detail-page.component.css']
 })
 export class CountryDetailPageComponent implements OnInit {
-  country!: Country;
+
+  public country?: Country;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private countriesService: CountriesService
+    private router: Router,
+    private countriesService: CountriesService,
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      const id = params['id'];
-      this.countriesService.searchCountryByAlpha(id).subscribe(country => {
-        this.country = country!;
+
+    this.activatedRoute.params
+      .pipe(
+        switchMap( ({ id }) => this.countriesService.searchCountryByAlphaCode( id )),
+      )
+      .subscribe( country => {
+        if ( !country ) return this.router.navigateByUrl('');
+        return this.country = country;
       });
-    });
   }
+
+
+
+
 }

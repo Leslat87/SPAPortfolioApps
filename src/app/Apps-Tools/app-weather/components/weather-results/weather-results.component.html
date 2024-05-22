@@ -1,0 +1,73 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full md:max-w-6xl mx-auto">
+  <!-- Información principal -->
+  <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <h2 class="text-3xl font-bold">{{ weather.name }}</h2>
+        <p class="text-xl">{{ currentDate }} {{ currentTime }}</p>
+        <p class="text-5xl font-bold">{{ weather.main.temp }}°C</p>
+        <p class="text-lg">{{ weather.weather[0].description }}</p>
+        <p class="mt-2 text-sm">Feels like: {{ weather.main.feels_like }}°C</p>
+      </div>
+      <div>
+        <img src="http://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@4x.png" alt="Weather Icon">
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjeta de Temperatura -->
+  <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-between">
+    <div>
+      <p class="text-xl font-bold">Temperature</p>
+      <p class="text-3xl font-bold">{{ weather.main.temp }}°C</p>
+    </div>
+    <div>
+      <img src="/src/assets/temperature.png" alt="Temperature Icon">
+    </div>
+  </div>
+
+  <!-- Tarjeta de Humedad -->
+  <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-between">
+    <div>
+      <p class="text-xl font-bold">Humidity</p>
+      <p class="text-3xl font-bold">{{ weather.main.humidity }}%</p>
+    </div>
+    <div>
+      <img src="/src/assets/humedad.png" alt="Humidity Icon" class="h-12 w-12">
+    </div>
+  </div>
+
+  <!-- Tarjeta de Presión -->
+  <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-between">
+    <div>
+      <p class="text-xl font-bold">Pressure</p>
+      <p class="text-3xl font-bold">{{ weather.main.pressure }} hPa</p>
+    </div>
+    <div>
+      <img src="/src/assets/pressure.png" alt="Pressure Icon" class="h-12 w-12">
+    </div>
+  </div>
+
+  <!-- Tarjeta de Visibilidad -->
+  <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-between">
+    <div>
+      <p class="text-xl font-bold">Visibility</p>
+      <p class="text-3xl font-bold">{{ weather.visibility / 1000 }} km</p>
+    </div>
+    <div>
+      <img src="/src/assets/visibilidad.png" alt="Visibility Icon" class="h-12 w-12">
+    </div>
+  </div>
+
+  <!-- Gráfica del clima por horas -->
+  <div class="bg-white p-6 rounded-lg shadow-md col-span-1 md:col-span-2">
+    <h3 class="text-xl font-bold mb-4">Hourly forecast</h3>
+    <div echarts [options]="hourlyChartOptions" class="echart" style="height: 300px;"></div>
+  </div>
+
+  <!-- Pronóstico semanal -->
+  <div class="bg-white p-6 rounded-lg shadow-md col-span-1 md:col-span-2">
+    <h3 class="text-xl font-bold mb-4">8-day forecast</h3>
+    <div echarts [options]="dailyChartOptions" class="echart" style="height: 300px;"></div>
+  </div>
+</div>

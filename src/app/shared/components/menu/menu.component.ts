@@ -1,22 +1,29 @@
-// src/app/shared/components/menu/menu.component.ts
 import { Component, OnInit, Input } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+
+interface MenuItem {
+  label: string;
+  icon?: string;
+  routerLink?: string;
+  items?: MenuItem[];
+}
 
 @Component({
   selector: 'shared-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
   @Input()
   public menuItems: MenuItem[] = [];
+
+  constructor() {}
 
   ngOnInit() {
     this.menuItems = [
       {
         label: 'Home',
         icon: 'pi pi-home',
-        routerLink: 'home'
+        routerLink: '/home'
       },
       {
         label: 'Apps',
@@ -25,7 +32,6 @@ export class MenuComponent implements OnInit {
           {
             label: 'Crud',
             icon: 'pi pi-fw pi-image',
-            routerLink: 'crud/list',
             items: [
               {
                 label: 'List',
@@ -47,7 +53,6 @@ export class MenuComponent implements OnInit {
           {
             label: 'Weather',
             icon: 'pi pi-cloud',
-            routerLink: 'weather',
             items: [
               {
                 label: 'Search by City',
@@ -69,7 +74,6 @@ export class MenuComponent implements OnInit {
           {
             label: 'Countries',
             icon: 'pi pi-fw pi-globe',
-            routerLink: 'countries',
             items: [
               {
                 label: 'Search by Capital',
@@ -114,13 +118,20 @@ export class MenuComponent implements OnInit {
       {
         label: 'About',
         icon: 'pi pi-fw pi-info',
-        routerLink: 'about',
+        routerLink: '/about',
       },
       {
         label: 'Contact',
         icon: 'pi pi-fw pi-envelope',
-        routerLink: 'contact',
+        routerLink: '/contact',
       },
     ];
+  }
+
+  toggleMobileMenu(): void {
+    const menu = document.querySelector('.mobile-menu');
+    if (menu) {
+      menu.classList.toggle('hidden');
+    }
   }
 }

@@ -1,4 +1,3 @@
-// src/app/Apps-Tools/app-tasks/services/task.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Task, TaskStatus } from '../interfaces/task.interface';
@@ -23,6 +22,11 @@ export class TaskService {
       this.tasks[index].status = status;
       this.tasksSubject.next(this.tasks);
     }
+  }
+
+  deleteTask(taskId: string) {
+    this.tasks = this.tasks.filter(task => task.id !== taskId);
+    this.tasksSubject.next(this.tasks);
   }
 
   getTasks(): Task[] {

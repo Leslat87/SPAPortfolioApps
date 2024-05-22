@@ -1,0 +1,9 @@
+@import 'tailwindcss/tailwind.css';
+
+.container {
+  max-width: 100%;
+}
+
+img {
+  max-height: 100vh; /* Asegura que la imagen no sea más grande que la pantalla */
+}

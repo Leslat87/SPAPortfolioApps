@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CrudRoutingModule } from './crud-routing.module';
 import { MaterialModule } from './../../material/material.module';
@@ -38,6 +38,7 @@ import { CrudService } from './services/crud.service';
     CrudRoutingModule,
     MaterialModule,
     PrimeNgModule,
+    FormsModule,
 
 
 

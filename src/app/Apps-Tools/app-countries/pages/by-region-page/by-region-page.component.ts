@@ -6,29 +6,31 @@ import { Region } from '../../interfaces/region.types';
 @Component({
   selector: 'app-by-region-page',
   templateUrl: './by-region-page.component.html',
-  styleUrls: ['./by-region-page.component.scss']
+  styleUrls: ['./by-region-page.component.css']
 })
 export class ByRegionPageComponent implements OnInit {
-  regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
-  countries: Country[] = [];
-  error: boolean = false;
 
-  constructor(private countriesService: CountriesService) {}
+  public countries: Country[] = [];
+  public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+  public selectedRegion?: Region;
+  public isLoading: boolean = false;
 
-  ngOnInit(): void {}
+  constructor( private countriesService: CountriesService ) {}
 
-  search(event: Event): void {
-    const target = event.target as HTMLSelectElement;
-    const region = target.value as Region;
-    this.error = false;
-    this.countriesService.searchRegion(region).subscribe(
-      countries => {
-        this.countries = countries;
-      },
-      () => {
-        this.error = true;
-        this.countries = [];
-      }
-    );
+  ngOnInit(): void {
+    this.countries = this.countriesService.cacheStore.byRegion.countries;
+    this.selectedRegion = this.countriesService.cacheStore.byRegion.region;
   }
+
+  searchByRegion( region: Region ):void  {
+
+    this.selectedRegion = region;
+
+    this.countriesService.searchRegion( region )
+      .subscribe( countries => {
+        this.countries = countries;
+      });
+
+  }
+
 }

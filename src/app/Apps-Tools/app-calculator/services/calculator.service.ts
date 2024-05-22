@@ -1,38 +1,59 @@
-// src/app/Apps-Tools/app-calculator/services/calculator.service.ts
 import { Injectable } from '@angular/core';
+import { create, all } from 'mathjs';
+
+export interface Calculation {
+  expression: string;
+  result: string;
+}
+
+const math = create(all);
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalculatorService {
-  private history: string[] = [];
+  private readonly storageKey = 'calculatorHistory';
+  private history: Calculation[] = [];
 
   constructor() {
     this.loadHistory();
   }
 
-  addOperation(operation: string) {
-    this.history.push(operation);
-    this.saveHistory();
+  private loadHistory(): void {
+    const storedHistory = localStorage.getItem(this.storageKey);
+    this.history = storedHistory ? JSON.parse(storedHistory) : [];
   }
 
-  getHistory(): string[] {
+  private saveHistory(): void {
+    localStorage.setItem(this.storageKey, JSON.stringify(this.history));
+  }
+
+  getHistory(): Calculation[] {
     return this.history;
   }
 
-  clearHistory() {
-    this.history = [];
+  addCalculation(calculation: Calculation): void {
+    this.history.push(calculation);
     this.saveHistory();
   }
 
-  private saveHistory() {
-    localStorage.setItem('calculatorHistory', JSON.stringify(this.history));
+  clearHistory(): void {
+    this.history = [];
+    localStorage.removeItem(this.storageKey);
   }
 
-  private loadHistory() {
-    const savedHistory = localStorage.getItem('calculatorHistory');
-    if (savedHistory) {
-      this.history = JSON.parse(savedHistory);
+  evaluateExpression(expression: string): string {
+    try {
+      return math.evaluate(expression).toString();
+    } catch (error) {
+      return 'Error';
     }
+  }
+
+  calculate(expression: string): string {
+    const result = this.evaluateExpression(expression);
+    const calculation: Calculation = { expression, result };
+    this.addCalculation(calculation);
+    return result;
   }
 }

@@ -10,6 +10,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './Apps-Tools/home.component';
+import { MenuService } from './shared/components/menu/services/menu.service';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+
 
 
 
@@ -17,7 +21,8 @@ import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +31,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    
 
 
 
@@ -40,7 +46,9 @@ import { SharedModule } from './shared/shared.module';
   ],
 
   providers: [
-    provideAnimationsAsync()
+    MenuService,
+    provideAnimationsAsync(),
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]
 })

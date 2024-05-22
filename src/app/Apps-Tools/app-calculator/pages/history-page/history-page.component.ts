@@ -1,20 +1,21 @@
-// src/app/Apps-Tools/app-calculator/components/history/history.component.ts
-import { Component } from '@angular/core';
-import { CalculatorService } from '../../services/calculator.service';
+import { Component, OnInit } from '@angular/core';
+import { CalculatorService, Calculation } from '../../services/calculator.service';
 
 @Component({
-  selector: 'app-history',
+  selector: 'app-history-page',
   templateUrl: './history-page.component.html',
-  styleUrls: ['./history-page.component.scss']
+  styleUrls: ['./history-page.component.css']
 })
-export class HistoryPageComponent {
-  history: string[] = [];
+export class HistoryPageComponent implements OnInit {
+  history: Calculation[] = [];
 
-  constructor(private calculatorService: CalculatorService) {
+  constructor(private calculatorService: CalculatorService) {}
+
+  ngOnInit(): void {
     this.history = this.calculatorService.getHistory();
   }
 
-  clearHistory() {
+  clearHistory(): void {
     this.calculatorService.clearHistory();
     this.history = [];
   }

@@ -1,93 +1,31 @@
-<div class="content">
-  <mat-grid-list cols="2" rowHeight="300px" gutterSize="16px">
-    <!-- Tarjeta para la sección Calculator -->
-    <mat-grid-tile>
-      <p-card class="custom-card">
-        <ng-template pTemplate="header">
-          <div class="p-card-title">Calculator</div>
-        </ng-template>
-        <div class="p-card-content">
-          Description for Calculator
-        </div>
-        <ng-template pTemplate="footer">
-          <button pButton type="button" [routerLink]="['/calculator']" label="Go to Calculator" class="ui-button-success"></button>
-        </ng-template>
-      </p-card>
-    </mat-grid-tile>
 
-    <!-- Tarjeta para la sección Countries -->
-    <mat-grid-tile>
-      <p-card class="custom-card">
-        <ng-template pTemplate="header">
-          <div class="p-card-title">Countries</div>
-        </ng-template>
-        <div class="p-card-content">
-          Description for Countries
-        </div>
-        <ng-template pTemplate="footer">
-          <button pButton type="button" [routerLink]="['/countries']" label="Go to Countries" class="ui-button-success"></button>
-        </ng-template>
-      </p-card>
-    </mat-grid-tile>
 
-    <!-- Tarjeta para la sección CRUD -->
-    <mat-grid-tile >
-      <p-card class="custom-card">
-        <ng-template pTemplate="header">
-          <div class="p-card-title">CRUD</div>
-        </ng-template>
-        <div class="p-card-content">
-          Description for CRUD
-        </div>
-        <ng-template pTemplate="footer">
-          <button pButton type="button" [routerLink]="['/crud/list']" label="Go to Crud" class="ui-button-success"></button>
-        </ng-template>
-      </p-card>
-    </mat-grid-tile>
-
-    <!-- Tarjeta para la sección Gifts -->
-    <mat-grid-tile >
-      <p-card class="custom-card">
-        <ng-template pTemplate="header">
-          <div class="p-card-title">Gifs</div>
-        </ng-template>
-        <div class="p-card-content">
-          Description for Gifts
-        </div>
-        <ng-template pTemplate="footer">
-          <button pButton type="button" [routerLink]="['/gifs']" label="Go to Gifs" class="ui-button-success"></button>
-        </ng-template>
-      </p-card>
-    </mat-grid-tile>
-
-    <!-- Tarjeta para la sección Tasks -->
-    <mat-grid-tile >
-      <p-card class="custom-card">
-        <ng-template pTemplate="header">
-          <div class="p-card-title">Tasks</div>
-        </ng-template>
-        <div class="p-card-content">
-          Description for Tasks
-        </div>
-        <ng-template pTemplate="footer">
-          <button pButton type="button" [routerLink]="['/tasks']" label="Go to Tasks" class="ui-button-success"></button>
-        </ng-template>
-      </p-card>
-    </mat-grid-tile>
-
-    <!-- Tarjeta para la sección Weather -->
-    <mat-grid-tile >
-      <p-card class="custom-card">
-        <ng-template pTemplate="header">
-          <div class="p-card-title">Weather</div>
-        </ng-template>
-        <div class="p-card-content">
-          Description for Weather
-        </div>
-        <ng-template pTemplate="footer">
-          <button pButton type="button" [routerLink]="['/weather']" label="Go to Weather" class="ui-button-success"></button>
-        </ng-template>
-      </p-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+<main class="container mx-auto mt-8">
+  <h1 class="text-3xl font-bold mb-8 text-center  text-white">Bienvenido a la Aplicación Principal</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
+      <img src='assets/calculadora-mini.png' alt="Calculator" class="h-26 mb-4">
+      <a routerLink="/calculator" class="text-xl font-bold text-blue-500 hover:underline">Calculator</a>
+    </div>
+    <div class="bg-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
+      <img src="assets/countries_blue.jpg" alt="Countries" class="h-26 mb-4">
+      <a routerLink="/countries" class="text-xl font-bold text-blue-500 hover:underline">Countries</a>
+    </div>
+    <div class="bg-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
+      <img src="assets/crud-blue.png" alt="Crud" class="h-26 mb-3">
+      <a routerLink="/crud" class="text-xl font-bold text-blue-500 hover:underline">Crud</a>
+    </div>
+    <div class="bg-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
+      <img src="assets/kanban-blue.png" alt="Tasks" class="h-26 mb-4">
+      <a routerLink="/tasks" class="text-xl font-bold text-blue-500 hover:underline">Tasks</a>
+    </div>
+    <div class="bg-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
+      <img src="assets/weather_blue.jpg" alt="Weather" class="h-26 mb-4">
+      <a routerLink="/weather" class="text-xl font-bold text-blue-500 hover:underline">Weather</a>
+    </div>
+    <div class="bg-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
+      <img src="assets/gifs-blue.png" alt="Gifs" class="h-26 mb-4">
+      <a routerLink="/gifs" class="text-xl font-bold text-blue-500 hover:underline">Gifs</a>
+    </div>
+  </div>
+</main>

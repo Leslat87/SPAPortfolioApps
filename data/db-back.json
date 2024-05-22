@@ -1,10 +1,16 @@
-
 {
   "users": [
     {
       "id": "1",
-      "user": "John Doe",
-      "email": "john.due@gmail.com"
+      "user": "Regular Man",
+      "email": "regularman@gmail.com",
+      "role": "Regular"
+    },
+    {
+      "id": "2",
+      "user": "Admin Man",
+      "email": "adminman@gmail.com",
+      "role": "Admin"
     }
   ],
   "images": [
@@ -16,7 +22,7 @@
       "location": "Arco de la Estrella: Caceres - Extremadura",
       "tags": "Cáceres, Arco Estrella, Casco Antiguo",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "El Arco de la Estrella en Cáceres es una estructura histórica situada en el casco antiguo. Es un lugar icónico que atrae a numerosos visitantes y fotógrafos por su arquitectura y encanto. Pasear por aquí es una experiencia única que transporta a épocas pasadas, permitiendo disfrutar de la belleza y la historia de la ciudad."
     },
     {
       "id": "atardecer",
@@ -26,7 +32,7 @@
       "location": "Parque del Pacífico: Cáceres - Extremadura",
       "tags": "Cáceres, Parque del Pacífico, Eroski",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Este es un atardecer en el parque del Pacífico en Cáceres, por la barriada del Perú. Es un lugar perfecto para relajarse y disfrutar de la tranquilidad que ofrece la naturaleza, especialmente durante el atardecer, cuando el sol se esconde detrás de los árboles, creando un paisaje de ensueño con tonos cálidos y suaves."
     },
     {
       "id": "casapajaro",
@@ -36,7 +42,27 @@
       "location": "Cabañas de los arboles: Villasbuenas de Gata - Extremadura",
       "tags": "Cáceres, Villasbuenas de Gata, Extremadura",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Las cabañas de los árboles en Villasbuenas de Gata ofrecen una experiencia única en la naturaleza. Al amanecer, el canto de los pájaros es una melodía que despierta a los visitantes, creando un ambiente mágico y lleno de vida. Es un lugar ideal para desconectar y disfrutar de la paz del entorno natural."
+    },
+    {
+      "id": "barro",
+      "name": "Lucha en barro",
+      "author": "Anonymous",
+      "nickname": "Lucha",
+      "location": "Wacken : Alemania",
+      "tags": "Wacken, Alemania, W:O:A",
+      "alt_img": null,
+      "descripcion": "La lucha en barro es una actividad popular en el festival de Wacken en Alemania. Este evento reúne a fanáticos de la música metal de todo el mundo, ofreciendo una mezcla de conciertos intensos y actividades divertidas. La lucha en barro es una tradición que añade un elemento de caos y diversión al festival."
+    },
+    {
+      "id": "bonsai",
+      "name": "El almendro florece",
+      "author": "Faren",
+      "nickname": "Arbol",
+      "location": "Domicilio particular : Cáceres",
+      "tags": "Caceres, Extremadura, Naturaleza",
+      "alt_img": null,
+      "descripcion": "El almendro florece en un jardín particular en Cáceres, mostrando la belleza de la naturaleza en su máxima expresión. Las flores blancas y rosadas adornan el árbol, creando una escena visualmente impresionante. Es un símbolo de la primavera y el renacimiento, y una vista que trae alegría y tranquilidad a quienes la contemplan."
     },
     {
       "id": "casarural",
@@ -46,7 +72,7 @@
       "location": "Casa Rural: Plasencia - Extremadura",
       "tags": "Cáceres, Casa Rural, Plasencia",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Una casa rural en Plasencia, Extremadura, ofrece un refugio perfecto para aquellos que buscan escapar del bullicio de la ciudad. Rodeada de naturaleza, esta casa proporciona un ambiente acogedor y tranquilo, ideal para relajarse y disfrutar del aire fresco. Es un lugar perfecto para vacaciones familiares o escapadas románticas."
     },
     {
       "id": "castillominas",
@@ -56,7 +82,7 @@
       "location": "Castillo de las Minas: Alentejo - Portugal",
       "tags": "Portugal, Castillo, Minas",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "El Castillo de las Minas en Alentejo, Portugal, es una fortaleza histórica que domina el paisaje circundante. Con sus imponentes muros y torres, este castillo ofrece una vista panorámica impresionante. Es un lugar lleno de historia, donde se puede aprender sobre las antiguas minas y la vida en tiempos medievales."
     },
     {
       "id": "chicagorra",
@@ -66,7 +92,7 @@
       "location": "Parque Central: Madrid - Spain",
       "tags": "Madrid, Parque Central, Estilo",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "En el Parque Central de Madrid, una chica con gorra disfruta de un día soleado. Su estilo casual y moderno refleja la vibrante cultura urbana de la ciudad. Este parque es un lugar popular para relajarse, hacer deporte y socializar, ofreciendo un espacio verde en medio de la metrópoli."
     },
     {
       "id": "foreigner",
@@ -76,7 +102,7 @@
       "location": "Centro Histórico: Lisboa - Portugal",
       "tags": "Lisboa, Centro Histórico, Turista",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Un turista explora el centro histórico de Lisboa, Portugal. Con sus calles empedradas y edificios antiguos, esta área es rica en cultura y patrimonio. Los visitantes pueden disfrutar de la arquitectura tradicional, la gastronomía local y la calidez de la gente, haciendo de Lisboa un destino turístico inolvidable."
     },
     {
       "id": "metalheads",
@@ -86,7 +112,7 @@
       "location": "Rock Festival: Barcelona - Spain",
       "tags": "Barcelona, Rock Festival, Metal",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Los Metalheads se reúnen en un festival de rock en Barcelona, España. Este evento es un paraíso para los amantes de la música metal, ofreciendo actuaciones en vivo de bandas famosas y emergentes. Es una celebración de la cultura metal, donde los fanáticos pueden disfrutar de la música, la comunidad y la energía del festival."
     },
     {
       "id": "opera",
@@ -96,7 +122,7 @@
       "location": "Ópera House: Madrid - Spain",
       "tags": "Madrid, Ópera House, Cultura",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Una noche de ópera en la Ópera House de Madrid es una experiencia cultural excepcional. Los asistentes pueden disfrutar de actuaciones de clase mundial en un entorno majestuoso. La ópera combina música, drama y arte, ofreciendo una velada inolvidable que deleita todos los sentidos."
     },
     {
       "id": "oporto",
@@ -106,7 +132,7 @@
       "location": "Ribeira: Oporto - Portugal",
       "tags": "Oporto, Ribeira, Viaje",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Oporto, una ciudad vibrante en Portugal, es famosa por su Ribeira y su vino de oporto. Pasear por la Ribeira ofrece vistas espectaculares del río Duero y los coloridos edificios a lo largo del muelle. Es un destino ideal para los amantes de la historia, la cultura y la gastronomía."
     },
     {
       "id": "oveja",
@@ -116,7 +142,7 @@
       "location": "Campo Abierto: Extremadura - Spain",
       "tags": "Extremadura, Campo Abierto, Oveja",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Una oveja solitaria pasea por los campos abiertos de Extremadura, España. Este paisaje pastoral es típico de la región, conocida por su biodiversidad y belleza natural. La escena captura la tranquilidad y simplicidad de la vida rural, ofreciendo un escape del ritmo acelerado de la vida moderna."
     },
     {
       "id": "pacifico",
@@ -126,7 +152,7 @@
       "location": "Playa del Pacífico: Cáceres - Extremadura",
       "tags": "Cáceres, Playa del Pacífico, Serenidad",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "La Playa del Pacífico en Cáceres es un lugar de serenidad y belleza natural. Este rincón tranquilo es perfecto para relajarse y disfrutar del sonido de las olas. La playa ofrece un paisaje pintoresco con arenas doradas y aguas cristalinas, creando un ambiente de paz y tranquilidad."
     },
     {
       "id": "pintalabios",
@@ -136,7 +162,7 @@
       "location": "Estudio de Moda: Madrid - Spain",
       "tags": "Madrid, Estudio de Moda, Pintalabios",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "En un estudio de moda en Madrid, el pintalabios es el protagonista de una sesión fotográfica. Este accesorio de belleza es esencial en el mundo de la moda, aportando color y estilo a cualquier look. La sesión captura la esencia de la moda y la creatividad de los diseñadores."
     },
     {
       "id": "quijote",
@@ -146,7 +172,7 @@
       "location": "Molinos de Viento: La Mancha - Spain",
       "tags": "La Mancha, Molinos de Viento, Historia",
       "alt_img": null,
-      "descripcion": null
+      "descripcion": "Don Quijote de La Mancha, junto a los emblemáticos molinos de viento, es una imagen icónica de la literatura española. Los molinos de viento en La Mancha son un símbolo del ingenio y la lucha del personaje. Este lugar es un destino turístico popular, lleno de historia y encanto."
     },
     {
       "id": "robzombie",
@@ -154,7 +180,9 @@
       "author": "Faren",
       "nickname": "Concierto",
       "location": "Sala de Conciertos: Sevilla - Spain",
-      "tags": "Sevilla, Sala de Conciertos, Rob Zombie"
+      "tags": "Sevilla, Sala de Conciertos, Rob Zombie",
+      "alt_img": null,
+      "descripcion": "Un concierto de Rob Zombie en Sevilla es una experiencia electrizante para los fanáticos del rock. Con su estilo único y actuaciones enérgicas, Rob Zombie captura la atención del público. La sala de conciertos en Sevilla ofrece un ambiente íntimo para disfrutar de la música en vivo y la pasión del artista."
     },
     {
       "id": "shaun",
@@ -162,7 +190,9 @@
       "author": "Anonymous",
       "nickname": "Animación",
       "location": "Estudio de Animación: London - UK",
-      "tags": "London, Estudio de Animación, Shaun"
+      "tags": "London, Estudio de Animación, Shaun",
+      "alt_img": null,
+      "descripcion": "Shaun la oveja es un personaje querido en el mundo de la animación, creado en un estudio de animación en Londres. Las aventuras de Shaun son conocidas por su humor y creatividad, deleitando a audiencias de todas las edades. Este estudio es un lugar de innovación y talento artístico."
     },
     {
       "id": "tortuga",
@@ -170,7 +200,9 @@
       "author": "Faren",
       "nickname": "Reptil",
       "location": "Parque Natural: Amazonas - Brazil",
-      "tags": "Amazonas, Parque Natural, Tortuga"
+      "tags": "Amazonas, Parque Natural, Tortuga",
+      "alt_img": null,
+      "descripcion": "Una tortuga en el Parque Natural del Amazonas es una visión fascinante de la biodiversidad. Este reptil, que se mueve lentamente por el terreno, es una parte esencial del ecosistema amazónico. El parque ofrece una oportunidad para observar la vida silvestre en su hábitat natural y aprender sobre la conservación."
     },
     {
       "id": "uncle",
@@ -178,8 +210,9 @@
       "author": "Anonymous",
       "nickname": "Retrato",
       "location": "Casa de Familia: Cáceres - Extremadura",
-      "tags": "Cáceres, Casa de Familia, Retrato"
-
+      "tags": "Cáceres, Casa de Familia, Retrato",
+      "alt_img": null,
+      "descripcion": "Un retrato de un tío en una casa de familia en Cáceres captura la esencia de los lazos familiares. Este retrato es un testimonio de la importancia de la familia y las tradiciones. La casa familiar es un lugar de amor y recuerdos, donde se celebra la vida y la historia compartida."
     }
   ]
 }

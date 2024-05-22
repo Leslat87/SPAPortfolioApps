@@ -1,14 +1,17 @@
-<div>
-  <input type="text" placeholder="Ingrese una ciudad" #cityInput>
-  <button (click)="search(cityInput.value)">Buscar</button>
-
-  <div *ngIf="weatherData">
-    <h3>Clima en {{ weatherData.name }}</h3>
-    <p>Temperatura: {{ weatherData.main.temp }}°C</p>
-    <p>Clima: {{ weatherData.weather[0].description }}</p>
+<div class="min-h-screen flex flex-col md:flex-row">
+  <!-- Columna lateral para el buscador -->
+  <div class="bg-gray-800 text-white w-full md:w-auto p-4 flex flex-col items-center">
+    <h2 class="text-2xl font-bold mb-4">Search City</h2>
+    <input type="text" [(ngModel)]="city" class="p-2 w-full rounded-md mb-4 " placeholder="Enter city name" (input)="getWeather()">
   </div>
 
-  <div *ngIf="error">
-    <p>Error: {{ error }}</p>
+ <!-- Contenedor para la imagen de fondo o resultados del clima -->
+ <div class="flex-grow p-4 bg-cover bg-center bg-image">
+  <div *ngIf="!weather" class="flex items-center justify-center h-full">
+    <p class="text-3xl text-gray-300">Perform a search to see results</p>
   </div>
+  <div *ngIf="weather" class="flex flex-col items-center justify-center h-full">
+    <app-weather-results [weather]="weather" [forecast]="forecast" [chartData]="chartData"></app-weather-results>
+  </div>
+</div>
 </div>

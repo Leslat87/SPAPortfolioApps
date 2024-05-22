@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 
 import { PrincipalPageRoutingModule } from './principalpage-routing.module';
 import { PrincipalPageComponent } from './components/principal-page/principal-page.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -22,6 +23,7 @@ import { PrincipalPageComponent } from './components/principal-page/principal-pa
       PrincipalPageRoutingModule,
       MaterialModule,
       PrimeNgModule,
+      SharedModule,
 
     ],
     exports: [

@@ -1,35 +1,18 @@
-// src/app/Apps-Tools/app-weather/services/weather.service.ts
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { WeatherResponse, ForecastResponse } from '../interfaces/weather.interface';
+import { Weather } from '../interfaces/weather.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-  private apiKey: string = '80ee1ba1b07e63db5b0a03452c1ad306';
-  private apiUrl: string = 'https://api.openweathermap.org/data/2.5/weather';
+  private baseUrl: string = 'http://api.openweathermap.org/data/2.5/weather?q=';
+  private apikey: string = '&units=metric&appid=06a77019936341ff3d1d78c794d00461';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getWeather(city: string): Observable<WeatherResponse> {
-    const params = new HttpParams()
-      .set('q', city)
-      .set('appid', this.apiKey)
-      .set('units', 'metric');
-
-    return this.http.get<WeatherResponse>(`${this.apiUrl}/weather`, { params });
-  }
-
-  getForecast(city: string): Observable<ForecastResponse> {
-    const params = new HttpParams()
-      .set('q', city)
-      .set('appid', this.apiKey)
-      .set('units', 'metric')
-      .set('cnt', '7');
-
-    return this.http.get<ForecastResponse>(`${this.apiUrl}/forecast/daily`, { params });
+  getWeather(city: string): Observable<Weather> {
+    return this.http.get<Weather>(`${this.baseUrl}${city}${this.apikey}`);
   }
 }

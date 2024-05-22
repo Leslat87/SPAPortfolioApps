@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Country } from '../../interfaces/country';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-country-card',
@@ -10,9 +9,15 @@ import { Router } from '@angular/router';
 export class CountryCardComponent {
   @Input() country!: Country;
 
-  constructor(private router: Router) {}
+  getLanguages(languages: { [key: string]: string } | undefined): string {
+    return languages ? Object.values(languages).join(', ') : 'N/A';
+  }
 
-  navigateToCountryDetail() {
-    this.router.navigate(['/country', this.country.cca2]);
+  getCurrencies(currencies: { [key: string]: { name: string; symbol: string } } | undefined): string {
+    return currencies ? Object.values(currencies).map(currency => `${currency.name} (${currency.symbol})`).join(', ') : 'N/A';
+  }
+
+  getBorders(borders?: string[]): string {
+    return borders ? borders.join(', ') : 'N/A';
   }
 }

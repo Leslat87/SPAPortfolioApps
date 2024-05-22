@@ -1,4 +1,3 @@
-// src/app/Apps-Tools/app-tasks/components/add-task/add-task.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
@@ -8,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'add-task',
   templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.scss']
+  styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent {
   taskForm: FormGroup;

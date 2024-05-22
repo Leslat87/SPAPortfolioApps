@@ -6,7 +6,7 @@ import { Image } from '../../interfaces/crud.interface';
 @Component({
   selector: 'images-crud-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.css']
 })
 export class CardComponent {
   @Input() image!: Image;

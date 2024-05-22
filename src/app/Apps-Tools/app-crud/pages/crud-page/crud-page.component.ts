@@ -8,7 +8,7 @@ import { Image } from '../../interfaces/crud.interface';
 @Component({
   selector: 'crud-page',
   templateUrl: './crud-page.component.html',
-  styleUrls: ['./crud-page.component.scss']
+  styleUrls: ['./crud-page.component.css']
 })
 export class CrudPageComponent implements OnInit {
   public image!: Image;

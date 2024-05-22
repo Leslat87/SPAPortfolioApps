@@ -12,6 +12,8 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { MaterialModule } from '../material/material.module';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { HeaderComponent } from './components/header/header.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { HeaderComponent } from './components/header/header.component';
 
   ],
   imports:[
+    CommonModule,
+    RouterModule,
     MaterialModule,
     PrimeNgModule,
 
