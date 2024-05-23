@@ -35,6 +35,7 @@ export class CalculatorPageComponent implements OnInit {
   }
 
   clearHistory() {
+    this.calculatorService.clearHistory();
     this.history = [];
   }
 }

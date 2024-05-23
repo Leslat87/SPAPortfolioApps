@@ -7,3 +7,25 @@
   background-size: cover;
   background-position: center;
 }
+
+.flex-grow {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajustar tamaño mínimo de las tarjetas */
+}
+
+/* Estilos adicionales */
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+button:focus {
+  outline: none;
+}

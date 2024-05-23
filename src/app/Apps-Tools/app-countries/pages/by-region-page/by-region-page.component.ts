@@ -1,6 +1,8 @@
+// src/app/Apps-Tools/app-countries/pages/by-region-page/by-region-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country.interfaces';
+import { Router } from '@angular/router';
 import { Region } from '../../interfaces/region.types';
 
 @Component({
@@ -11,26 +13,26 @@ import { Region } from '../../interfaces/region.types';
 export class ByRegionPageComponent implements OnInit {
 
   public countries: Country[] = [];
-  public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
-  public selectedRegion?: Region;
   public isLoading: boolean = false;
+  public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  constructor( private countriesService: CountriesService ) {}
+  constructor(private countriesService: CountriesService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.countries = this.countriesService.cacheStore.byRegion.countries;
-    this.selectedRegion = this.countriesService.cacheStore.byRegion.region;
-  }
+  ngOnInit(): void {}
 
-  searchByRegion( region: Region ):void  {
-
-    this.selectedRegion = region;
-
-    this.countriesService.searchRegion( region )
-      .subscribe( countries => {
+  searchByRegion(region: Region): void {
+    this.isLoading = true;
+    this.countriesService.searchRegion(region)
+      .subscribe(countries => {
         this.countries = countries;
+        this.isLoading = false;
+      }, () => {
+        this.countries = [];
+        this.isLoading = false;
       });
-
   }
 
+  navigateTo(path: string) {
+    this.router.navigate([path]);
+  }
 }

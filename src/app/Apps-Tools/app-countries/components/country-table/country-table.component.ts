@@ -1,3 +1,4 @@
+// src/app/Apps-Tools/app-countries/components/country-table/country-table.component.ts
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Country } from '../../interfaces/country.interfaces';
@@ -9,12 +10,12 @@ import { Country } from '../../interfaces/country.interfaces';
 })
 export class CountryTableComponent {
 
-  @Input() 
+  @Input()
   public countries: Country[] = [];
 
   constructor(private router: Router) {}
 
   navigateToCountryDetail(cca3: string) {
-    this.router.navigate(['/country/', cca3]);
+    this.router.navigate(['/', cca3]);
   }
 }

@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: 'by-capital', component: ByCapitalPageComponent },
   { path: 'by-country', component: ByCountryPageComponent },
   { path: 'by-region', component: ByRegionPageComponent },
-  { path: 'country/:id', component: CountryDetailPageComponent },
-  { path: '**', redirectTo: 'by-country' }
+  { path: ':id', component: CountryDetailPageComponent },
+  { path: '', redirectTo: 'by-country', pathMatch: 'full'}
 ];
 
 

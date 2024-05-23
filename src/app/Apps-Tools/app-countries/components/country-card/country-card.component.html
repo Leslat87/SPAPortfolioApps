@@ -1,6 +1,8 @@
 <div class="bg-bluegray-50 text-black rounded-lg shadow-lg p-6 transition-transform duration-300 mb-4">
   <div class="flex flex-col items-center mb-4">
-    <h2 class="text-2xl font-bold mb-4">{{ country.name.common }}</h2>
+    <a [routerLink]="['/countries', country.cca3]">
+      <h2 class="text-2xl font-bold mb-4">{{ country.name.common }}</h2>
+    </a>
     <img [src]="country.flags.svg" [alt]="country.name.common + ' flag'" class="w-full h-auto rounded-lg mb-4">
   </div>
   <div>

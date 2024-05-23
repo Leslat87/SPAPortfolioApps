@@ -1,23 +1,32 @@
 import { Component, Input } from '@angular/core';
-import { Country } from '../../interfaces/country.interfaces';
+import { Country, Currencies, Languages } from '../../interfaces/country.interfaces';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-country-card',
   templateUrl: './country-card.component.html',
-  styleUrls: ['./country-card.component.scss']
+  styleUrls: ['./country-card.component.css']
 })
 export class CountryCardComponent {
   @Input() country!: Country;
 
-  getLanguages(languages: { [key: string]: string } | undefined): string {
-    return languages ? Object.values(languages).join(', ') : 'N/A';
+  getLanguages(languages: Languages): string {
+    return Object.values(languages).join(', ');
   }
 
-  getCurrencies(currencies: { [key: string]: { name: string; symbol: string } } | undefined): string {
-    return currencies ? Object.values(currencies).map(currency => `${currency.name} (${currency.symbol})`).join(', ') : 'N/A';
+
+
+  getCurrencies(currencies: Currencies): string {
+    return Object.keys(currencies).map(key => {
+      const currency = currencies[key as keyof Currencies];
+      return currency ? currency.name : '';
+    }).join(', ');
   }
 
-  getBorders(borders?: string[]): string {
-    return borders ? borders.join(', ') : 'N/A';
+
+
+
+  getBorders(borders: string[]): string {
+    return borders.join(', ');
   }
 }

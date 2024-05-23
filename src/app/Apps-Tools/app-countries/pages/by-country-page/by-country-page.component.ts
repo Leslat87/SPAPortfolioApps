@@ -1,6 +1,8 @@
+// src/app/Apps-Tools/app-countries/pages/by-country-page/by-country-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country.interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-by-country-page',
@@ -10,22 +12,34 @@ import { Country } from '../../interfaces/country.interfaces';
 export class ByCountryPageComponent implements OnInit {
 
   public countries: Country[] = [];
-  public initialValue: string = '';
   public isLoading: boolean = false;
+  public initialValue: string = '';
 
-  constructor( private countriesService: CountriesService ) {}
+  constructor(private countriesService: CountriesService, private router: Router) {}
 
   ngOnInit(): void {
     this.countries = this.countriesService.cacheStore.byCountries.countries;
     this.initialValue = this.countriesService.cacheStore.byCountries.term;
   }
 
-  searchByCountry( term: string ):void  {
-    this.countriesService.searchCountry( term )
-      .subscribe( countries => {
+  searchByCountry(): void {
+    const term = this.initialValue.trim();
+    if (term === '') {
+      this.countries = [];
+      return;
+    }
+    this.isLoading = true;
+    this.countriesService.searchCountry(term)
+      .subscribe(countries => {
         this.countries = countries;
+        this.isLoading = false;
+      }, () => {
+        this.countries = [];
+        this.isLoading = false;
       });
-
   }
 
+  navigateTo(path: string) {
+    this.router.navigate([path]);
+  }
 }

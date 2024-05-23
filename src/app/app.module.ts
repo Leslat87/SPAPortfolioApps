@@ -31,7 +31,7 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    
+
 
 
 

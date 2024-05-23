@@ -1,9 +1,12 @@
-<ng-template #loading>
-  <div class="alert alert-info text-center p-4 bg-bluegray-50 text-white rounded-md">
-    Please Wait a second...
+<div class="container mx-auto p-4">
+  <div class="flex flex-col md:flex-row">
+    <div class="w-full md:w-1/2 p-4">
+      <h2 class="text-2xl font-bold mb-4">{{ country?.name }}</h2>
+      <p class="text-lg mb-4">{{ country?.capital }}</p>
+      <p class="text-lg mb-4">{{ country?.region }}</p>
+    </div>
+    <div class="w-full md:w-1/2 p-4">
+      <app-country-card *ngIf="country" [country]="country"></app-country-card>
+    </div>
   </div>
-</ng-template>
-
-<div *ngIf="country; else loading">
-  <app-country-card [country]="country"></app-country-card>
 </div>

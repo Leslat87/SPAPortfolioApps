@@ -1,33 +1,32 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full md:max-w-6xl mx-auto">
   <!-- Información principal -->
-  <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+  <div [style.backgroundImage]="getBackgroundImage()" class="bg-white p-6 rounded-lg shadow-md flex flex-col col-span-1 md:col-span-2 lg:col-span-2">
     <div class="flex items-center justify-between mb-4">
       <div>
-        <h2 class="text-3xl font-bold">{{ weather.name }}</h2>
-        <p class="text-xl">{{ currentDate }} {{ currentTime }}</p>
-        <p class="text-5xl font-bold">{{ weather.main.temp }}°C</p>
-        <p class="text-lg">{{ weather.weather[0].description }}</p>
-        <p class="mt-2 text-sm">Feels like: {{ weather.main.feels_like }}°C</p>
+        <img src="http://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@4x.png" alt="Weather Icon">
       </div>
       <div>
-        <img src="http://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@4x.png" alt="Weather Icon">
+        <h2 class="text-3xl text-white font-bold">{{ weather.name }}</h2>
+        <p class="text-xl  text-white">{{ currentDate }} {{ currentTime }}</p>
+        <p class="text-5xl  text-white font-bold">{{ weather.main.temp }}°C</p>
+        <p class="text-lg  text-white">{{ weather.weather[0].description }}</p>
+        <p class="mt-2  text-white text-sm">Feels like: {{ weather.main.feels_like }}°C</p>
       </div>
     </div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full md:max-w-6xl mx-auto">
-    <!-- Información principal -->
-    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
-      <div class="flex items-center justify-between mb-4">
-        <div>
-          <h2 class="text-3xl font-bold">Recomendacion de actividades</h2>
-
-        </div>
-        <div>
-          <img src="/ruta/" alt="imagen de la actividad recomendada">
-        </div>
+  <!-- Recomendación de actividades -->
+  <div *ngIf="recommendation" class="bg-white p-6 rounded-lg shadow-md flex flex-col col-span-1 md:col-span-2 lg:col-span-2">
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <h2 class="text-3xl font-bold">Recomendación de actividades</h2>
+        <p class="text-lg">{{ recommendation.text }}</p>
+      </div>
+      <div>
+        <img [src]="recommendation.imageUrl" alt="Imagen de la actividad recomendada" class="h-32 w-32 object-cover">
       </div>
     </div>
+  </div>
 
   <!-- Tarjeta de Temperatura -->
   <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-between">
@@ -36,7 +35,7 @@
       <p class="text-3xl font-bold">{{ weather.main.temp }}°C</p>
     </div>
     <div>
-      <img src="/src/assets/temperature.png" alt="Temperature Icon">
+      <img src="assets/temperature.png" alt="Temperature Icon">
     </div>
   </div>
 
@@ -47,7 +46,7 @@
       <p class="text-3xl font-bold">{{ weather.main.humidity }}%</p>
     </div>
     <div>
-      <img src="/src/assets/humedad.png" alt="Humidity Icon" class="h-12 w-12">
+      <img src="assets/humedad.png" alt="Humidity Icon" class="h-12 w-12">
     </div>
   </div>
 
@@ -58,7 +57,7 @@
       <p class="text-3xl font-bold">{{ weather.main.pressure }} hPa</p>
     </div>
     <div>
-      <img src="/src/assets/pressure.png" alt="Pressure Icon" class="h-12 w-12">
+      <img src="assets/pressure.png" alt="Pressure Icon" class="h-12 w-12">
     </div>
   </div>
 
@@ -69,19 +68,20 @@
       <p class="text-3xl font-bold">{{ weather.visibility / 1000 }} km</p>
     </div>
     <div>
-      <img src="/src/assets/visibilidad.png" alt="Visibility Icon" class="h-12 w-12">
+      <img src="assets/visibilidad.png" alt="Visibility Icon" class="h-12 w-12">
     </div>
   </div>
 
   <!-- Gráfica del clima por horas -->
-  <div class="bg-white p-6 rounded-lg shadow-md col-span-1 md:col-span-2">
+  <div class="bg-white p-6 rounded-lg shadow-md col-span-1 md:col-span-2 lg:col-span-4">
     <h3 class="text-xl font-bold mb-4">Hourly forecast</h3>
     <div echarts [options]="hourlyChartOptions" class="echart" style="height: 300px;"></div>
   </div>
 
   <!-- Pronóstico semanal -->
-  <div class="bg-white p-6 rounded-lg shadow-md col-span-1 md:col-span-2">
+  <div class="bg-white p-6 rounded-lg shadow-md col-span-1 md:col-span-2 lg:col-span-4">
     <h3 class="text-xl font-bold mb-4">8-day forecast</h3>
     <div echarts [options]="dailyChartOptions" class="echart" style="height: 300px;"></div>
   </div>
 </div>
+
