@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Country } from '../../interfaces/country';
+import { Country } from '../../interfaces/country.interfaces';
 
 @Component({
   selector: 'app-country-table',

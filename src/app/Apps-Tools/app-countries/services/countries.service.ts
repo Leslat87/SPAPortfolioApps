@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, of, map, tap } from 'rxjs';
 
-import { Country } from '../interfaces/country';
-import { CacheStore } from '../interfaces/cache-store.interface';
+import { Country } from '../interfaces/country.interfaces';
+import { CacheStore } from '../interfaces/cache-store.interfaces';
 import { Region } from '../interfaces/region.types';
 
 @Injectable({ providedIn: 'root' })
