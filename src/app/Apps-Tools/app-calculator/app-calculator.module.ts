@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { AppCalculatorRoutingModule } from './calculator-routing.module';
-import { MaterialModule } from '../../material/material.module';
-import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
+
 
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,9 +22,7 @@ import { CalculatorPageComponent } from './pages/calculator-page/calculator-page
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     AppCalculatorRoutingModule,
- 
     ReactiveFormsModule,
     FormsModule,
     ],

@@ -16,6 +16,9 @@ export class MenuComponent implements OnInit {
   @Input()
   public menuItems: MenuItem[] = [];
 
+  public isMobileMenuVisible: boolean = false;
+  public activeSubMenu: string | null = null;
+
   constructor() {}
 
   ngOnInit() {
@@ -32,65 +35,17 @@ export class MenuComponent implements OnInit {
           {
             label: 'Crud',
             icon: 'pi pi-fw pi-image',
-            items: [
-              {
-                label: 'List',
-                icon: 'pi pi-fw pi-list',
-                routerLink: 'crud/list',
-              },
-              {
-                label: 'New Image',
-                icon: 'pi pi-fw pi-images',
-                routerLink: 'crud/new-page',
-              },
-              {
-                label: 'Search Images',
-                icon: 'pi pi-fw pi-search',
-                routerLink: 'crud/search',
-              },
-            ],
+            routerLink: 'crud'
           },
           {
             label: 'Weather',
             icon: 'pi pi-cloud',
-            items: [
-              {
-                label: 'Search by City',
-                icon: 'pi pi-fw pi-home',
-                routerLink: 'weather/search',
-              },
-              {
-                label: 'List recent',
-                icon: 'pi pi-fw pi-list',
-                routerLink: 'weather/list-recent',
-              },
-              {
-                label: 'Day by Day',
-                icon: 'pi pi-fw pi-calendar',
-                routerLink: 'weather/day-by-day',
-              },
-            ],
+            routerLink: 'weather'
           },
           {
             label: 'Countries',
             icon: 'pi pi-fw pi-globe',
-            items: [
-              {
-                label: 'Search by Capital',
-                icon: 'pi pi-fw pi-building',
-                routerLink: 'countries/capital',
-              },
-              {
-                label: 'Search by Region',
-                icon: 'pi pi-fw pi-car',
-                routerLink: 'countries/region',
-              },
-              {
-                label: 'Search by Country',
-                icon: 'pi pi-fw pi-building-columns',
-                routerLink: 'countries',
-              },
-            ],
+            routerLink: 'countries'
           },
           {
             label: 'Gifs',
@@ -129,9 +84,10 @@ export class MenuComponent implements OnInit {
   }
 
   toggleMobileMenu(): void {
-    const menu = document.querySelector('.mobile-menu');
-    if (menu) {
-      menu.classList.toggle('hidden');
-    }
+    this.isMobileMenuVisible = !this.isMobileMenuVisible;
+  }
+
+  toggleSubMenu(label: string): void {
+    this.activeSubMenu = this.activeSubMenu === label ? null : label;
   }
 }

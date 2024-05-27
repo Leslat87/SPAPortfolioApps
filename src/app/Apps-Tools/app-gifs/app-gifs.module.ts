@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from '../../material/material.module';
-import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
-
 import { GifsRoutingModule } from './gifs-routing.module';
 import { GifsPageComponent } from './pages/gifs-page/gifs-page.component';
 import { CardListComponent } from './components/card-list/card-list.component';
@@ -20,8 +17,7 @@ import { GifsService } from './services/gifs.service';
   imports: [
     CommonModule,
     GifsRoutingModule,
-    MaterialModule,
-    PrimeNgModule,
+
     ReactiveFormsModule,
     FormsModule,
   ],

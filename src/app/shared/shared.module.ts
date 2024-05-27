@@ -9,11 +9,11 @@ import { MenuComponent } from './components/menu/menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 
-import { MaterialModule } from '../material/material.module';
-import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+
 import { HeaderComponent } from './components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,8 +31,8 @@ import { RouterModule } from '@angular/router';
   imports:[
     CommonModule,
     RouterModule,
-    MaterialModule,
-    PrimeNgModule,
+    FormsModule,
+
 
 
   ],

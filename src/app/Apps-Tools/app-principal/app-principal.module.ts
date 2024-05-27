@@ -1,8 +1,4 @@
 import { NgModule } from '@angular/core';
-
-
-import { MaterialModule } from '../../material/material.module';
-import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 import { CommonModule } from '@angular/common';
 
 
@@ -21,8 +17,7 @@ import { SharedModule } from '../../shared/shared.module';
     imports: [
       CommonModule,
       PrincipalPageRoutingModule,
-      MaterialModule,
-      PrimeNgModule,
+
       SharedModule,
 
     ],

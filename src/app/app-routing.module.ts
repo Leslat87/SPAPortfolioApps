@@ -12,10 +12,6 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./Apps-Tools/app-principal/app-principal.module').then(m => m.AppPrincipalModule) },
   { path: 'about', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
-  {
-    path: 'countries/:countryCode',
-    component: CountryDetailPageComponent
-  },
   { path: 'calculator', loadChildren: () => import('./Apps-Tools/app-calculator/app-calculator.module').then(m => m.AppCalculatorModule) },
   { path: 'countries', loadChildren: () => import('./Apps-Tools/app-countries/app-countries.module').then(m => m.AppCountriesModule) },
   { path: 'crud', loadChildren: () => import('./Apps-Tools/app-crud/app-crud.module').then(m => m.AppCrudModule) },
@@ -23,7 +19,7 @@ const routes: Routes = [
   { path: 'tasks', loadChildren: () => import('./Apps-Tools/app-tasks/app-tasks.module').then(m => m.AppTasksModule) },
   { path: 'weather', loadChildren: () => import('./Apps-Tools/app-weather/app-weather.module').then(m => m.AppWeatherModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  
+  { path: 'countries/:countryCode', component: CountryDetailPageComponent },
 
 ];
 

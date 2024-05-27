@@ -1,4 +1,3 @@
-// src/app/Apps-Tools/app-countries/pages/by-country-page/by-country-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country.interfaces';

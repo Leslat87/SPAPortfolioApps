@@ -6,19 +6,23 @@
     <ul class="hidden md:flex space-x-4">
       <li *ngFor="let item of menuItems" class="relative group">
         <ng-container *ngIf="!item.items">
-          <a [routerLink]="item.routerLink" class="text-white hover:text-gray-400 flex items-center">
+          <a [routerLink]="item.routerLink" class="text-white flex items-center">
             <i [class]="item.icon" class="mr-1"></i> {{ item.label }}
           </a>
         </ng-container>
         <ng-container *ngIf="item.items">
-          <div class="text-white hover:text-gray-400 flex items-center cursor-pointer">
-            <i [class]="item.icon" class="mr-1"></i> {{ item.label }}
+          <div class="dropdown relative inline-block">
+            <div class="dropdown-button text-white flex items-center cursor-pointer">
+              <i [class]="item.icon" class="mr-1"></i> {{ item.label }}
+            </div>
+            <div class="dropdown-content absolute bg-gradient-to-r from-gray-800 to-blue-950 min-w-full shadow-md py-1">
+              <ul>
+                <li *ngFor="let subItem of item.items" class="py-2 px-4">
+                  <a [routerLink]="subItem.routerLink" class="block text-white hover:text-gray-400">{{ subItem.label }}</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <ul class="absolute left-0 hidden mt-2 bg-white text-black rounded shadow-lg group-hover:block">
-            <li *ngFor="let subItem of item.items" class="p-2 hover:bg-gray-200">
-              <a [routerLink]="subItem.routerLink" class="block">{{ subItem.label }}</a>
-            </li>
-          </ul>
         </ng-container>
       </li>
     </ul>
@@ -32,7 +36,7 @@
   </div>
 </nav>
 
-<div class="md:hidden mobile-menu hidden">
+<div class="md:hidden mobile-menu" [ngClass]="{'hidden': !isMobileMenuVisible}">
   <ul>
     <li *ngFor="let item of menuItems">
       <ng-container *ngIf="!item.items">

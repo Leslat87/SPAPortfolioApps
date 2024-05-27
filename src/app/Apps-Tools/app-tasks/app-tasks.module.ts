@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
-import { MaterialModule } from '../../material/material.module';
-
 import { TasksFilterPipe } from '../pipes/tasks-filter.pipe';
 
 import { AddTaskComponent } from './components/add-task/add-task.component';
@@ -26,8 +23,6 @@ import { TaskService } from './services/task.service';
   imports: [
     CommonModule,
     TasksRoutingModule,
-    MaterialModule,
-    PrimeNgModule,
     FormsModule,
     ReactiveFormsModule,
 
