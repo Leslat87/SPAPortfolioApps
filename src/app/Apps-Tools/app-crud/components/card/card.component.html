@@ -1,21 +1,22 @@
-<mat-card (click)="navigateToDetails()">
-  <mat-card-header>
-    <mat-card-title>{{ truncateText(image.name, 20) }}</mat-card-title>
-    <mat-card-subtitle>{{ truncateText(image.nickname, 20) }}</mat-card-subtitle>
-  </mat-card-header>
+<div class="bg-gradient-to-r from-gray-400 to-blue-900 shadow-md rounded-lg p-6 m-4 cursor-pointer transform transition-transform hover:scale-105" (click)="navigateToDetails()">
+  <div class="flex flex-col justify-between h-full">
+    <div>
+      <h3 class="text-xl font-bold">{{ truncateText(image.name, 20) }}</h3>
+      <h4 class="text-gray-200">{{ truncateText(image.nickname, 20) }}</h4>
+    </div>
+    <img [src]="imageUrl" alt="{{image.name}}" class="object-cover h-72 w-full my-4">
+    <div class="mt-2">
+      <h4 class="text-lg">{{ image.author }}</h4>
+      <div>
+        <strong>Primera aparición:</strong> {{ truncateText(image.location, 30) }}
+        <br>
+        <div class="flex flex-wrap p-1">
 
-  <img mat-card-image [src]="imageUrl" alt="{{image.name}}">
-
-  <mat-card-content class="mt-2">
-    <h4>{{ image.author }}</h4>
-    <p>
-      <strong>Primera aparición:</strong> {{ truncateText(image.location, 30) }}
-      <br>
-      <mat-chip-listbox>
-        <mat-chip *ngFor="let name of image.tags.split(',')">
-          {{ truncateText(name, 15) }}
-        </mat-chip>
-      </mat-chip-listbox>
-    </p>
-  </mat-card-content>
-</mat-card>
+          <span *ngFor="let name of image.tags.split(',')" class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            {{ truncateText(name, 15) }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

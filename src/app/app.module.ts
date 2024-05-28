@@ -12,6 +12,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './Apps-Tools/home.component';
 import { MenuService } from './shared/components/menu/services/menu.service';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { AuthModule } from './auth/auth.module';
+
+
 
 
 
@@ -30,6 +34,8 @@ import { MenuService } from './shared/components/menu/services/menu.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    AuthModule,
+
 
 
 
@@ -45,7 +51,8 @@ import { MenuService } from './shared/components/menu/services/menu.service';
 
   providers: [
     MenuService,
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]
 })

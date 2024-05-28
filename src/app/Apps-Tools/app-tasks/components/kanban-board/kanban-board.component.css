@@ -1,0 +1,90 @@
+@import 'tailwindcss/tailwind.css';
+
+.kanban-board {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.column {
+  flex: 1;
+  margin: 0 8px;
+  padding: 16px;
+  border-radius: 8px;
+  min-height: 600px;
+}
+
+.column h3 {
+  text-align: center;
+}
+
+.task {
+  padding: 8px;
+  margin: 8px 0;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task.to-do {
+  background-color: #ebf8ff; /* Light blue */
+}
+
+.task.in-progress {
+  background-color: #fffbeb; /* Light yellow */
+}
+
+.task.done {
+  background-color: #fee2e2; /* Light red */
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 4px;
+}
+
+@media (max-width: 768px) {
+  .kanban-board {
+    display: none;
+  }
+
+  .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .task {
+    border-left: 8px solid;
+  }
+
+  .task[status="to do"] {
+    border-color: blue;
+  }
+
+  .task[status="in progress"] {
+    border-color: yellow;
+  }
+
+  .task[status="done"] {
+    border-color: green;
+  }
+}
+
+select {
+  background-color: white; /* Fondo claro para el desplegable */
+  color: black; /* Texto negro */
+  border: 1px solid #cbd5e0; /* Borde gris */
+  border-radius: 4px;
+  padding: 4px 8px;
+}

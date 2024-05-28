@@ -1,76 +1,49 @@
-<h1>
-  {{ currentImage.id ? 'Editar' : 'Agregar' }} imagen
-  <small>{{ currentImage.author }}</small>
-</h1>
+<div class="container mx-auto p-4 bg-gradient-to-r from-gray-400 to-blue-900 shadow-md rounded-lg">
+  <h1 class="text-2xl font-bold mb-4">Editar imagen <span class="text-gray-600">{{ imageForm.get('nickname')?.value }}</span></h1>
+  <hr class="mb-4">
 
-<mat-divider class="mb-2"></mat-divider>
-
-<div class="container">
-  <div class="form-section">
-    <mat-card>
-      <mat-card-content>
-
-        <form class="form-grid" [formGroup]="imageForm" (ngSubmit)="onSubmit()">
-
-          <mat-form-field class="full-width">
-            <mat-label>Título</mat-label>
-            <input matInput type="text" required formControlName="name" />
-          </mat-form-field>
-
-          <mat-form-field class="full-width">
-            <mat-label>Nick</mat-label>
-            <input matInput type="text" required formControlName="nickname" />
-          </mat-form-field>
-
-          <mat-form-field class="full-width">
-            <mat-label>Localización</mat-label>
-            <input matInput type="text" required formControlName="location" />
-          </mat-form-field>
-
-          <mat-form-field class="full-width">
-            <mat-label>Etiquetas</mat-label>
-            <input matInput type="text" required formControlName="tags" />
-          </mat-form-field>
-
-          <mat-form-field class="full-width">
-            <mat-label>Creador</mat-label>
-            <mat-select required formControlName="author">
-              <mat-option *ngFor="let author of authors" [value]="author.id">
-                {{ author.desc }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="full-width">
-            <mat-label>Imagen Alternativa</mat-label>
-            <input matInput type="text" formControlName="alt_img" />
-          </mat-form-field>
-
-          <mat-form-field class="full-width">
-            <mat-label>Descripción</mat-label>
-            <textarea matInput formControlName="descripcion"></textarea>
-          </mat-form-field>
-
-        </form>
-
-        <div class="flex justify-content-between">
-          <button *ngIf="currentImage.id" (click)="onDeleteImage()" mat-flat-button color="warn">
-            Borrar
-          </button>
-          <span></span>
-          <button mat-flat-button color="primary" (click)="onSubmit()">
-            <mat-icon>save</mat-icon>
-            Guardar
-          </button>
+  <div class="flex flex-wrap md:flex-nowrap">
+    <!-- Form Section -->
+    <div class="w-mid lg:w-2/4 p-4">
+      <form [formGroup]="imageForm" (ngSubmit)="onSubmit()" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Título*</label>
+          <input type="text" id="name" formControlName="name" class="mt-1 block w-full p-2 border border-white-300 rounded-md" required>
         </div>
+        <div>
+          <label for="nickname" class="block text-sm font-medium text-gray-700">Nick*</label>
+          <input type="text" id="nickname" formControlName="nickname" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div>
+          <label for="location" class="block text-sm font-medium text-gray-700">Localización*</label>
+          <input type="text" id="location" formControlName="location" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div>
+          <label for="tags" class="block text-sm font-medium text-gray-700">Etiquetas*</label>
+          <input type="text" id="tags" formControlName="tags" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div>
+          <label for="author" class="block text-sm font-medium text-gray-700">Creador*</label>
+          <input type="text" id="author" formControlName="author" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div>
+          <label for="alt_img" class="block text-sm font-medium text-gray-700">Imagen Alternativa</label>
+          <input type="text" id="alt_img" formControlName="alt_img" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+        </div>
+        <div>
+          <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
+          <textarea id="descripcion" formControlName="descripcion" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"></textarea>
+        </div>
+        <div class="flex justify-between items-center mt-4">
+          <button type="button" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700" (click)="onDeleteImage()">Borrar</button>
+          <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Guardar</button>
+        </div>
+      </form>
+    </div>
 
-      </mat-card-content>
-    </mat-card>
-  </div>
-
-  <div class="image-section">
-    <mat-card>
-      <img [src]="currentImageImageUrl" alt="imagen de fotografía" mat-card-image />
-    </mat-card>
+    <!-- Image Section -->
+    <div class="w-mid lg:w-2/4 p-4 flex items-center justify-center">
+      <img [src]="currentImageImageUrl" [alt]="imageForm.get('name')?.value" class="max-w-full h-auto rounded-lg shadow-md">
+    </div>
   </div>
 </div>

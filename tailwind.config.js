@@ -1,13 +1,11 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  purge: ['./src/**/*.{html,ts}'],
+  darkMode: false,
   theme: {
-    extend: {
-      backgroundImage: {
-        'custom-background': "url('./src/assets/background.svg')",
-      },
-    },
+    extend: {},
+  },
+  variants: {
+    extend: {},
   },
   plugins: [],
 }
-

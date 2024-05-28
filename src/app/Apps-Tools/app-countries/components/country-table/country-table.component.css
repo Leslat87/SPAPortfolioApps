@@ -1,0 +1,9 @@
+@import 'tailwindcss/tailwind.css';
+
+/* No es necesario mantener el archivo SCSS si todos los estilos se manejan con Tailwind CSS en el HTML */
+.card {
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 350px;
+  max-height: 400px;
+}

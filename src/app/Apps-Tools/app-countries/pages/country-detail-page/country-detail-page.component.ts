@@ -1,36 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { Country } from '../../interfaces/country';
+import { ActivatedRoute } from '@angular/router';
 import { CountriesService } from '../../services/countries.service';
+import { Country } from '../../interfaces/country.interfaces';
 
 @Component({
   selector: 'app-country-detail-page',
   templateUrl: './country-detail-page.component.html',
-  styleUrls: ['./country-detail-page.component.scss']
+  styleUrls: ['./country-detail-page.component.css']
 })
 export class CountryDetailPageComponent implements OnInit {
-  public country$ = this.activatedRoute.params.pipe(
-    switchMap(({ id }) => this.countriesService.getCountryByAlpha(id).pipe(
-      catchError(error => {
-        console.error('Error fetching country details:', error);
-        this.router.navigateByUrl('/');
-        return of(null);
-      })
-    )),
-    tap(country => {
-      if (!country) {
-        this.router.navigateByUrl('/');
-      }
-    })
-  );
+  country: Country | null = null;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private countriesService: CountriesService,
-  ) {}
+  constructor(private route: ActivatedRoute, private countriesService: CountriesService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const countryCode = this.route.snapshot.paramMap.get('countryCode');
+    if (countryCode) {
+      this.countriesService.searchCountryByAlphaCode(countryCode as string)
+        .subscribe(country => {
+          this.country = country;
+        });
+    }
+  }
 }

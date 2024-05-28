@@ -49,4 +49,11 @@ export class CalculatorService {
       return 'Error';
     }
   }
+
+  calculate(expression: string): string {
+    const result = this.evaluateExpression(expression);
+    const calculation: Calculation = { expression, result };
+    this.addCalculation(calculation);
+    return result;
+  }
 }

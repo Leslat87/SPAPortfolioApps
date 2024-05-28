@@ -1,0 +1,11 @@
+@import 'tailwindcss/tailwind.css';
+
+form {
+  background-color: #f7fafc; /* Color de fondo del formulario */
+  border: 1px solid #cbd5e0; /* Borde del formulario */
+  padding: 1rem; /* Relleno del formulario */
+  border-radius: 0.375rem; /* Radio de borde para las esquinas redondeadas */
+}
+input {
+  color: white
+}

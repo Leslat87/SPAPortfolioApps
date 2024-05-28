@@ -1,34 +1,26 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { Country } from '../../interfaces/country';
-import { CountriesService } from '../../services/countries.service';
+import { Country, Currencies, Languages } from '../../interfaces/country.interfaces';
 
 @Component({
   selector: 'app-country-card',
   templateUrl: './country-card.component.html',
-  styleUrls: ['./country-card.component.scss']
+  styleUrls: ['./country-card.component.css']
 })
 export class CountryCardComponent {
   @Input() country!: Country;
 
-  constructor(
-    private router: Router // Añadir el Router aquí
-  ) {}
-
-  getLanguages(languages: { [key: string]: string }): string {
+  getLanguages(languages: Languages): string {
     return Object.values(languages).join(', ');
   }
 
-  getCurrencies(currencies: { [key: string]: { name: string; symbol: string } }): string {
-    return Object.values(currencies).map(currency => `${currency.name} (${currency.symbol})`).join(', ');
+  getCurrencies(currencies: Currencies): string {
+    return Object.keys(currencies).map(key => {
+      const currency = currencies[key as keyof Currencies];
+      return currency ? currency.name : '';
+    }).join(', ');
   }
 
-  getBorders(borders?: string[]): string {
-    return borders ? borders.join(', ') : 'None';
-  }
-
-  // Método para navegar a la página de detalles del país
-  navigateToCountryDetail() {
-    this.router.navigate(['/country', this.country.cca3]);
+  getBorders(borders: string[]): string {
+    return borders.join(', ');
   }
 }

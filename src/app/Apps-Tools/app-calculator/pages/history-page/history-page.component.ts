@@ -4,7 +4,7 @@ import { CalculatorService, Calculation } from '../../services/calculator.servic
 @Component({
   selector: 'app-history-page',
   templateUrl: './history-page.component.html',
-  styleUrls: ['./history-page.component.scss']
+  styleUrls: ['./history-page.component.css']
 })
 export class HistoryPageComponent implements OnInit {
   history: Calculation[] = [];

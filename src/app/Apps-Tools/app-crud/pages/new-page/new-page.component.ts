@@ -1,24 +1,19 @@
-// src/app/Apps-Tools/app-crud/pages/new-page/new-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-
 import { Image, Author } from '../../interfaces/crud.interface';
 import { CrudService } from '../../services/crud.service';
 import { filter, switchMap, tap } from 'rxjs';
-
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'crud-new-page',
   templateUrl: 'new-page.component.html',
-  styleUrl: 'new-page.component.scss'
+  styleUrls: ['new-page.component.css']
 })
 export class NewPageComponent implements OnInit {
-
   public imageForm = new FormGroup({
     id: new FormControl<string>(''),
     name: new FormControl<string>('', { nonNullable: true }),

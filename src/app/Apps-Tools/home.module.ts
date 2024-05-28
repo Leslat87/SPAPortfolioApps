@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HomeRoutingModule } from './home-routing.module';
 
-import { PrimeNgModule } from '../prime-ng/prime-ng.module';
-import { MaterialModule } from '../material/material.module';
-
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 
@@ -15,17 +12,11 @@ import { HomeComponent } from './home.component';
     HomeComponent,
 
 
-
-
-
   ],
   imports: [
 
     CommonModule,
     HomeRoutingModule,
-    PrimeNgModule,
-    MaterialModule,
-
 
 
   ],

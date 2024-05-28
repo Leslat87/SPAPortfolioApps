@@ -29,12 +29,7 @@ export class CalculatorPageComponent implements OnInit {
   }
 
   calculate() {
-    const result = this.calculatorService.evaluateExpression(this.display);
-    const calculation: Calculation = {
-      expression: this.display,
-      result: result
-    };
-    this.calculatorService.addCalculation(calculation);
+    const result = this.calculatorService.calculate(this.display);
     this.history = this.calculatorService.getHistory();
     this.display = result;
   }

@@ -1,0 +1,11 @@
+/* Añadir tus estilos personalizados aquí */
+
+.bg-blue-950 {
+  background-color: #1e3a8a;
+}
+
+.bg-image {
+  background-image: url('/assets/weather_blue.jpg'); /* Ajustar la ruta según sea necesario */
+  background-size: cover;
+  background-position: center;
+}

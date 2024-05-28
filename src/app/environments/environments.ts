@@ -1,7 +1,5 @@
-
-
+// src/environments/environments.ts
 export const environments = {
-  baseUrl: 'http://localhost:3000'
-
-
- }
+  production: false,
+  baseUrl: 'http://localhost:3000' 
+};

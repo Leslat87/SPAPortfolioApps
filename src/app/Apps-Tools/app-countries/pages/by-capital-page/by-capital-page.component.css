@@ -1,0 +1,28 @@
+@import 'tailwindcss/tailwind.css';
+
+/* No es necesario mantener el archivo SCSS si todos los estilos se manejan con Tailwind CSS en el HTML */
+
+.bg-image {
+  background-image: url('/assets/countries_blue.jpg'); /* Ajustar la ruta según sea necesario */
+  background-size: contain; /* Evitar que el fondo se amplíe */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input[type="text"] {
+  max-width: 500px; /* Mantener el tamaño máximo de la barra de búsqueda */
+}
+
+.flex-grow {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajustar tamaño mínimo de las tarjetas */
+}
+
+input[type="text"] {
+  max-width: 500px; /* Mantener el tamaño máximo de la barra de búsqueda */
+  width: 100%;
+}

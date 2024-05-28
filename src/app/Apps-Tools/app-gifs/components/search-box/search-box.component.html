@@ -1,4 +1,15 @@
-<div>
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar GIFs...">
-  <button (click)="onSearch()">Buscar</button>
+<div class="flex items-center space-x-2">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Buscar GIFs..."
+    class="p-2 border border-gray-300 rounded-md w-full"
+  >
+  <button
+    (click)="onSearch()"
+    class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+  >
+    Buscar
+  </button>
 </div>
+
