@@ -7,12 +7,13 @@ import { Newweather } from '../interfaces/new-interface.interface';
   providedIn: 'root'
 })
 export class FewDaysService {
-  private baseUrl: string = 'http://api.openweathermap.org/data/2.5/forecast?q=';
-  private apikey: string = '&units=metric&appid=06a77019936341ff3d1d78c794d00461';
+  private baseUrl: string = 'https://api.openweathermap.org/data/2.5/forecast';
+  private apikey: string = '06a77019936341ff3d1d78c794d00461';
 
   constructor(private http: HttpClient) { }
 
   getWeather(city: string): Observable<Newweather> {
-    return this.http.get<Newweather>(`${this.baseUrl}${city}${this.apikey}`);
+    const url = `${this.baseUrl}?q=${city}&units=metric&appid=${this.apikey}`;
+    return this.http.get<Newweather>(url);
   }
 }

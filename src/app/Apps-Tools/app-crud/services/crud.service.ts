@@ -1,8 +1,6 @@
-// src/app/Apps-Tools/app-crud/services/crud.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
-
 import { Image } from '../interfaces/crud.interface';
 import { environments } from '../../../environments/environments';
 
@@ -14,7 +12,27 @@ export class CrudService {
   constructor(private http: HttpClient) { }
 
   getImages(): Observable<Image[]> {
-    return this.http.get<Image[]>(`${this.baseUrl}/images`);
+    return this.http.get<Image[]>(`${this.baseUrl}/images`).pipe(
+      map(images => {
+        const role = localStorage.getItem('role');
+        const user = localStorage.getItem('user');
+        const halfIndex = Math.ceil(images.length / 2);
+
+        if (role === 'Admin') {
+          return images;
+        } else if (user === 'User1') {
+          return images.slice(0, halfIndex);
+        } else if (user === 'User2') {
+          return images.slice(halfIndex);
+        } else {
+          return [];
+        }
+      }),
+      catchError(error => {
+        console.error('Error fetching images', error);
+        return of([]);
+      })
+    );
   }
 
   getImageById(id: string): Observable<Image | undefined> {

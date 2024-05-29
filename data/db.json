@@ -2,14 +2,23 @@
   "users": [
     {
       "id": "1",
-      "user": "Regular Man",
-      "email": "regularman@gmail.com",
-      "role": "Regular"
+      "user": "User1",
+      "email": "user1@user.com",
+      "password": "User1",
+      "role": "User"
+    },
+    {
+      "id": "1",
+      "user": "User2",
+      "email": "user2@user.com",
+      "password": "User2",
+      "role": "User"
     },
     {
       "id": "2",
-      "user": "Admin Man",
-      "email": "adminman@gmail.com",
+      "user": "Admin",
+      "email": "admin@admin.com",
+      "password": "Admin",
       "role": "Admin"
     }
   ],

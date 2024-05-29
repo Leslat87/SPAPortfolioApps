@@ -1,17 +1,12 @@
-<div class="min-h-screen flex flex-col md:flex-row">
-  <!-- Columna lateral para el buscador -->
-  <div class="bg-gray-800 text-white w-full md:w-auto p-4 flex flex-col items-center">
-    <h2 class="text-2xl font-bold mb-4">Search City</h2>
-    <input type="text" [(ngModel)]="city" class="p-2 w-full rounded-md mb-4 " placeholder="Enter city name" (input)="getWeather()">
+<main class="container mx-auto mt-8">
+  <div class="max-w-md mx-auto bg-gradient-to-r from-gray-800 to-blue-950 p-6 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold mb-8 text-center text-white">Search City</h1>
+    <form (ngSubmit)="getWeather()">
+      <div class="mb-4">
+        <input type="text" id="city" [(ngModel)]="city" name="city" class="w-full p-2 rounded border" placeholder="Enter city name" required>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-400">Search</button>
+    </form>
   </div>
-
- <!-- Contenedor para la imagen de fondo o resultados del clima -->
- <div class="flex-grow p-4 bg-cover bg-center bg-image">
-  <div *ngIf="!weather" class="flex items-center justify-center h-full">
-    <p class="text-3xl text-gray-300">Perform a search to see results</p>
-  </div>
-  <div *ngIf="weather" class="flex flex-col items-center justify-center h-full">
-    <app-weather-results [weather]="weather" [forecast]="forecast" [chartData]="chartData"></app-weather-results>
-  </div>
-</div>
-</div>
+  <app-weather-results *ngIf="weather" [weather]="weather" [forecast]="forecast" [chartData]="chartData"></app-weather-results>
+</main>

@@ -25,6 +25,11 @@
           </div>
         </ng-container>
       </li>
+      <li>
+        <button (click)="logout()" class="text-white flex items-center">
+          <i class="pi pi-sign-out mr-1"></i> Logout
+        </button>
+      </li>
     </ul>
     <div class="md:hidden flex items-center">
       <button (click)="toggleMobileMenu()" class="text-white mobile-menu-button">
@@ -54,6 +59,11 @@
           </li>
         </ul>
       </ng-container>
+    </li>
+    <li>
+      <button (click)="logout()" class="block text-sm px-2 py-4 text-white bg-gray-800 hover:bg-gray-700 transition duration-300">
+        <i class="pi pi-sign-out mr-1"></i> Logout
+      </button>
     </li>
   </ul>
 </div>

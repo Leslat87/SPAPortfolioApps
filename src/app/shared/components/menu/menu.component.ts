@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../../auth/services/auth.service';
 
 interface MenuItem {
   label: string;
@@ -19,7 +22,7 @@ export class MenuComponent implements OnInit {
   public isMobileMenuVisible: boolean = false;
   public activeSubMenu: string | null = null;
 
-  constructor() {}
+  constructor(private AuthService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.menuItems = [
@@ -89,5 +92,10 @@ export class MenuComponent implements OnInit {
 
   toggleSubMenu(label: string): void {
     this.activeSubMenu = this.activeSubMenu === label ? null : label;
+  }
+
+  logout(): void {
+    this.AuthService.logout();
+    this.router.navigate(['/auth/login']);
   }
 }

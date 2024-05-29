@@ -1,4 +1,3 @@
-
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -14,10 +13,11 @@ export class WeatherResultsComponent implements OnInit {
   currentTime: string = '';
   hourlyChartOptions: any;
   dailyChartOptions: any;
-  weeklyForecast: any[] = [];
-  recommendation: { text: string, imageUrl: string } = {
+  weeklyForecast: any[] = [];  // Añadimos la definición de weeklyForecast
+  recommendation: { text: string, imageUrl: string, backgroundImageUrl: string } = {
     text: 'No recommendation available.',
-    imageUrl: 'assets/default-image.png'
+    imageUrl: 'assets/default-image.png',
+    backgroundImageUrl: 'assets/default-bg.jpg'
   };
 
   ngOnInit(): void {
@@ -57,8 +57,8 @@ export class WeatherResultsComponent implements OnInit {
   }
 
   setDailyChartOptions() {
-    const dates = this.forecast.map((entry: any) => new Date(entry.dt * 1000).toLocaleDateString());
-    const temperatures = this.forecast.map((entry: any) => entry.temp.day);
+    const dates = this.forecast.list.filter((entry: any, index: number) => index % 8 === 0).slice(0, 5).map((entry: any) => new Date(entry.dt * 1000).toLocaleDateString());
+    const temperatures = this.forecast.list.filter((entry: any, index: number) => index % 8 === 0).slice(0, 5).map((entry: any) => entry.main.temp);
 
     this.dailyChartOptions = {
       xAxis: {
@@ -77,11 +77,11 @@ export class WeatherResultsComponent implements OnInit {
   }
 
   setWeeklyForecast() {
-    this.weeklyForecast = this.forecast.map((data: any) => ({
+    this.weeklyForecast = this.forecast.list.filter((entry: any, index: number) => index % 8 === 0).slice(0, 5).map((data: any) => ({
       name: new Date(data.dt * 1000).toLocaleDateString('default', { weekday: 'short', month: 'short', day: 'numeric' }),
       temp: {
-        day: data.temp.day,
-        night: data.temp.night
+        day: data.main.temp,
+        night: data.main.temp_min
       },
       weather: data.weather
     }));
@@ -92,15 +92,15 @@ export class WeatherResultsComponent implements OnInit {
 
     switch (true) {
       case weatherDescription.includes('clear') || weatherDescription.includes('few clouds') || weatherDescription.includes('scattered clouds'):
-        return 'url(assets/soleado.jpg)';
+        return 'url(assets/typeofday/soleado.jpg)';
       case weatherDescription.includes('broken clouds') || weatherDescription.includes('overcast clouds'):
-        return 'url(assets/cloud.jpg)';
+        return 'url(assets/typeofday/cloud.jpg)';
       case weatherDescription.includes('rain') || weatherDescription.includes('shower rain') || weatherDescription.includes('thunderstorm'):
-        return 'url(assets/rainy.jpg)';
+        return 'url(assets/typeofday/rainy.jpg)';
       case weatherDescription.includes('snow') || weatherDescription.includes('light snow') || weatherDescription.includes('heavy snow'):
-        return 'url(assets/snow.jpg)';
+        return 'url(assets/typeofday/snow.jpg)';
       default:
-        return 'url(assets/extreme.jpg)';
+        return 'url(assets/typeofday/extreme.jpg)';
     }
   }
 
@@ -111,31 +111,36 @@ export class WeatherResultsComponent implements OnInit {
       case weatherDescription.includes('clear') || weatherDescription.includes('few clouds') || weatherDescription.includes('scattered clouds'):
         this.recommendation = {
           text: 'It\'s a beautiful day! Why not go for a walk or have a picnic?',
-          imageUrl: 'assets/recommendations/sunny-day.jpg'
+          imageUrl: 'assets/recommendations/buenclima.jpg',
+          backgroundImageUrl: 'assets/typeofday/soleado.jpg'
         };
         break;
       case weatherDescription.includes('broken clouds') || weatherDescription.includes('overcast clouds'):
         this.recommendation = {
           text: 'It\'s a bit cloudy today. How about visiting a museum or going to the movies?',
-          imageUrl: 'assets/recommendations/cloudy-day.jpg'
+          imageUrl: 'assets/recommendations/museum.png.jpg',
+          backgroundImageUrl: 'assets/typeofday/cloud.jpg'
         };
         break;
       case weatherDescription.includes('rain') || weatherDescription.includes('shower rain') || weatherDescription.includes('thunderstorm'):
         this.recommendation = {
           text: 'It\'s raining outside. Why not stay indoors and read a book or play a game?',
-          imageUrl: 'assets/recommendations/rainy-day.jpg'
+          imageUrl: 'assets/recommendations/juegosmesa.png',
+          backgroundImageUrl: 'assets/typeofday/rainy.jpg'
         };
         break;
       case weatherDescription.includes('snow') || weatherDescription.includes('light snow') || weatherDescription.includes('heavy snow'):
         this.recommendation = {
           text: 'It\'s snowing! How about building a snowman or going skiing?',
-          imageUrl: 'assets/recommendations/snowy-day.jpg'
+          imageUrl: 'assets/recommendations/urbalchill.jpg',
+          backgroundImageUrl: 'assets/typeofday/snow.jpg'
         };
         break;
       default:
         this.recommendation = {
           text: 'Be careful out there! The weather is extreme.',
-          imageUrl: 'assets/recommendations/extreme-weather.jpg'
+          imageUrl: 'assets/recommendations/becarefull.png',
+          backgroundImageUrl: 'assets/typeofday/extreme.jpg'
         };
         break;
     }

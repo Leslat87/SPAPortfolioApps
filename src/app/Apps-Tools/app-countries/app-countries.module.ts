@@ -8,10 +8,11 @@ import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.
 import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { SharedModule } from '../../shared/shared.module';
-import { CountryDetailPageComponent } from './pages/country-detail-page/country-detail-page.component';
-import { CountryCardComponent } from './components/country-card/country-card.component';
+
 import { CountriesService } from './services/countries.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CountryCardComponent } from './components/country-card/country-card.component';
+import { CountryDetailPageComponent } from './pages/country-detail-page/country-detail-page.component';
 
 @NgModule({
   declarations: [

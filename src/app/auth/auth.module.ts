@@ -1,28 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthRoutingModule } from './auth-routing.module';
 
-
-
-
-
+// Importar los componentes creados
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
-    LayoutPageComponent,
     LoginPageComponent,
-    RegisterPageComponent,
-
+    RegisterPageComponent
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule,
-
-  ]
+    FormsModule,
+    HttpClientModule,
+    AuthRoutingModule
+  ],
+  providers: [AuthGuard]
 })
 export class AuthModule { }

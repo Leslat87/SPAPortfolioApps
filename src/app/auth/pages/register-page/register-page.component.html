@@ -1,33 +1,23 @@
-
-<div class="flex flex-column">
-  <span class="text-lg mb-4">Registro</span>
-
-  <mat-form-field>
-    <mat-label>Usuario</mat-label>
-    <input type="text" matInput placeholder="Nombre de Ususario" />
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Nombre</mat-label>
-    <input type="text" matInput placeholder="Nombre de Usuario" />
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Contraseña</mat-label>
-    <input type="password" matInput placeholder="Contraseña" />
-  </mat-form-field>
-
-  <button mat-button mat-flat-button color="primary">
-    <mat-icon>save</mat-icon>
-    Crear Cuenta
-  </button>
-
-
-  <div class="flex justify-content-end mt-5">
-    <a routerLink="/auth/login">¿No tienes cuenta?</a>
-
+<main class="container mx-auto mt-8">
+  <h1 class="text-3xl font-bold mb-8 text-center text-white">Registrarse</h1>
+  <div class="max-w-md mx-auto bg-gradient-to-r from-gray-800 to-blue-950 p-6 rounded-lg shadow-md">
+    <form (ngSubmit)="register()">
+      <div class="mb-4">
+        <label for="user" class="block text-white">Nombre de Usuario</label>
+        <input type="text" id="user" [(ngModel)]="user" name="user" class="w-full p-2 rounded border" required>
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-white">Correo Electrónico</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" class="w-full p-2 rounded border" required>
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-white">Contraseña</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" class="w-full p-2 rounded border" required>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-400">Registrarse</button>
+    </form>
+    <p class="mt-4 text-center text-white">
+      ¿Ya tienes una cuenta? <a routerLink="/auth/login" class="text-blue-500 hover:underline">Iniciar Sesión</a>
+    </p>
   </div>
-
-
-</div>
-
+</main>

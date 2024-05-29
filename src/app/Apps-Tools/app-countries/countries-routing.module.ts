@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'by-capital', component: ByCapitalPageComponent },
   { path: 'by-country', component: ByCountryPageComponent },
   { path: 'by-region', component: ByRegionPageComponent },
-  { path: ':id', component: CountryDetailPageComponent },
+  { path: 'detail/:countryCode', component: CountryDetailPageComponent },
   { path: '', redirectTo: 'by-country', pathMatch: 'full'}
 ];
 

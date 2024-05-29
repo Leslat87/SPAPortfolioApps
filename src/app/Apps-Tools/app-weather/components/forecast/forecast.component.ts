@@ -7,18 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ForecastComponent implements OnInit {
   @Input() forecastData: any;
-
-  options: any;
+  options: any;  // Definimos la propiedad options
 
   ngOnInit(): void {
     if (this.forecastData) {
-      this.updateChartData(this.forecastData);
+      this.setOptions();
     }
   }
 
-  updateChartData(forecast: any) {
-    const dates = forecast.list.slice(0, 8).map((entry: any) => new Date(entry.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-    const temperatures = forecast.list.slice(0, 8).map((entry: any) => entry.main.temp);
+  setOptions() {
+    const dates = this.forecastData.slice(0, 8).map((entry: any) => new Date(entry.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    const temperatures = this.forecastData.slice(0, 8).map((entry: any) => entry.main.temp);
 
     this.options = {
       xAxis: {
@@ -36,3 +35,4 @@ export class ForecastComponent implements OnInit {
     };
   }
 }
+

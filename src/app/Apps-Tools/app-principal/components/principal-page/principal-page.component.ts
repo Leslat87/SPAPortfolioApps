@@ -6,52 +6,55 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./principal-page.component.scss']
 })
 export class PrincipalPageComponent implements OnInit {
+  role: string | null = null;
 
   calculatorSection = {
     title: 'Calculator',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non orci ac nulla tincidunt lobortis vel vel nulla.',
-    link: '/app-calculator', // Aquí deberías poner la ruta correcta a la sección de Calculator
+    link: '/calculator', // Aquí deberías poner la ruta correcta a la sección de Calculator
     buttonText: 'Go to Calculator'
   };
 
   countriesSection = {
     title: 'Countries',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non orci ac nulla tincidunt lobortis vel vel nulla.',
-    link: '/app-countries', // Aquí deberías poner la ruta correcta a la sección de Countries
+    link: '/countries', // Aquí deberías poner la ruta correcta a la sección de Countries
     buttonText: 'Go to Countries'
   };
 
   crudsection = {
     title: 'CRUD',
-    description: 'Description for Card 3',
-    link: '/app-crud',
-    buttonText: 'Button Text for Card 3'
+    link: '/crud',
+    buttonText: 'Go to Crud'
   };
 
-  card4 = {
+  gifsSection = {
     title: 'Gifs',
-    description: 'Description for Card 4',
-    link: '/app-gifs',
-    buttonText: 'Button Text for Card 4'
+    link: '/gifs',
+    buttonText: 'Go to Gifs'
   };
 
-  card5 = {
+  tasksSection = {
     title: 'Tasks',
-    description: 'Description for Card 5',
-    link: '/app-tasks',
-    buttonText: 'Button Text for Card 5'
+    link: '/tasks',
+    buttonText: 'Go to Tasks'
   };
 
-  card6 = {
+  weatherSection = {
     title: 'Weather',
-    description: 'Description for Card 6',
-    link: '/app-weater',
-    buttonText: 'Button Text for Card 6'
+    link: '/weather',
+    buttonText: 'Go to Weather'
   };
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.role = localStorage.getItem('role');
   }
 
+  isUser(): boolean {
+    return this.role === 'User';
+  }
+
+  isAdmin(): boolean {
+    return this.role === 'Admin';
+  }
 }

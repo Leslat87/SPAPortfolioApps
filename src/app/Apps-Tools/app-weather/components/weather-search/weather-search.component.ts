@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { FewDaysService } from '../../services/few-days.service';
-import { GraphicsService } from '../../services/graphics.service';
 
 @Component({
   selector: 'app-weather-search',
@@ -14,25 +13,25 @@ export class WeatherSearchComponent {
   forecast: any;
   chartData: any;
 
-  constructor(
-    private weatherService: WeatherService,
-    private fewDaysService: FewDaysService,
-    private graphicsService: GraphicsService
-  ) { }
+  constructor(private weatherService: WeatherService, private fewDaysService: FewDaysService) { }
 
   getWeather() {
-    if (this.city) {
-      this.weatherService.getWeather(this.city).subscribe(data => {
+    this.weatherService.getWeather(this.city).subscribe({
+      next: (data) => {
         this.weather = data;
-      });
-
-      this.fewDaysService.getWeather(this.city).subscribe(forecastData => {
-        this.forecast = forecastData.list;
-      });
-
-      this.graphicsService.getWeather(this.city).subscribe(chartData => {
-        this.chartData = chartData.list;
-      });
-    }
+        this.fewDaysService.getWeather(this.city).subscribe({
+          next: (forecastData) => {
+            this.forecast = forecastData;
+            this.chartData = forecastData.list;
+          },
+          error: (error) => {
+            console.error('Error fetching forecast data:', error);
+          }
+        });
+      },
+      error: (error) => {
+        console.error('Error fetching weather data:', error);
+      }
+    });
   }
 }

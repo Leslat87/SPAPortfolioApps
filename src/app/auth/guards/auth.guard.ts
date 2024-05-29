@@ -1,30 +1,29 @@
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
-// import {
-//   ActivatedRouteSnapshot,
-//   CanActivateFn,
-//   CanMatchFn,
-//   Route,
-//   RouterStateSnapshot,
-//   UrlSegment,
-// } from '@angular/router';
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+  constructor(private router: Router) {}
 
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
 
-// export const canActivateGuard: CanActivateFn = ( //Hay que tener en cuenta el tipado CanActiveFn
-//   route: ActivatedRouteSnapshot,
-//   state: RouterStateSnapshot
-// ) => {
-//   console.log('CanActivate');
-//   console.log({ route, state });
+    if (token && role) {
+      const expectedRole = route.data['role'];
+      if (!expectedRole || expectedRole === role || role === 'Admin') {
+        return true;
+      } else {
+        // Redirigir si el rol no coincide
+        this.router.navigate(['/auth/login']);
+        return false;
+      }
+    }
 
-//   return false;
-// };
-
-// export const canMatchGuard: CanMatchFn = ( //Tipado CanMatchFN
-//   route: Route,
-//   segments: UrlSegment[]
-// ) => {
-//   console.log('CanMatch');
-//   console.log({ route, segments });
-
-//   return false;
-// };
+    // Redirigir a la página de login si no está autenticado
+    this.router.navigate(['/auth/login']);
+    return false;
+  }
+}
