@@ -11,8 +11,8 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.grid-cols-4 {
-  grid-template-columns: repeat(4, 1fr);
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .bg-white {
@@ -20,11 +20,11 @@
 }
 
 .p-6 {
-  padding: 16px;
+  padding: 1.5rem; 
 }
 
 .rounded-lg {
-  border-radius: 8px;
+  border-radius: 0.5rem; /* 8px */
 }
 
 .shadow-md {
@@ -32,27 +32,27 @@
 }
 
 .text-3xl {
-  font-size: 24px;
+  font-size: 1.875rem; /* 30px */
 }
 
 .font-bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .text-lg {
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px */
 }
 
 .text-sm {
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
 }
 
 .h-32 {
-  height: 32px;
+  height: 8rem; /* 128px */
 }
 
 .w-32 {
-  width: 32px;
+  width: 8rem; /* 128px */
 }
 
 .object-cover {
@@ -60,9 +60,9 @@
 }
 
 .h-12 {
-  height: 12px;
+  height: 3rem; /* 48px */
 }
 
 .w-12 {
-  width: 12px;
+  width: 3rem; /* 48px */
 }

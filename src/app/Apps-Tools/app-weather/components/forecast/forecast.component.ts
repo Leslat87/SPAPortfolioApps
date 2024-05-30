@@ -1,23 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+import { EChartsOption } from 'echarts';
 
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.css']
 })
-export class ForecastComponent implements OnInit {
+export class ForecastComponent implements OnChanges {
   @Input() forecastData: any;
-  options: any;  // Definimos la propiedad options
+  options: EChartsOption = {};
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     if (this.forecastData) {
       this.setOptions();
     }
   }
 
-  setOptions() {
-    const dates = this.forecastData.slice(0, 8).map((entry: any) => new Date(entry.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-    const temperatures = this.forecastData.slice(0, 8).map((entry: any) => entry.main.temp);
+  setOptions(): void {
+    const dates = this.forecastData.list.map((entry: any) => new Date(entry.dt * 1000).toLocaleTimeString());
+    const temperatures = this.forecastData.list.map((entry: any) => entry.main.temp);
 
     this.options = {
       xAxis: {
@@ -35,4 +36,3 @@ export class ForecastComponent implements OnInit {
     };
   }
 }
-
