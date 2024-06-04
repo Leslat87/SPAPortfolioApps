@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Country, Currencies, Languages } from '../../interfaces/country.interfaces';
+import { Country } from '../../interfaces/country.interfaces';
 
 @Component({
   selector: 'app-country-card',
@@ -9,15 +9,12 @@ import { Country, Currencies, Languages } from '../../interfaces/country.interfa
 export class CountryCardComponent {
   @Input() country!: Country;
 
-  getLanguages(languages: Languages): string {
-    return Object.values(languages).join(', ');
+  getLanguages(languages: { [key: string]: { iso639_1: string, iso639_2: string, name: string, nativeName: string } }): string {
+    return Object.values(languages).map(lang => lang.name).join(', ');
   }
 
-  getCurrencies(currencies: Currencies): string {
-    return Object.keys(currencies).map(key => {
-      const currency = currencies[key as keyof Currencies];
-      return currency ? currency.name : '';
-    }).join(', ');
+  getCurrencies(currencies: { [key: string]: { name: string, symbol: string } }): string {
+    return Object.values(currencies).map(currency => `${currency.name} (${currency.symbol})`).join(', ');
   }
 
   getBorders(borders: string[]): string {

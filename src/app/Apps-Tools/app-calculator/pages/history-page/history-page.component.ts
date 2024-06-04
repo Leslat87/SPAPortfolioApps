@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculatorService, Calculation } from '../../services/calculator.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-history-page',
@@ -8,15 +9,24 @@ import { CalculatorService, Calculation } from '../../services/calculator.servic
 })
 export class HistoryPageComponent implements OnInit {
   history: Calculation[] = [];
+  userId: string = '';
 
-  constructor(private calculatorService: CalculatorService) {}
+  constructor(
+    private calculatorService: CalculatorService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.history = this.calculatorService.getHistory();
+    this.userId = this.route.snapshot.paramMap.get('id') || '';
+    this.loadHistory();
+  }
+
+  loadHistory(): void {
+    this.history = this.calculatorService.getUserHistory(this.userId);
   }
 
   clearHistory(): void {
-    this.calculatorService.clearHistory();
+    this.calculatorService.clearUserHistory(this.userId);
     this.history = [];
   }
 }

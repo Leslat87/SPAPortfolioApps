@@ -3,6 +3,8 @@ export interface Task {
   id: string;
   description: string;
   status: TaskStatus;
+  userId: string;
 }
 
 export type TaskStatus = 'to do' | 'in progress' | 'done';
+

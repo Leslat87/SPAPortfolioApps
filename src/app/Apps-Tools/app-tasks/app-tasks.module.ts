@@ -7,7 +7,7 @@ import { TasksFilterPipe } from '../pipes/tasks-filter.pipe';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { KanbanBoardComponent } from './components/kanban-board/kanban-board.component';
-import { TaskService } from './services/task.service';
+import { TasksListService } from './services/task.service';
 
 
 
@@ -37,7 +37,7 @@ import { TaskService } from './services/task.service';
 
   ],
   providers: [
-    TaskService,
+    TasksListService,
   ]
 
 })

@@ -1,4 +1,3 @@
-// src/app/auth/pages/login-page/login-page.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -18,6 +17,9 @@ export class LoginPageComponent {
     this.authService.login(this.email, this.password).subscribe((response: any) => {
       if (response) {
         console.log('Login successful:', response);
+        localStorage.setItem('userId', response.id);
+        localStorage.setItem('token', response.token);  // Asegúrate de que el token se guarde
+        localStorage.setItem('role', response.role);   // Asegúrate de que el role se guarde
         this.router.navigate(['/home']);
       } else {
         console.error('Login failed');
@@ -25,4 +27,3 @@ export class LoginPageComponent {
     });
   }
 }
-

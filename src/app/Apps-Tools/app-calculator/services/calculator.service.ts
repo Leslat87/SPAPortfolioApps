@@ -1,45 +1,39 @@
 import { Injectable } from '@angular/core';
 import { create, all } from 'mathjs';
 
+const math = create(all);
+
 export interface Calculation {
+  id: number;
   expression: string;
   result: string;
 }
-
-const math = create(all);
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalculatorService {
-  private readonly storageKey = 'calculatorHistory';
-  private history: Calculation[] = [];
+  private storageKeyPrefix = 'calculatorHistory_';
 
-  constructor() {
-    this.loadHistory();
+  constructor() {}
+
+  private getStorageKey(userId: string): string {
+    return `${this.storageKeyPrefix}${userId}`;
   }
 
-  private loadHistory(): void {
-    const storedHistory = localStorage.getItem(this.storageKey);
-    this.history = storedHistory ? JSON.parse(storedHistory) : [];
+  getUserHistory(userId: string): Calculation[] {
+    const storedHistory = localStorage.getItem(this.getStorageKey(userId));
+    return storedHistory ? JSON.parse(storedHistory) : [];
   }
 
-  private saveHistory(): void {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.history));
+  addUserCalculation(userId: string, calculation: Calculation): void {
+    const history = this.getUserHistory(userId);
+    history.push(calculation);
+    localStorage.setItem(this.getStorageKey(userId), JSON.stringify(history));
   }
 
-  getHistory(): Calculation[] {
-    return this.history;
-  }
-
-  addCalculation(calculation: Calculation): void {
-    this.history.push(calculation);
-    this.saveHistory();
-  }
-
-  clearHistory(): void {
-    this.history = [];
-    localStorage.removeItem(this.storageKey);
+  clearUserHistory(userId: string): void {
+    localStorage.removeItem(this.getStorageKey(userId));
   }
 
   evaluateExpression(expression: string): string {
@@ -50,10 +44,10 @@ export class CalculatorService {
     }
   }
 
-  calculate(expression: string): string {
+  calculate(userId: string, expression: string): string {
     const result = this.evaluateExpression(expression);
-    const calculation: Calculation = { expression, result };
-    this.addCalculation(calculation);
+    const calculation: Calculation = { id: Date.now(), expression, result };
+    this.addUserCalculation(userId, calculation);
     return result;
   }
 }

@@ -15,23 +15,19 @@ export class WeatherSearchComponent {
 
   constructor(private weatherService: WeatherService, private fewDaysService: FewDaysService) { }
 
-  getWeather() {
-    this.weatherService.getWeather(this.city).subscribe({
-      next: (data) => {
-        this.weather = data;
-        this.fewDaysService.getWeather(this.city).subscribe({
-          next: (forecastData) => {
-            this.forecast = forecastData;
-            this.chartData = forecastData.list;
-          },
-          error: (error) => {
-            console.error('Error fetching forecast data:', error);
-          }
-        });
-      },
-      error: (error) => {
-        console.error('Error fetching weather data:', error);
+  async getWeather() {
+    try {
+      const weatherData = await this.weatherService.getWeather(this.city).toPromise();
+      this.weather = weatherData;
+      const forecastData = await this.fewDaysService.getWeather(this.city).toPromise();
+      if (forecastData && forecastData.list) {
+        this.forecast = forecastData;
+        this.chartData = forecastData.list;
+      } else {
+        console.error('Forecast data is undefined or does not contain a list.');
       }
-    });
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../../services/task.service';
+import { TasksListService } from '../../services/task.service';
 import { Task, TaskStatus } from '../../interfaces/task.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'kanban-board',
@@ -9,40 +10,55 @@ import { Task, TaskStatus } from '../../interfaces/task.interface';
 })
 export class KanbanBoardComponent implements OnInit {
   tasks: Task[] = [];
+  userId: string | null = null;
+  draggedTaskId: string | null = null;
 
-  constructor(private taskService: TaskService) {}
-
+  constructor(
+    private tasksService: TasksListService,
+    private route: ActivatedRoute
+  ) {}
   ngOnInit(): void {
-    this.taskService.tasks$.subscribe(tasks => {
-      this.tasks = tasks;
-    });
-  }
-
-  getTasksByStatus(status: TaskStatus): Task[] {
-    return this.tasks.filter(task => task.status === status);
-  }
-
-  onDrop(event: DragEvent, status: TaskStatus) {
-    const taskId = event.dataTransfer?.getData('taskId');
-    if (taskId) {
-      const task = this.tasks.find(t => t.id === taskId);
-      if (task && task.status !== 'done') {
-        this.taskService.updateTaskStatus(task, status);
-      }
+    this.userId = this.route.snapshot.paramMap.get('id');
+    if (this.userId) {
+      this.tasksService.loadTasks(this.userId);
+      this.tasksService.tasks$.subscribe(tasks => {
+        this.tasks = tasks;
+      });
     }
   }
 
-  onDragStart(event: DragEvent, taskId: string) {
-    event.dataTransfer?.setData('taskId', taskId);
+
+  getTasksByStatus(status: string): Task[] {
+    return this.tasks.filter(task => task.status === status);
+  }
+
+  onDragStart(event: any, taskId: string): void {
+    this.draggedTaskId = taskId;
+  }
+
+  onDrop(event: any, newStatus: string): void {
+    if (this.draggedTaskId && this.userId) {
+      const task = this.tasks.find(t => t.id === this.draggedTaskId);
+      if (task && task.status !== newStatus) {
+        task.status = newStatus as TaskStatus;
+        this.tasksService.updateTask(this.userId, task);
+      }
+      this.draggedTaskId = null;
+    }
   }
 
   deleteTask(taskId: string): void {
-    this.taskService.deleteTask(taskId);
+    if (this.userId) {
+      this.tasksService.deleteTask(this.userId, taskId);
+    }
   }
 
-  onStatusChange(task: Task, newStatus: TaskStatus): void {
-    if (task.status !== 'done') {
-      this.taskService.updateTaskStatus(task, newStatus);
+  onStatusChange(task: Task, newStatus: string): void {
+    if (task.status !== newStatus) {
+      task.status = newStatus as TaskStatus;
+      if (this.userId) {
+        this.tasksService.updateTask(this.userId, task);
+      }
     }
   }
 

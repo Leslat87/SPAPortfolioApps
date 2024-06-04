@@ -1,4 +1,3 @@
-// src/app/auth/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -27,9 +26,8 @@ export class AuthService {
         if (users && users.length) {
           const user = users[0];
           localStorage.setItem('currentUser', JSON.stringify(user));
-          localStorage.setItem('role', user.role);
-          localStorage.setItem('user', user.user);
           this.currentUserSubject.next(user);
+          this.router.navigate(['/home']);  // Asegúrate de que esta línea esté presente
           return user;
         }
         return null;
@@ -40,7 +38,6 @@ export class AuthService {
       })
     );
   }
-
   register(user: string, email: string, password: string, role: string = 'User'): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/users`, { user, email, password, role }).pipe(
       catchError(error => {
@@ -54,7 +51,10 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('role');
     localStorage.removeItem('user');
+    localStorage.removeItem('userId');  // Eliminar el ID del usuario
     this.currentUserSubject.next(null);
-    this.router.navigate(['/auth/login']);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/auth/login']);
+    });
   }
 }

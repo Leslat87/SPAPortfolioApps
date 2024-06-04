@@ -7,17 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalPageComponent implements OnInit {
   role: string | null = null;
+  userId: string | null = null;
 
   calculatorSection = {
     title: 'Calculator',
-    link: '/calculator', // Aquí deberías poner la ruta correcta a la sección de Calculator
+    link: '', // Esto se establecerá en ngOnInit
     buttonText: 'Go to Calculator'
   };
 
   countriesSection = {
     title: 'Countries',
-    link: '/countries', // Aquí deberías poner la ruta correcta a la sección de Countries
-    buttonText: 'Go to Countries'
+    link: '/countries',
   };
 
   crudsection = {
@@ -34,7 +34,7 @@ export class PrincipalPageComponent implements OnInit {
 
   tasksSection = {
     title: 'Tasks',
-    link: '/tasks',
+    link: '',
     buttonText: 'Go to Tasks'
   };
 
@@ -48,6 +48,14 @@ export class PrincipalPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.role = localStorage.getItem('role');
+    this.userId = localStorage.getItem('userId');
+
+    if (this.userId) {
+      this.calculatorSection.link = `/calculator/${this.userId}`;
+    }
+    if (this.userId) {
+      this.tasksSection.link = `/tasks/${this.userId}`;
+    }
   }
 
   isUser(): boolean {

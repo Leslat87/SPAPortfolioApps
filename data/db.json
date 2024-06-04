@@ -1,25 +1,40 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": "us3r3",
       "user": "User1",
       "email": "user1@user.com",
       "password": "User1",
       "role": "User"
     },
     {
-      "id": "1",
+      "id": "us3r2",
       "user": "User2",
       "email": "user2@user.com",
       "password": "User2",
       "role": "User"
     },
     {
-      "id": "2",
+      "id": "4dm1n",
       "user": "Admin",
       "email": "admin@admin.com",
       "password": "Admin",
       "role": "Admin"
+    },
+    {
+      "id": "703e",
+      "user": "User3",
+      "email": "user3@user.com",
+      "password": "User3",
+      "role": "User"
+    },
+    {
+      "id": "6572"
+    },
+    {
+      "id": "7700",
+      "email": "admin@admin.com",
+      "password": "Admin"
     }
   ],
   "images": [
@@ -215,7 +230,7 @@
     },
     {
       "id": "uncle",
-      "name": "Uncle",
+      "name": "Uncleo",
       "author": "Anonymous",
       "nickname": "Retrato",
       "location": "Casa de Familia: Cáceres - Extremadura",
