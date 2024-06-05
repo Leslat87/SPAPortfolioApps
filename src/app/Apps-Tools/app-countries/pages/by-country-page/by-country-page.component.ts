@@ -15,6 +15,7 @@ export class ByCountryPageComponent implements OnInit, OnDestroy {
   public isLoading: boolean = false;
   public initialValue: string = '';
   private destroy$ = new Subject<void>();
+  public errorMessage: string= '';
 
   constructor(private countriesService: CountriesService, private router: Router) {}
 
@@ -42,9 +43,10 @@ export class ByCountryPageComponent implements OnInit, OnDestroy {
           this.countries = countries;
           this.isLoading = false;
         },
-        error: () => {
+        error: (err) => {
           this.countries = [];
           this.isLoading = false;
+          this.errorMessage = 'An error occurred while fetching data';
         }
       });
   }
@@ -53,4 +55,3 @@ export class ByCountryPageComponent implements OnInit, OnDestroy {
     this.router.navigate([path]);
   }
 }
-

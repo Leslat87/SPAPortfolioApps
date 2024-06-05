@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, of, map, tap } from 'rxjs';
+import { catchError, Observable, of, map, tap, switchMap } from 'rxjs';
 import { Country } from '../interfaces/country.interfaces';
 import { CacheStore } from '../interfaces/cache-store.interfaces';
 import { Region } from '../interfaces/region.types';
@@ -8,8 +8,7 @@ import { Region } from '../interfaces/region.types';
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
 
-  private apiUrl: string = 'http://api.countrylayer.com/v2';
-  private apiKey: string = '7bf89eed26ac4b409e0b2a11490f2708';  // Reemplaza 'YOUR_API_KEY' con tu clave de API de CountryLayer
+  private apiUrl: string = 'https://restcountries.com/v3.1';
 
   public cacheStore: CacheStore = {
     byCapital:   { term: '', countries: [] },
@@ -19,43 +18,50 @@ export class CountriesService {
 
   constructor(private http: HttpClient ) {}
 
-  private getCountriesRequest( url: string ): Observable<Country[]> {
-    return this.http.get<Country[]>( url )
+  private getCountriesRequest(url: string): Observable<Country[]> {
+    return this.http.get<Country[]>(url)
       .pipe(
-        catchError( () => of([]) ),
+        catchError(this.handleError<Country[]>('getCountriesRequest', []))
       );
   }
 
-  searchCountryByAlphaCode( code: string ): Observable<Country | null> {
-    const url = `${ this.apiUrl }/alpha/${ code }?access_key=${ this.apiKey }`;
-    return this.http.get<Country[]>( url )
+  searchCountryByAlphaCode(code: string): Observable<Country | null> {
+    const url = `${this.apiUrl}/alpha/${code}`;
+    return this.http.get<Country[]>(url)
       .pipe(
-        map( countries => countries.length > 0 ? countries[0]: null ),
-        catchError( () => of(null) )
+        map(countries => countries.length > 0 ? countries[0] : null),
+        catchError(this.handleError<Country | null>('searchCountryByAlphaCode', null))
       );
   }
 
-  searchCapital( term: string ): Observable<Country[]> {
-    const url = `${ this.apiUrl }/capital/${ term }?access_key=${ this.apiKey }`;
-    return this.getCountriesRequest(url)
-        .pipe(
-          tap( countries => this.cacheStore.byCapital = { term, countries }),
-        );
-  }
-
-  searchCountry( term: string ): Observable<Country[]> {
-    const url = `${ this.apiUrl }/name/${ term }?access_key=${ this.apiKey }`;
+  searchCapital(term: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/capital/${term}`;
     return this.getCountriesRequest(url)
       .pipe(
-        tap( countries => this.cacheStore.byCountries = { term, countries }),
+        tap(countries => this.cacheStore.byCapital = { term, countries })
       );
   }
 
-  searchRegion( region: Region ): Observable<Country[]> {
-    const url = `${ this.apiUrl }/region/${ region }?access_key=${ this.apiKey }`;
+  searchCountry(term: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/name/${term}`;
     return this.getCountriesRequest(url)
       .pipe(
-        tap( countries => this.cacheStore.byRegion = { region, countries }),
+        tap(countries => this.cacheStore.byCountries = { term, countries })
       );
+  }
+
+  searchRegion(region: Region): Observable<Country[]> {
+    const url = `${this.apiUrl}/region/${region}`;
+    return this.getCountriesRequest(url)
+      .pipe(
+        tap(countries => this.cacheStore.byRegion = { region, countries })
+      );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
 }

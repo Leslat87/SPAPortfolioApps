@@ -7,6 +7,8 @@ import { WeatherRoutingModule } from './weather-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { SharedModule } from '../../shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
     WeatherRoutingModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
     NgxEchartsModule.forRoot({ echarts: () => import('echarts') })
   ]
 })

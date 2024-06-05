@@ -1,9 +1,13 @@
-// src/app/shared/components/error404-page/error404-page.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-error404-page',
   templateUrl: './error404-page.component.html',
-  styleUrl: './error404-page.component.scss'
+  styleUrls: ['./error404-page.component.css']
 })
-export class Error404PageComponent {}
+export class Error404PageComponent implements OnInit {
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+}

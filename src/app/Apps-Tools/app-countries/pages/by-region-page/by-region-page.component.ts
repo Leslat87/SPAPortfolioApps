@@ -17,6 +17,7 @@ export class ByRegionPageComponent implements OnInit, OnDestroy {
   public isLoading: boolean = false;
   public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
   private destroy$ = new Subject<void>();
+  public errorMessage: string= '';
 
   constructor(private countriesService: CountriesService, private router: Router) {}
 
@@ -38,9 +39,10 @@ export class ByRegionPageComponent implements OnInit, OnDestroy {
           this.countries = countries;
           this.isLoading = false;
         },
-        error: () => {
+        error: (err) => {
           this.countries = [];
           this.isLoading = false;
+          this.errorMessage = 'An error occurred while fetching data';
         }
       });
   }

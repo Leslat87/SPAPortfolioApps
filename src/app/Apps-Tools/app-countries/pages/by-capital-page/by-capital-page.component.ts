@@ -15,6 +15,7 @@ export class ByCapitalPageComponent implements OnInit, OnDestroy {
   public countries: Country[] = [];
   public isLoading: boolean = false;
   public initialValue: string = '';
+  public errorMessage: string = '';
   private destroy$ = new Subject<void>();
 
   constructor(private countriesService: CountriesService, private router: Router) {}
@@ -42,15 +43,18 @@ export class ByCapitalPageComponent implements OnInit, OnDestroy {
         next: countries => {
           this.countries = countries;
           this.isLoading = false;
+          this.errorMessage = '';
         },
-        error: () => {
+        error: (err) => {
           this.countries = [];
           this.isLoading = false;
+          this.errorMessage = 'An error occurred while fetching data';
         }
       });
   }
 
-  navigateTo(path: string) {
+  navigateTo(path: string): void {
     this.router.navigate([path]);
   }
 }
+
