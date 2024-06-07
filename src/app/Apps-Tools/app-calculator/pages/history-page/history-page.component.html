@@ -1,12 +1,14 @@
-<main class="container mx-auto mt-8">
-  <h2 class="text-2xl font-bold mb-4 text-white">Historial de Cálculos</h2>
+<main class="container mx-auto mt-8 px-4 sm:px-6 lg:px-8">
+  <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white text-center">
+    Historial de Cálculos
+  </h2>
   <div class="bg-gray-800 p-6 rounded-lg shadow-md max-w-md mx-auto text-white">
     <ul class="space-y-2">
       <li *ngFor="let calc of history" class="border-b pb-2 border-gray-400">
         {{ calc.expression }} = {{ calc.result }}
       </li>
     </ul>
-    <button (click)="clearHistory()" class="mt-4 p-2 w-full bg-red-600 rounded-lg hover:bg-red-500">
+    <button (click)="clearHistory()" class="mt-4 p-2 w-full bg-red-600 rounded-lg hover:bg-red-500 transition-colors duration-300">
       Borrar Historial
     </button>
   </div>

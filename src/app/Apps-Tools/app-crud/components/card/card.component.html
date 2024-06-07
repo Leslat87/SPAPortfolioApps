@@ -4,14 +4,15 @@
       <h3 class="text-xl font-bold">{{ truncateText(image.name, 20) }}</h3>
       <h4 class="text-gray-200">{{ truncateText(image.nickname, 20) }}</h4>
     </div>
-    <img [src]="imageUrl" alt="{{image.name}}" class="object-cover h-72 w-full my-4">
+    <div class="relative w-full" style="padding-bottom: 56.25%;"> <!-- Relación de aspecto 16:9 -->
+      <img [src]="imageUrl" alt="{{image.name}}" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg">
+    </div>
     <div class="mt-2">
       <h4 class="text-lg">{{ image.author }}</h4>
       <div>
         <strong>Primera aparición:</strong> {{ truncateText(image.location, 30) }}
         <br>
         <div class="flex flex-wrap p-1">
-
           <span *ngFor="let name of image.tags.split(',')" class="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
             {{ truncateText(name, 15) }}
           </span>

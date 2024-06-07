@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Country, Currencies, Languages } from '../../interfaces/country.interfaces';
+import { Location } from '@angular/common';  // Importamos Location
 
 @Component({
   selector: 'app-country-card',
@@ -8,6 +9,8 @@ import { Country, Currencies, Languages } from '../../interfaces/country.interfa
 })
 export class CountryCardComponent {
   @Input() country!: Country;
+
+  constructor(private location: Location) {}  // Inyectamos Location
 
   getLanguages(languages: Languages): string {
     return Object.values(languages).join(', ');
@@ -22,5 +25,10 @@ export class CountryCardComponent {
 
   getBorders(borders: string[]): string {
     return borders.join(', ');
+  }
+
+  // Método para volver a la página anterior
+  goBack() {
+    this.location.back();
   }
 }

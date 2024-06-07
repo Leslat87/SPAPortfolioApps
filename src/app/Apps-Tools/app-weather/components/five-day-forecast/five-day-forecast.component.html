@@ -1,0 +1,10 @@
+<div *ngIf="forecast">
+  <h3 class="text-xl font-bold mb-4">5-day forecast for {{ city }}</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-row-3 lg:grid-row-5 gap-2">
+    <div *ngFor="let day of forecast.list.slice(0, 5)" class="flex flex-col items-center bg-gradient-to-r from-white to-blue-300 p-2 rounded-lg shadow-md">
+      <p class="text-sm font-bold">{{ day.dt_txt | date: 'fullDate' }}</p>
+      <img src="http://openweathermap.org/img/wn/{{ day.weather[0].icon }}@2x.png" alt="Weather Icon">
+      <p class="text-sm">{{ day.main.temp }}°C</p>
+    </div>
+  </div>
+</div>

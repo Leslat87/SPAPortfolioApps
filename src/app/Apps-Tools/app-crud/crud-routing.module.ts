@@ -1,4 +1,4 @@
-// src/app/Apps-Tools/app-crud/crud-routing.module.ts
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CrudPageComponent } from './pages/crud-page/crud-page.component';

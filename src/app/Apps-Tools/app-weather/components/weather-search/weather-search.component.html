@@ -1,5 +1,6 @@
 <div class="min-h-screen flex flex-col md:flex-row">
-  <div class= "bg-gray-800 rounded-lg shadow-md flex flex-col items-center p-4" style="width: 300px; min-width: 300px;">
+  <!-- Formulario de Búsqueda -->
+  <div class="bg-gray-800 rounded-lg shadow-md flex flex-col items-center p-4" style="width: 300px; min-width: 300px;">
     <h1 class="text-2xl font-bold mb-4 text-white">Search City</h1>
     <form (ngSubmit)="getWeather()">
       <div class="flex w-full mb-4">
@@ -9,9 +10,16 @@
     </form>
   </div>
 
-
+  <!-- Contenedor de Resultados y Spinner -->
   <div class="flex-grow p-4 bg-cover bg-center bg-image">
-   
-    <app-weather-results *ngIf="weather" [weather]="weather" [forecast]="forecast" [chartData]="chartData"></app-weather-results>
+    <!-- Mostrar Spinner mientras isLoading es true -->
+    <div *ngIf="isLoading" class="flex justify-center items-center min-h-screen">
+      <shared-loading-spinner></shared-loading-spinner>
+    </div>
+
+    <!-- Mostrar Resultados cuando isLoading es false y los datos están disponibles -->
+    <div *ngIf="!isLoading && weather && forecast">
+      <app-weather-results [weather]="weather" [forecast]="forecast" [chartData]="chartData"></app-weather-results>
+    </div>
   </div>
 </div>

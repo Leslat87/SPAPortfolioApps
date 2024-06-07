@@ -10,6 +10,8 @@ export class WeatherResultsComponent implements OnInit, OnChanges {
   @Input() forecast: any;
   @Input() chartData: any;
 
+  isLoading: boolean = true; // Añadir la propiedad isLoading
+
   currentDate: string = '';
   currentTime: string = '';
   hourlyChartOptions: any;
@@ -81,11 +83,19 @@ export class WeatherResultsComponent implements OnInit, OnChanges {
   }
 
   initializeData(): void {
-    this.setDateTime();
-    this.setHourlyChartOptions();
-    this.setDailyChartOptions();
-    this.setWeeklyForecast();
-    this.setRecommendation();
+    this.isLoading = true;  // Mostrar el spinner
+    setTimeout(() => { // Simular un pequeño retraso para ver el spinner
+      this.setDateTime();
+      if (Array.isArray(this.forecast)) { // Chequeo para evitar errores con .map()
+        this.setHourlyChartOptions();
+        this.setDailyChartOptions();
+        this.setWeeklyForecast();
+      } else {
+        console.error('Forecast data is not an array:', this.forecast);
+      }
+      this.setRecommendation();
+      this.isLoading = false;  // Ocultar el spinner cuando los datos estén listos
+    }, 1000); // Ajusta el tiempo si es necesario o remueve este timeout en producción
   }
 
   setDateTime() {
@@ -172,7 +182,6 @@ export class WeatherResultsComponent implements OnInit, OnChanges {
       }
     }
 
-    // Si no se encuentra ninguna coincidencia, usar la recomendación por defecto
     this.recommendation = this.weatherRecommendations['default'];
   }
 }

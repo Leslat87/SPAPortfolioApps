@@ -12,13 +12,16 @@ export class WeatherSearchComponent {
   weather: any;
   forecast: any;
   chartData: any;
+  isLoading: boolean = false; // Estado de carga
 
   constructor(private weatherService: WeatherService, private fewDaysService: FewDaysService) { }
 
   async getWeather() {
+    this.isLoading = true; // Mostrar spinner antes de iniciar la carga de datos
     try {
       const weatherData = await this.weatherService.getWeather(this.city).toPromise();
       this.weather = weatherData;
+
       const forecastData = await this.fewDaysService.getWeather(this.city).toPromise();
       if (forecastData && forecastData.list) {
         this.forecast = forecastData;
@@ -28,6 +31,8 @@ export class WeatherSearchComponent {
       }
     } catch (error) {
       console.error('Error fetching weather data:', error);
+    } finally {
+      this.isLoading = false; // Ocultar el spinner después de cargar los datos
     }
   }
 }

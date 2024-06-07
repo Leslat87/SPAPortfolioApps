@@ -1,29 +1,43 @@
 <main class="container mx-auto mt-8">
-  <h1 class="text-3xl font-bold mb-8 text-center text-white">Bienvenido a la Aplicación Principal</h1>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center text-white">
+    Bienvenido a la Aplicación Principal
+  </h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
     <div class="bg-gradient-to-r from-gray-800 to-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
-      <img src='assets/calculadora-mini.png' alt="Calculator" class="h-26 mb-4">
-      <a [routerLink]="calculatorSection.link" class="text-xl font-bold text-blue-500 hover:underline">Calculator</a>
+      <img src='assets/calculadora-mini.png' alt="Calculator" class="h-26 mb-4 sm:mb-6 md:mb-8">
+      <a [routerLink]="calculatorSection.link" class="text-xl sm:text-2xl font-bold text-blue-500 hover:underline">
+        Calculator
+      </a>
     </div>
     <div [ngClass]="{'disabled-link': isUser()}" class="bg-gradient-to-r from-gray-800 to-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
-      <img src="assets/countries_blue.jpg" alt="Countries" class="h-26 mb-4">
-      <a [routerLink]="isUser() ? null : countriesSection.link" class="text-xl font-bold text-blue-500 hover:underline" [class.pointer-events-none]="isUser()">Countries</a>
+      <img src="assets/countries_blue.jpg" alt="Countries" class="h-26 mb-4 sm:mb-6 md:mb-8">
+      <a [routerLink]="isUser() ? null : countriesSection.link" class="text-xl sm:text-2xl font-bold text-blue-500 hover:underline" [class.pointer-events-none]="isUser()">
+        Countries
+      </a>
     </div>
     <div class="bg-gradient-to-r from-gray-800 to-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
-      <img src="assets/crud-blue.png" alt="Crud" class="h-26 mb-3">
-      <a [routerLink]="crudsection.link" class="text-xl font-bold text-blue-500 hover:underline">Crud</a>
+      <img src="assets/crud-blue.png" alt="Crud" class="h-26 mb-3 sm:mb-5 md:mb-7">
+      <a [routerLink]="crudsection.link" class="text-xl sm:text-2xl font-bold text-blue-500 hover:underline">
+        Crud
+      </a>
     </div>
     <div class="bg-gradient-to-r from-gray-800 to-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
-      <img src="assets/kanban-blue.png" alt="Tasks" class="h-26 mb-4">
-      <a [routerLink]="tasksSection.link" class="text-xl font-bold text-blue-500 hover:underline">Tasks</a>
+      <img src="assets/kanban-blue.png" alt="Tasks" class="h-26 mb-4 sm:mb-6 md:mb-8">
+      <a [routerLink]="tasksSection.link" class="text-xl sm:text-2xl font-bold text-blue-500 hover:underline">
+        Tasks
+      </a>
     </div>
     <div [ngClass]="{'disabled-link': isUser()}" class="bg-gradient-to-r from-gray-800 to-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
-      <img src="assets/weather_blue.jpg" alt="Weather" class="h-26 mb-4">
-      <a [routerLink]="isUser() ? null : weatherSection.link" class="text-xl font-bold text-blue-500 hover:underline" [class.pointer-events-none]="isUser()">Weather</a>
+      <img src="assets/weather_blue.jpg" alt="Weather" class="h-26 mb-4 sm:mb-6 md:mb-8">
+      <a [routerLink]="isUser() ? null : weatherSection.link" class="text-xl sm:text-2xl font-bold text-blue-500 hover:underline" [class.pointer-events-none]="isUser()">
+        Weather
+      </a>
     </div>
     <div class="bg-gradient-to-r from-gray-800 to-blue-950 p-6 rounded-lg shadow-md flex flex-col items-center">
-      <img src="assets/gifs-blue.png" alt="Gifs" class="h-26 mb-4">
-      <a [routerLink]="gifsSection.link" class="text-xl font-bold text-blue-500 hover:underline">Gifs</a>
+      <img src="assets/gifs-blue.png" alt="Gifs" class="h-26 mb-4 sm:mb-6 md:mb-8">
+      <a [routerLink]="gifsSection.link" class="text-xl sm:text-2xl font-bold text-blue-500 hover:underline">
+        Gifs
+      </a>
     </div>
   </div>
 </main>

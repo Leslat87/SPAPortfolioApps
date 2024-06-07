@@ -3,23 +3,22 @@
   <div class="bg-gradient-to-r from-gray-800 to-blue-950 text-white flex flex-col items-center p-4" style="width: 300px; min-width: 300px">
     <h2 class="text-2xl font-bold mb-4">Search by Capital</h2>
     <div class="flex w-full mb-4">
-      <input type="text" [(ngModel)]="initialValue" class="p-2 w-full rounded-l-md" placeholder="Enter capital name" aria-label="Enter capital name">
-      <button class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-r-md" (click)="searchByCapital()">Search</button>
+      <input type="text" [(ngModel)]="initialValue" class="p-2 w-full rounded-l-md" placeholder="Ingrese el nombre del país">
+      <button class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-r-md" (click)="searchByCapital()">Buscar</button>
     </div>
     <button class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-md mt-2 w-full" (click)="navigateTo('/countries/by-country')">By Country</button>
     <button class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-md mt-2 w-full" (click)="navigateTo('/countries/by-region')">By Region</button>
   </div>
-
   <!-- Contenedor para la imagen de fondo o resultados de búsqueda -->
   <div class="flex-grow p-4 bg-cover bg-center bg-image">
     <div *ngIf="isLoading" class="flex items-center justify-center h-full">
       <shared-loading-spinner></shared-loading-spinner>
     </div>
     <div *ngIf="!isLoading && !countries.length && !errorMessage" class="flex items-center justify-center h-full">
-      <p class="text-3xl text-gray-300">Perform a search to see results</p>
+      <p class="text-3xl text-gray-300 text-center">Perform a search to see results</p>
     </div>
     <div *ngIf="errorMessage" class="flex items-center justify-center h-full">
-      <p class="text-3xl text-red-500">{{ errorMessage }}</p>
+      <p class="text-3xl text-red-500 text-center">{{ errorMessage }}</p>
     </div>
     <div *ngIf="countries.length" class="flex flex-wrap justify-center gap-4">
       <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>

@@ -35,6 +35,13 @@
       "id": "7700",
       "email": "admin@admin.com",
       "password": "Admin"
+    },
+    {
+      "id": "ee41",
+      "user": "user4@user.com",
+      "email": "user4@user.com",
+      "password": "User4",
+      "role": "User"
     }
   ],
   "images": [

@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { SharedModule } from '../../shared/shared.module';
+import { FiveDayForecastComponent } from './components/five-day-forecast/five-day-forecast.component';
 
 
 @NgModule({
   declarations: [
     WeatherSearchComponent,
     WeatherResultsComponent,
-    ForecastComponent
+    ForecastComponent,
+    FiveDayForecastComponent,
   ],
   imports: [
     CommonModule,

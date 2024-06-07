@@ -12,6 +12,7 @@ export class AuthService {
   public currentUser: Observable<any>;
 
   constructor(private http: HttpClient, private router: Router) {
+    // Cargar el usuario actual desde el localStorage o establecer un objeto vacío
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -25,9 +26,14 @@ export class AuthService {
       map(users => {
         if (users && users.length) {
           const user = users[0];
+          // Almacenar datos específicos en el localStorage
           localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('userId', user.id); // Suponiendo que el usuario tiene un campo `id`
+          localStorage.setItem('role', user.role); // Suponiendo que el usuario tiene un campo `role`
+          localStorage.setItem('token', 'fake-jwt-token'); // Puedes ajustar el token como lo necesites
+
           this.currentUserSubject.next(user);
-          this.router.navigate(['/home']);  // Asegúrate de que esta línea esté presente
+          this.router.navigate(['/home']);
           return user;
         }
         return null;
@@ -38,6 +44,7 @@ export class AuthService {
       })
     );
   }
+
   register(user: string, email: string, password: string, role: string = 'User'): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/users`, { user, email, password, role }).pipe(
       catchError(error => {
@@ -50,9 +57,10 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('role');
-    localStorage.removeItem('user');
-    localStorage.removeItem('userId');  // Eliminar el ID del usuario
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
     this.currentUserSubject.next(null);
+    // Redirigir a la página de login después de limpiar el estado del usuario
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/auth/login']);
     });

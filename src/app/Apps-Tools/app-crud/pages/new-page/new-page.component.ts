@@ -7,6 +7,7 @@ import { Image, Author } from '../../interfaces/crud.interface';
 import { CrudService } from '../../services/crud.service';
 import { filter, switchMap, tap } from 'rxjs';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { Location } from '@angular/common'; // Importamos Location
 
 @Component({
   selector: 'crud-new-page',
@@ -36,6 +37,7 @@ export class NewPageComponent implements OnInit {
     private router: Router,
     private snackbar: MatSnackBar,
     private dialog: MatDialog,
+    private location: Location // Inyectamos Location
   ) {}
 
   get currentImage(): Image {
@@ -102,5 +104,10 @@ export class NewPageComponent implements OnInit {
     this.snackbar.open(message, 'Cerrar', {
       duration: 2500,
     });
+  }
+
+  // Método para volver a la página anterior
+  goBack() {
+    this.location.back();
   }
 }

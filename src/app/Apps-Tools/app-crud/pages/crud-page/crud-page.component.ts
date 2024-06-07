@@ -1,9 +1,9 @@
-// src/app/Apps-Tools/app-crud/pages/crud-page/crud-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { CrudService } from '../../services/crud.service';
 import { Image } from '../../interfaces/crud.interface';
+import { Location } from '@angular/common'; // Importamos Location
 
 @Component({
   selector: 'crud-page',
@@ -16,7 +16,8 @@ export class CrudPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private crudService: CrudService
+    private crudService: CrudService,
+    private location: Location // Inyectamos Location
   ) {}
 
   ngOnInit(): void {
@@ -35,5 +36,10 @@ export class CrudPageComponent implements OnInit {
 
   get imageUrl(): string {
     return this.image.alt_img || `assets/images/${this.image.id}.jpg`;
+  }
+
+  // Método para volver a la página anterior
+  goBack() {
+    this.location.back();
   }
 }

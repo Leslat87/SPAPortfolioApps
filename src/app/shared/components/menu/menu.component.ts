@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { AuthService } from '../../../auth/services/auth.service';
 
 interface MenuItem {
@@ -21,10 +20,17 @@ export class MenuComponent implements OnInit {
 
   public isMobileMenuVisible: boolean = false;
   public activeSubMenu: string | null = null;
+  private userId: string | null = null;
+  private role: string | null = null;
 
   constructor(private AuthService: AuthService, private router: Router) {}
 
   ngOnInit() {
+     // Obtener el userId y role de localStorage
+     this.userId = localStorage.getItem('userId');
+     this.role = localStorage.getItem('role');
+
+     // Configurar los elementos del menú con enlaces dinámicos
     this.menuItems = [
       {
         label: 'Home',
@@ -64,12 +70,12 @@ export class MenuComponent implements OnInit {
           {
             label: 'Tasks',
             icon: 'pi pi-pencil',
-            routerLink: 'tasks',
+            routerLink:  this.userId ? `/tasks/${this.userId}` : '/tasks',
           },
           {
             label: 'Calculator',
             icon: 'pi pi-calculator',
-            routerLink: 'calculator',
+            routerLink: this.userId ? `/calculator/${this.userId}` : '/calculator',
           }
         ]
       },
