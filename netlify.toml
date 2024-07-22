@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "dist/spaportfolio"
+  publish = "dist/spaportfolio/browser"
 
 [dev]
   command = "npm run start"
