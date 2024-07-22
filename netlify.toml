@@ -2,9 +2,6 @@
   command = "npm run build"
   publish = "dist/spaportfolio/browser"
 
-[[plugins]]
-  package = "@netlify/plugin-functions-core"
-
 [dev]
   command = "npm run start"
   port = 4200
