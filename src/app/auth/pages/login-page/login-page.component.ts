@@ -14,15 +14,11 @@ export class LoginPageComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
-    this.authService.login(this.email, this.password).subscribe((response: any) => {
-      if (response) {
-        console.log('Login successful:', response);
-        localStorage.setItem('userId', response.id);
-        localStorage.setItem('token', response.token);  // Asegúrate de que el token se guarde
-        localStorage.setItem('role', response.role);   // Asegúrate de que el role se guarde
-        this.router.navigate(['/home']);
+    this.authService.login(this.email, this.password).subscribe(success => {
+      if (success) {
+        this.router.navigate(['/']);
       } else {
-        console.error('Login failed');
+        alert('Invalid credentials');
       }
     });
   }

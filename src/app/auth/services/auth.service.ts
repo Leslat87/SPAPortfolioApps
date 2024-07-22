@@ -7,6 +7,7 @@ import { environments } from '../../../app/environments/environments';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  private apiUrl = 'http://localhost:5000/users';
   private baseUrl: string = environments.baseUrl;
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
@@ -21,26 +22,24 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.get<any[]>(`${this.baseUrl}/users?email=${email}&password=${password}`).pipe(
+  login(email: string, password: string): Observable<boolean> {
+    return this.http.get<any[]>(`${this.apiUrl}`).pipe(
       map(users => {
-        if (users && users.length) {
-          const user = users[0];
-          // Almacenar datos específicos en el localStorage
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user));
-          localStorage.setItem('userId', user.id); // Suponiendo que el usuario tiene un campo `id`
-          localStorage.setItem('role', user.role); // Suponiendo que el usuario tiene un campo `role`
-          localStorage.setItem('token', 'fake-jwt-token'); // Puedes ajustar el token como lo necesites
-
+          localStorage.setItem('userId', user.id);
+          localStorage.setItem('role', user.role);
+          localStorage.setItem('token', 'fake-jwt-token');
           this.currentUserSubject.next(user);
           this.router.navigate(['/home']);
-          return user;
+          return true;
         }
-        return null;
+        return false;
       }),
       catchError(error => {
         console.error('Login error', error);
-        return of(null);
+        return of(false);
       })
     );
   }
