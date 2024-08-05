@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Image } from '../interfaces/crud.interface';
-import { environments } from '../../../environments/environments';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class CrudService {
 
-  private baseUrl: string = environments.baseUrl;
+  private baseUrl: string = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
