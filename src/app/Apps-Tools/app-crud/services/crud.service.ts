@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Image } from '../interfaces/crud.interface';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environments';
 
 @Injectable({ providedIn: 'root' })
 export class CrudService {
