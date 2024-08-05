@@ -7,7 +7,7 @@ import { environments } from '../../../app/environments/environments';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/users';
+  private apiUrl = 'https://trabajo-en-crud--ipmprotfolio.netlify.app/auth/login';
   private baseUrl: string = environments.baseUrl;
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
