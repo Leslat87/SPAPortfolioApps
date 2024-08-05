@@ -13,24 +13,9 @@ export class CrudService {
 
   getImages(): Observable<Image[]> {
     return this.http.get<Image[]>(`${this.baseUrl}/images`).pipe(
-      map(images => {
-        const role = localStorage.getItem('role');
-        const user = localStorage.getItem('user');
-        const halfIndex = Math.ceil(images.length / 2);
-
-        if (role === 'Admin') {
-          return images;
-        } else if (user === 'User1') {
-          return images.slice(0, halfIndex);
-        } else if (user === 'User2') {
-          return images.slice(halfIndex);
-        } else {
-          return [];
-        }
-      }),
       catchError(error => {
         console.error('Error fetching images', error);
-        return of([]);
+        return of([] as Image[]);
       })
     );
   }
