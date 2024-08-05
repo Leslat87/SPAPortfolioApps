@@ -24,7 +24,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<boolean> {
     // Anular la validación de credenciales
-    const user = { email, password, id: 'dummy-id', role: 'User' };
+    const user = { email, password, id: 'dummy-id', role: 'Admin' };
     localStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('userId', user.id);
     localStorage.setItem('role', user.role);
