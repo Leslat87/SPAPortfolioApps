@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environments } from ../../environments/environments';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private apiUrl = 'https://trabajo-en-crud--ipmprotfolio.netlify.app/auth/login';
-  private baseUrl: string = environments.baseUrl;
+  private baseUrl: string = environment.baseUrl; // Use the imported environment
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
