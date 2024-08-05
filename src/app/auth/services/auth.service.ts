@@ -23,25 +23,15 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<boolean> {
-    return this.http.get<any[]>(this.apiUrl).pipe(
-      map(users => {
-        const user = users.find(u => u.email === email && u.password === password);
-        if (user) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          localStorage.setItem('userId', user.id);
-          localStorage.setItem('role', user.role);
-          localStorage.setItem('token', 'fake-jwt-token');
-          this.currentUserSubject.next(user);
-          this.router.navigate(['/home']);
-          return true;
-        }
-        return false;
-      }),
-      catchError(error => {
-        console.error('Login error', error);
-        return of(false);
-      })
-    );
+    // Anular la validación de credenciales
+    const user = { email, password, id: 'dummy-id', role: 'User' };
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('userId', user.id);
+    localStorage.setItem('role', user.role);
+    localStorage.setItem('token', 'fake-jwt-token');
+    this.currentUserSubject.next(user);
+    this.router.navigate(['/home']);
+    return of(true);
   }
 
   register(user: string, email: string, password: string, role: string = 'User'): Observable<any> {
