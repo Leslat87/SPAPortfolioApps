@@ -14,7 +14,7 @@ export class CardComponent {
   constructor(private router: Router) {}
 
   get imageUrl(): string {
-    return this.image.alt_img || `assets/images/${this.image.id}.jpg`;
+    return this.image.alt_img || `/assets/images/${this.image.id}.jpg`;
   }
 
   truncateText(text: string, limit: number): string {
