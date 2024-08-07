@@ -2,6 +2,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Image } from '../../interfaces/crud.interface';
+import { environment } from '../../../../environments/environments';
 
 @Component({
   selector: 'images-crud-card',
@@ -14,7 +15,7 @@ export class CardComponent {
   constructor(private router: Router) {}
 
   get imageUrl(): string {
-    return this.image.alt_img || `/assets/images/${this.image.id}.jpg`;
+    return this.image.alt_img || `${environment.baseUrl}/assets/images/${this.image.id}.jpg`;
   }
 
   truncateText(text: string, limit: number): string {

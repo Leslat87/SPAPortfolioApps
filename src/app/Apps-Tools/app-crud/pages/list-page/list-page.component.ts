@@ -22,6 +22,7 @@ export class ListPageComponent implements OnInit {
   loadImages(): void {
     this.crudService.getImages()
       .subscribe(images => {
+        console.log('Fetched images:', images);
         this.images = images;
         this.filteredImages = images; // Inicialmente, todas las imágenes son las filtradas
       });
